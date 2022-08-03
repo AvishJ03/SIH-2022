@@ -1,6 +1,5 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-
 const StudentSignUp = () => {
   return (
     <div className="bg-primary w-full h-screen flex text-white justify-evenly items-center font-main">
