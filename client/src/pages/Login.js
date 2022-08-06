@@ -12,7 +12,7 @@ const Login=() => {
         <div className="bg-[#FEF9F9] w-2/3 h-[500px] mx-auto flex flex-col justify-evenly mt-10 px-10 rounded-2xl">
           <hr></hr>
           <div>
-            <p className="text-left ml-9 text-black">Email ID</p>
+            <p className="text-left ml-9 font-semibold text-[#201835] ">Email ID</p>
             <input
               className="w-5/6 self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="email"
@@ -20,7 +20,7 @@ const Login=() => {
             />
           </div>
           <div>
-            <p className="text-left ml-9 text-black">Password</p>
+            <p className="text-left ml-9 text-black font-semibold">Password</p>
             <input
               className="w-5/6 self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="password"
@@ -28,18 +28,18 @@ const Login=() => {
             />
           </div>
           
-          <button className="bg-purple w-2/5 self-center py-2 rounded-xl">
+          <button className="bg-purple w-2/5 self-center py-2 rounded-xl font-semibold text-lg ">
             Login
           </button>
-          <div className="flex self-center font-medium text-black">
+          <div className="flex self-center font-medium text-[#313638]">
             <p>New User?</p>&nbsp;
-            <p>Register</p>
+            <p>Register</p>&nbsp;
             (
-            <a className="text-secondary underline hover:text-gray" href="/">
+            <a className="text-secondary underline hover:text-purple" href="/">
               Student
             </a>
             /
-            <a className="text-secondary underline hover:text-gray" href="/">
+            <a className="text-secondary underline hover:text-purple" href="/">
               Company
             </a>)
           </div>
