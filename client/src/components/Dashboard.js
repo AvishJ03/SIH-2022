@@ -1,59 +1,70 @@
-import React from 'react'
-import { HiMenuAlt1} from "react-icons/hi";
-import { AiFillHome,AiOutlineSearch,AiFillMessage,AiFillProfile} from "react-icons/ai";
+import React from "react";
+import { HiMenuAlt1 } from "react-icons/hi";
+import {
+  AiFillHome,
+  AiOutlineSearch,
+  AiFillMessage,
+  AiFillProfile,
+} from "react-icons/ai";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
 
-
-const Dashboard=() =>{
-    return(
-        <div className="bg-purple w-full h-screen flex">
-          <div className='ml-4 mt-16'>
-          <div className='bg-[#FFFFFF] w-10 h-10 mb-8 rounded-full'></div>
-          <AiFillHome size="20" className='mt-10 content-center'style={{color:"white"}}/>
-          <AiOutlineSearch size="20"className='mt-12' style={{color:"white"}}/>
-          <IoExtensionPuzzleSharp size="20" className='mt-12' style={{color:"white"}}/>
-          <AiFillMessage size="20" className='mt-12'style={{color:"white"}}/>
-          <AiFillProfile size="20" className='mt-12' style={{color:"white"}}/>
+const Dashboard = () => {
+  return (
+    <div className="bg-purple w-full h-screen flex">
+      <div className="flex flex-col h-2/3 justify-evenly ml-2">
+        <div className="flex px-2">
+          <div className="bg-[#FFFFFF] w-10 h-10 rounded-full"></div>
+          <div className="text-white text-base font-bold ml-3 mt-2 text-center">
+            Sitename
+          </div>
         </div>
-           <div className=' mt-16'>
-            <div className='text-white text-base font-bold text-center'>Sitename</div>
-          <div className='bg-[#F2F2F2] box-content h-10 w-28 rounded-2xl mt-10'>
-          <p className='text-base font-bold text-center'>Dashboard</p>
-          </div> 
-          <div className=' text-white text-base font-bold mt-10 text-center'><p>Search Job</p></div>
-          <div className=' text-white text-base font-bold mt-10 text-center'><p>Applications</p></div>
-          <div className=' text-white text-base font-bold mt-10 text-center'><p>Message</p></div>
-          <div className=' text-white text-base font-bold mt-10 text-center'><p>Profile</p></div>
+        <div className="flex mt-2 justify-evenly px-4">
+          <AiFillHome size="20" className="mt-2" style={{ color: "white" }} />
+          <div className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
+            Dashboard
           </div>
-          <div className="bg-[#F2F2F2] w-[1400px] h-[611px] flex ml-10 rounded-l-3xl">
-          <div className='flex flex-row'>
-          <HiMenuAlt1 size="30" className='my-4 mx-1'/>
-          <div className="text-xl font-bold text-left mt-4"><h1>Dashboard</h1>
+        </div>
+        <div className="flex mt-2 justify-start ml-2 px-2 ">
+          <AiOutlineSearch size="20" className="" style={{ color: "white" }} />
+          <div className=" text-white text-base font-bold ml-5">Search Job</div>
+        </div>
+        <div className="flex mt-2 justify-start ml-2 px-2 ">
+          <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
+          <div className=" text-white text-base font-bold ml-5">
+            Applications
           </div>
-          <div className="bg-[#D9D9D9] w-96 h-10 my-2 ml-8 rounded-full ">
-          <p className=" placeholder:text text-slate-600 font-semibold ml-10 mt-2">Search something here...</p>
-          </div> 
-          <div className='bg-[#FFFFFF] w-12 h-12 rounded-full ml-20 mt-2'></div>
-          <div className='bg-[#FFFFFF] w-12 h-12 rounded-full  mr-10 ml-10  mt-2'></div>
-          <div className='bg-[#FFFFFF] w-12 h-12 rounded-full  mt-2 mr-2'></div>
-          <div className='text-sm font-semibold mt-3 ml-1'><p>Oda Dink</p>
+        </div>
+        <div className="flex mt-2 justify-start ml-2 px-2 ">
+          <AiFillMessage size="20" className="" style={{ color: "white" }} />
+          <div className=" text-white text-base font-bold ml-5">Message</div>
+        </div>
+        <div className="flex mt-2 justify-start ml-2 px-2 ">
+          <AiFillProfile size="20" className="" style={{ color: "white" }} />
+          <div className=" text-white text-base font-bold ml-5">Profile</div>
+        </div>
+      </div>
+      <div className="bg-[#F2F2F2] w-full h-screen flex justify-between px-10 pt-4 ml-10 rounded-l-3xl">
+        <div className="flex">
+          <HiMenuAlt1 size="30" />
+          <div className="text-xl ml-2 font-bold text-left">
+            <h1>Dashboard</h1>
           </div>
-   
-   </div>
-   
-    
-          
-           
-          </div> 
-
-          
-          
-          
-        </div>  
-         
-        
-    )
-}
-
+        </div>
+        <div className="bg-[#D9D9D9] w-2/5 h-10 rounded-full ">
+          <input
+            placeholder="Search something here..."
+            className=" bg-inherit text-black font-semibold ml-10 mt-2"
+          />
+        </div>
+        <div className="flex w-1/5 justify-between">
+          <div className="bg-white w-12 h-12 rounded-full"></div>
+          <div className="bg-white w-12 h-12 rounded-full"></div>
+          <div className="bg-white w-12 h-12 rounded-full"></div>
+          <div className="text-sm font-semibold mt-3 ml-1">Oda Dink</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Dashboard;
