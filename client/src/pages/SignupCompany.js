@@ -54,12 +54,12 @@ const SignupCompany = () => {
               placeholder=""
             />
           </div>
-          <button className="bg-purple w-2/5 self-center py-2 rounded-xl">
+          <button className="bg-purple w-2/5 self-center py-2 rounded-xl font-semibold">
             Register Now
           </button>
           <div className="flex self-center font-medium text-black">
             <p>Already Registered?</p>&nbsp;
-            <a className="text-secondary underline" href="/">
+            <a className="text-secondary underline hover:text-purple" href="/">
               Sign In
             </a>
           </div>
