@@ -1,5 +1,4 @@
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
 const SignupCompany = () => {
   return (
     <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main">
