@@ -6,12 +6,12 @@ import Sidebar from "./components/Sidebar.js";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-main">
       {/* <StudentSignUp /> */}
       {/* <Login /> */}
       {/* <SignupCompany/> */}
-      {/* <Dashboard /> */}
-      <Sidebar />
+      <Dashboard />
+      {/* <Sidebar /> */}
     </div>
   );
 }
