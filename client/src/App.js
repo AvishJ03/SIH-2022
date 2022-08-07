@@ -4,6 +4,7 @@ import StudentSignUp from "./pages/StudentSignUp.js";
 import Dashboard from "./pages/Dashboard.js";
 import JobDetails from "./pages/JobDetails.js";
 import Sidebar from "./components/Sidebar.js";
+import SearchJob from "./pages/SearchJob"
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       {/* <Login /> */}
       {/* <SignupCompany/> */}
       {/* <Dashboard /> */}
-      <Sidebar />
+      {/* <Sidebar /> */}
+      <SearchJob />
     </div>
   );
 }
