@@ -10,7 +10,7 @@ import { IoExtensionPuzzleSharp } from "react-icons/io5";
 const Sidebar = ({ selected }) => {
   const navs = {
     Dashboard: <AiFillHome size="20" style={{ color: "white" }} />,
-    ["Search Job"]: <AiFillHome size="20" style={{ color: "white" }} />,
+    ["Search Job"]: <AiOutlineSearch size="20" style={{ color: "white" }} />,
     Applications: (
       <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
     ),
