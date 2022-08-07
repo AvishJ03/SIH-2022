@@ -6,32 +6,14 @@ import { GrMail } from "react-icons/gr";
 import { BsFillCalendarFill } from "react-icons/bs";
 import { FaSuitcase, FaUser } from "react-icons/fa";
 import DashboardCards from "../components/DashboardCards";
+import Header from "../components/Header";
 
 const Dashboard = () => {
   return (
     <div className="bg-purple w-screen min-h-screen flex font-main">
       <Sidebar selected="Dashboard" />
-      <div className="bg-[#F2F2F2] w-full h-screen px-10 pt-4 ml-10 rounded-l-3xl">
-        <div className="flex justify-between">
-          <div className="flex">
-            <HiMenuAlt1 size="30" />
-            <div className="text-xl ml-2 font-bold text-left">
-              <h1>Dashboard</h1>
-            </div>
-          </div>
-          <div className="bg-[#D9D9D9] w-2/5 h-10 rounded-full ">
-            <input
-              placeholder="Search something here..."
-              className=" bg-inherit text-slate-600 w-4/5 font-semibold ml-10 mt-2"
-            />
-          </div>
-          <div className="flex w-1/5 justify-between">
-            <div className="bg-white w-12 h-12 rounded-full"></div>
-            <div className="bg-white w-12 h-12 rounded-full"></div>
-            <div className="bg-white w-12 h-12 rounded-full"></div>
-            <div className="text-sm font-semibold mt-3 ml-1">Oda Dink</div>
-          </div>
-        </div>
+      <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
+        <Header heading="Dashboard" user="Oda Dink" />
         <div className="h-1/5 flex justify-between">
           <DashboardCards
             bg="#4E36E2"
