@@ -8,6 +8,7 @@ import {
   AiFillProfile,
 } from "react-icons/ai";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
+import Card from "../components/Card";
 
 const SearchJob = () => {
   return (
@@ -116,152 +117,15 @@ const SearchJob = () => {
         <div className="text-xs text-[#808080]"> Based on the Preferences</div>
 
         <div className="flex justify-between">
-          <div className="w-60 h-40 rounded-2xl mt-5 bg-white">
-            <div className="flex justify-between">
-              <div className="text-[#808080] text-left text-sm px-2">
-                Maximo Teams
-              </div>
-              <div className="bg-black w-8 h-8 rounded-full"></div>
-            </div>
-            <div className="text-left font-normal text-black text-lg px-1">
-              Database Programmer
-            </div>
-            <div className="text-left font-normal text-purple text-xs px-1">
-              Stipend
-            </div>
-            <div className="text-left font-thin text-black text-xs mx-1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur
-              imperdiet ante ut neque pretium tempus.
-            </div>
-            <div className="flex justify-between">
-              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1">
-                <div className="text-purple text-xs text-center">Remote</div>
-              </div>
-              <div className="text-xs font-normal my-2">Location</div>
-            </div>
-          </div>
-          <div className="w-60 h-40 rounded-2xl mt-5 bg-white">
-            <div className="flex justify-between">
-              <div className="text-[#808080] text-left text-sm px-2">
-                Maximo Teams
-              </div>
-              <div className="bg-black w-8 h-8 rounded-full"></div>
-            </div>
-            <div className="text-left font-normal text-black text-lg px-1">
-              Database Programmer
-            </div>
-            <div className="text-left font-normal text-purple text-xs px-1">
-              Stipend
-            </div>
-            <div className="text-left font-thin text-black text-xs mx-1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur
-              imperdiet ante ut neque pretium tempus.
-            </div>
-            <div className="flex justify-between">
-              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1">
-                <div className="text-purple text-xs text-center">Remote</div>
-              </div>
-              <div className="text-xs font-normal my-2">Location</div>
-            </div>
-          </div>
-          <div className="w-60 h-40 rounded-2xl mt-5 bg-white">
-            <div className="flex justify-between">
-              <div className="text-[#808080] text-left text-sm px-2">
-                Maximo Teams
-              </div>
-              <div className="bg-black w-8 h-8 rounded-full"></div>
-            </div>
-            <div className="text-left font-normal text-black text-lg px-1">
-              Database Programmer
-            </div>
-            <div className="text-left font-normal text-purple text-xs px-1">
-              Stipend
-            </div>
-            <div className="text-left font-thin text-black text-xs mx-1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur
-              imperdiet ante ut neque pretium tempus.
-            </div>
-            <div className="flex justify-between">
-              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1">
-                <div className="text-purple text-xs text-center">Remote</div>
-              </div>
-              <div className="text-xs font-normal my-2">Location</div>
-            </div>
-          </div>
+          <Card />
+          <Card />
+          <Card />
+
         </div>
         <div className="flex justify-between">
-          <div className="w-60 h-40 rounded-2xl mt-5 bg-white">
-            <div className="flex justify-between">
-              <div className="text-[#808080] text-left text-sm px-2">
-                Maximo Teams
-              </div>
-              <div className="bg-black w-8 h-8 rounded-full"></div>
-            </div>
-            <div className="text-left font-normal text-black text-lg px-1">
-              Database Programmer
-            </div>
-            <div className="text-left font-normal text-purple text-xs px-1">
-              Stipend
-            </div>
-            <div className="text-left font-thin text-black text-xs mx-1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur
-              imperdiet ante ut neque pretium tempus.
-            </div>
-            <div className="flex justify-between">
-              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1">
-                <div className="text-purple text-xs text-center">Remote</div>
-              </div>
-              <div className="text-xs font-normal my-2">Location</div>
-            </div>
-          </div>
-          <div className="w-60 h-40 rounded-2xl mt-5 bg-white">
-            <div className="flex justify-between">
-              <div className="text-[#808080] text-left text-sm px-2">
-                Maximo Teams
-              </div>
-              <div className="bg-black w-8 h-8 rounded-full"></div>
-            </div>
-            <div className="text-left font-normal text-black text-lg px-1">
-              Database Programmer
-            </div>
-            <div className="text-left font-normal text-purple text-xs px-1">
-              Stipend
-            </div>
-            <div className="text-left font-thin text-black text-xs mx-1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur
-              imperdiet ante ut neque pretium tempus.
-            </div>
-            <div className="flex justify-between">
-              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1">
-                <div className="text-purple text-xs text-center">Remote</div>
-              </div>
-              <div className="text-xs font-normal my-2">Location</div>
-            </div>
-          </div>
-          <div className="w-60 h-40 rounded-2xl mt-5 bg-white">
-            <div className="flex justify-between">
-              <div className="text-[#808080] text-left text-sm px-2">
-                Maximo Teams
-              </div>
-              <div className="bg-black w-8 h-8 rounded-full"></div>
-            </div>
-            <div className="text-left font-normal text-black text-lg px-1">
-              Database Programmer
-            </div>
-            <div className="text-left font-normal text-purple text-xs px-1">
-              Stipend
-            </div>
-            <div className="text-left font-thin text-black text-xs mx-1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur
-              imperdiet ante ut neque pretium tempus.
-            </div>
-            <div className="flex justify-between">
-              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1">
-                <div className="text-purple text-xs text-center">Remote</div>
-              </div>
-              <div className="text-xs font-normal my-2">Location</div>
-            </div>
-          </div>
+          <Card />
+          <Card />
+          <Card />
         </div>
 
         <div className="text-black text-sm font-normal">
