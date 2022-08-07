@@ -9,7 +9,7 @@ import DashboardCards from "../components/DashboardCards";
 
 const Dashboard = () => {
   return (
-    <div className="bg-purple w-full h-screen flex font-main">
+    <div className="bg-purple w-full min-h-screen flex font-main">
       <Sidebar selected="Dashboard" />
       <div className="bg-[#F2F2F2] w-full h-screen px-10 pt-4 ml-10 rounded-l-3xl">
         <div className="flex justify-between">
@@ -57,6 +57,15 @@ const Dashboard = () => {
             value="10"
             icon={<GrMail size="25" style={{ color: "white" }} />}
           />
+        </div>
+        <div className="flex justify-between items-center">
+          <div className="w-[22.5%] bg-white rounded-3xl flex flex-col items-center">
+            {/* profile pic */}
+            <div className="w-10 h-10 bg-black rounded-full"></div>
+            <p>Oda Dink</p>
+            <p>Programmer</p>
+          </div>
+          <div className="w-[74%] bg-white rounded-3xl"></div>
         </div>
       </div>
     </div>

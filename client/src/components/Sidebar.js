@@ -18,7 +18,7 @@ const Sidebar = ({ selected }) => {
     Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
   };
   return (
-    <div className="flex flex-col h-2/3 justify-evenly ml-2">
+    <div className="flex flex-col min-h-full justify-evenly ml-2">
       <div className="flex px-2">
         <div className="bg-[#FFFFFF] w-10 h-10 rounded-full"></div>
         <div className="text-white text-base font-bold ml-3 mt-2 text-center">
@@ -30,7 +30,7 @@ const Sidebar = ({ selected }) => {
           return (
             <div
               key={index}
-              className="flex mt-2 justify-evenly items-center px-4"
+              className="flex justify-evenly items-center px-4"
             >
               {navs[key]}
               <div className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
@@ -42,7 +42,7 @@ const Sidebar = ({ selected }) => {
           return (
             <div
               key={index}
-              className="flex mt-2 justify-start items-center ml-2 px-2 "
+              className="flex justify-start items-center ml-2 px-2 "
             >
               {navs[key]}
               <div className=" text-white text-base font-bold ml-5">{key}</div>
