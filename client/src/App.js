@@ -4,7 +4,8 @@ import StudentSignUp from "./pages/StudentSignUp.js";
 import Dashboard from "./pages/Dashboard.js";
 import JobDetails from "./pages/JobDetails.js";
 import Sidebar from "./components/Sidebar.js";
-import StudentProfile from "./pages/StudentProfile.js";
+import SearchJob from "./pages/SearchJob";
+import Edit from "./pages/Edit.js";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       {/* <StudentSignUp /> */}
       {/* <Login /> */}
       {/* <SignupCompany/> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
       {/* <Sidebar /> */}
       {/* <StudentProfile /> */}
+      {/* <Edit /> */}
+      {/* <SearchJob /> */}
       {/* <JobDetails employees='80-100' review='4.5' location='Coimbatore, India' company='Highspeed Studios' about='Creative Design Academy' position='Senior Database Programmer'/> */}
     </div>
   );

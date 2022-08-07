@@ -11,7 +11,7 @@ export default function JobDetails(props) {
       <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
         <Sidebar selected="Search Job" />
         {/* Sidebar */}
-        <div className="bg-[#F2F2F2] w-full px-10 ml-10 rounded-l-3xl">
+        <div className="bg-[#F2F2F2] w-full px-2 ml-10 rounded-l-3xl">
           <div className="max-w-7xl mx-auto py-6 px-6">
             {/* Replace with your content */}
             <Header heading="Job Details" user="Oda Dink" />
