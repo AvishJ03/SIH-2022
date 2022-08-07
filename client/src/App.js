@@ -3,6 +3,7 @@ import SignupCompany from "./pages/SignupCompany.js";
 import StudentSignUp from "./pages/StudentSignUp.js";
 import Dashboard from "./pages/Dashboard.js";
 import Sidebar from "./components/Sidebar.js";
+import SearchJob from "./pages/SearchJob.js";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <Login /> */}
       {/* <SignupCompany/> */}
       {/* <Dashboard /> */}
-      <Sidebar />
+      {/* <Sidebar /> */}
+      <SearchJob />
     </div>
   );
 }
