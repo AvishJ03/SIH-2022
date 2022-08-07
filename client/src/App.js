@@ -3,6 +3,7 @@ import SignupCompany from "./pages/SignupCompany.js";
 import StudentSignUp from "./pages/StudentSignUp.js";
 import Dashboard from "./pages/Dashboard.js";
 import Sidebar from "./components/Sidebar.js";
+import StudentProfile from "./pages/StudentProfile.js";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       {/* <StudentSignUp /> */}
       {/* <Login /> */}
       {/* <SignupCompany/> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
       {/* <Sidebar /> */}
+      {/* <StudentProfile /> */}
     </div>
   );
 }
