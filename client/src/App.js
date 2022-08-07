@@ -11,7 +11,7 @@ function App() {
       {/* <StudentSignUp /> */}
       {/* <Login /> */}
       {/* <SignupCompany/> */}
-      {/* <Dashboard /> */}
+      <Dashboard />
       {/* <Sidebar /> */}
       {/* <StudentProfile /> */}
     </div>
