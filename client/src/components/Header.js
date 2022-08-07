@@ -16,7 +16,7 @@ const Header = ({ heading, user }) => {
           className=" bg-inherit text-slate-600 w-4/5 font-semibold ml-10 mt-2"
         />
       </div>
-      <div className="flex w-1/5 justify-between">
+      <div className="flex w-1/4 justify-between">
         <div className="bg-white w-12 h-12 rounded-full text-center py-3">
           <i className="fa-solid fa-bell"></i>
         </div>
