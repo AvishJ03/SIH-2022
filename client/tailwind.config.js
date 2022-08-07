@@ -9,7 +9,8 @@ module.exports = {
         bg: "#FFF9F9",
         gray: "#DDDBDB",
         lightBlue: "#D6E8FB",
-        purple: "#40189D"
+        purple: "#40189D",
+        lightPurple: "rgba(64, 24, 157, 0.12)"
       },
       fontFamily: {
         main: ["IBM Plex Sans", "sans-serif"],
