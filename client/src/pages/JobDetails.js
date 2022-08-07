@@ -8,7 +8,7 @@ export default function JobDetails(props) {
   return (
     <>
       {/* Sidebar */}
-      <div className="bg-[#40189D] w-full min-h-screen flex font-main">
+      <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
         <Sidebar selected="Search Job" />
         {/* Sidebar */}
         <div className="bg-[#F2F2F2] w-full px-10 ml-10 rounded-l-3xl">
@@ -25,7 +25,7 @@ export default function JobDetails(props) {
                 <img
                   className="rounded-tl-[34px] rounded-tr-[34px] h-[200px]"
                   src={BackgroundImg}
-                  alt="Background Image"
+                  alt="Background"
                 />
                 <img
                   className="rounded-[10px] top-[30%] left-[27.5%] absolute w-[100px] h-[100px]"

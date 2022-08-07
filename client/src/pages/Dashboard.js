@@ -1,18 +1,17 @@
 import React from "react";
-import { HiMenuAlt1 } from "react-icons/hi";
-
 import Sidebar from "../components/Sidebar";
 import { GrMail } from "react-icons/gr";
 import { BsFillCalendarFill } from "react-icons/bs";
 import { FaSuitcase, FaUser } from "react-icons/fa";
 import DashboardCards from "../components/DashboardCards";
 import Header from "../components/Header";
+import Chart from "../components/Chart";
 
 const Dashboard = () => {
   return (
-    <div className="bg-purple w-screen min-h-screen flex font-main">
+    <div className="bg-purple w-screen min-h-screen h-full flex font-main">
       <Sidebar selected="Dashboard" />
-      <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
+      <div className="bg-[#F2F2F2] flex flex-col justify-evenly w-full px-10 pt-4 ml-10 rounded-l-3xl">
         <Header heading="Dashboard" user="Oda Dink" />
         <div className="h-1/5 flex justify-between">
           <DashboardCards
@@ -41,16 +40,18 @@ const Dashboard = () => {
           />
         </div>
         <div className="flex justify-between items-center">
-          <div className="w-[22.5%] bg-white rounded-3xl flex flex-col items-center">
+          <div className="w-[22.3%] h-full bg-white rounded-3xl flex flex-col justify-evenly items-center">
             {/* profile pic */}
             <div className="w-10 h-10 bg-black rounded-full"></div>
-            <p>Oda Dink</p>
+            <p className="font-bold">Oda Dink</p>
             <p>Programmer</p>
             <p>Skill - 1 : 9/10</p>
-            <p>Skill - 1 : 9/10</p>
-            <p>Skill - 1 : 9/10</p>
+            <p>Skill - 2 : 9/10</p>
+            <p>Skill - 3 : 9/10</p>
           </div>
-          <div className="w-[74%] bg-white rounded-3xl"></div>
+          <div className="w-[74%] h-full bg-white rounded-3xl">
+            <Chart />
+          </div>
         </div>
       </div>
     </div>
