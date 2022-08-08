@@ -9,83 +9,15 @@ import {
 } from "react-icons/ai";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
 import Card from "../components/Card";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
 const SearchJob = () => {
   return (
-    <div className="bg-purple w-full h-screen flex">
-      <div className="flex flex-col h-2/3 justify-evenly ml-2">
-        <div className="flex px-2">
-          <div className="bg-[#FFFFFF] w-10 h-10 rounded-full"></div>
-          <div className="text-white text-base font-bold ml-3 mt-2 text-center">
-            Sitename
-          </div>
-        </div>
-        <div className="flex mt-2 justify-evenly px-4">
-          <AiFillHome size="20" className="mt-3" style={{ color: "white" }} />
-          <div className=" text-white text-base font-bold ml-5">Dashboard</div>
-        </div>
-        <div className="flex mt-2 justify-start ml-2 px-2 ">
-          <AiOutlineSearch
-            size="20"
-            className="mt-2"
-            style={{ color: "white" }}
-          />
-          <div className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
-            Search Job
-          </div>
-        </div>
-        <div className="flex mt-2 justify-start ml-2 px-2 ">
-          <IoExtensionPuzzleSharp
-            size="20"
-            className="mt-1"
-            style={{ color: "white" }}
-          />
-          <div className=" text-white text-base font-bold ml-5">
-            Applications
-          </div>
-        </div>
-        <div className="flex mt-2 justify-start ml-2 px-2 ">
-          <AiFillMessage
-            size="20"
-            className="mt-1"
-            style={{ color: "white" }}
-          />
-          <div className=" text-white text-base font-bold ml-5">Message</div>
-        </div>
-        <div className="flex mt-2 justify-start ml-2 px-2 ">
-          <AiFillProfile
-            size="20"
-            className="mt-1"
-            style={{ color: "white" }}
-          />
-          <div className=" text-white text-base font-bold ml-5">Profile</div>
-        </div>
-      </div>
-      <div className="bg-[#F2F2F2] w-full h-screen px-10 pt-4 ml-10 rounded-l-3xl">
-        <div className="flex justify-between">
-          <div className="flex">
-            <HiMenuAlt1 size="30" />
-            <div className="text-xl ml-2 font-bold text-left">
-              <h1>Search Jobs</h1>
-            </div>
-          </div>
-          <div className="bg-[#D9D9D9] w-2/5 h-10 rounded-full ">
-            <input
-              placeholder="Search something here..."
-              className=" bg-inherit text-black font-semibold ml-10 mt-2"
-            />
-          </div>
-          <div className="flex w-1/4 justify-between">
-            <div className="bg-white w-12 h-12 rounded-full ">
-              <AiFillMessage size="22" className="mt-4 ml-4" />
-            </div>
-            <div className="bg-white w-12 h-12 rounded-full">
-              <BsFillBellFill size="22" className="mt-4 ml-4" />
-            </div>
-            <div className="bg-white w-12 h-12 rounded-full"></div>
-            <div className="text-sm font-semibold mt-3 ml-1">Oda Dink</div>
-          </div>
-        </div>
+    <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
+        <Sidebar selected="Search Job" />
+      <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
+      <Header heading="Job Details" user="Oda Dink" />
         <div className="flex justify-between">
           <div className="text-sm font-semibold mt-4">
             Showing numbers from numbers
@@ -116,13 +48,10 @@ const SearchJob = () => {
         </div>
         <div className="text-xs text-[#808080]"> Based on the Preferences</div>
 
-        <div className="flex justify-between">
+        <div className="grid grid-cols-1 grid-flow-row gap-3 2xl:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <Card />
           <Card />
           <Card />
-
-        </div>
-        <div className="flex justify-between">
           <Card />
           <Card />
           <Card />
