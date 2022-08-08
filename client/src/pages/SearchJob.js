@@ -61,9 +61,9 @@ const SearchJob = () => {
           Showing 6 out of 56 data
         </div>
         <div className="flex justify-end">
-          <div className="bg-white w-20 h-7  mx-3 rounded-2xl">
+          <div className="bg-white w-24 h-7  mx-3 rounded-2xl">
             <div className="text-purple font-sm text-center font-semibold ">
-              Previous
+              &lt;&lt;Previous
             </div>
           </div>
           <div className="bg-[#dfcef7] w-44 h-7  rounded-2xl flex justify-evenly">
@@ -71,7 +71,7 @@ const SearchJob = () => {
           </div>
           <div className="bg-white w-20 h-7 mx-3 rounded-2xl">
             <div className="text-purple font-sm text-center font-semibold">
-              Next
+              &gt;&gt;Next
             </div>
           </div>
         </div>
@@ -81,3 +81,4 @@ const SearchJob = () => {
 };
 
 export default SearchJob;
+
