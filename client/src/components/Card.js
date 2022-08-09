@@ -21,8 +21,8 @@ const Card = () => {
               imperdiet ante ut neque pretium tempus.
             </div>
             <div className="flex justify-between">
-              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1">
-                <div className="text-purple text-xs text-center">Remote</div>
+              <div className="bg-[#dfcef7] w-16 h-5 rounded-lg my-2 mx-1 border border-purple">
+                <div className="text-purple text-xs font-normal text-center ">Remote</div>
               </div>
               <div className="text-xs font-normal my-2">Location</div>
             </div>
