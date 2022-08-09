@@ -6,6 +6,8 @@ import JobDetails from "./pages/JobDetails.js";
 import Sidebar from "./components/Sidebar.js";
 import SearchJob from "./pages/SearchJob";
 import Edit from "./pages/Edit.js";
+import SideBarCompany from "./components/SideBarCompany.js";
+import ProfileCompany from "./pages/ProfileCompany.js";
 
 function App() {
   return (
@@ -17,8 +19,9 @@ function App() {
       {/* <Sidebar /> */}
       {/* <StudentProfile /> */}
       {/* <Edit /> */}
-      <SearchJob />
+      {/* <SearchJob /> */}
       {/* <JobDetails employees='80-100' review='4.5' location='Coimbatore, India' company='Highspeed Studios' about='Creative Design Academy' position='Senior Database Programmer'/> */}
+      <ProfileCompany />
     </div>
   );
 }
