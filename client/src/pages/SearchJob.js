@@ -65,7 +65,7 @@ const SearchJob = () => {
           </button>
           < button className="bg-white w-20 h-7 mx-3 rounded-2xl border border-purple hover:bg-[#d0b5f5]">
             <div className="text-purple font-sm text-center font-semibold">
-              &gt;&gt;Next
+              Next&gt;&gt;
             </div>
           </button>
         </div>
