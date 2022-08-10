@@ -20,58 +20,11 @@ export default function Edit(props) {
             <div className="flex">
               <div className="bg-white rounded-[34px] relative mr-10 h-[0%] w-4/5">
                 <h3 className="text-[#40189D] font-bold text-2xl flex justify-between m-2">
-                  Edit Profile
+                  Profile
                   <button className="rounded-[34px] bg-[#40189D] text-white text-lg p-2">
-                    Save Changes
+                    Edit Profile
                   </button>
                 </h3>
-
-                <h4 className="text-black font-semibold text-xl m-2">
-                  Generals
-                </h4>
-                <hr />
-                <form>
-                  <div className="flex justify-start">
-                    <div className="m-3">
-                      <label>First Name: </label>
-                      <input
-                        type="text"
-                        className="border-[#40189D] bg-[#F2F2F2]"
-                      />
-                    </div>
-                    <div className="m-3">
-                      <label>Last Name: </label>
-                      <input
-                        type="text"
-                        className="border-[#40189D] bg-[#F2F2F2]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <div className="m-3">
-                      <label>Phone Number: </label>
-                      <input
-                        type="number"
-                        className="border-[#40189D] bg-[#F2F2F2]"
-                      />
-                    </div>
-                    <div className="m-3">
-                      <label>Email: </label>
-                      <input
-                        type="email"
-                        className="border-[#40189D] bg-[#F2F2F2]"
-                      />
-                    </div>
-                    <div className="m-3">
-                      <label>Current City: </label>
-                      <input
-                        type="text"
-                        className="border-[#40189D] bg-[#F2F2F2]"
-                      />
-                    </div>
-                  </div>
-                </form>
                 <h4 className="text-black font-semibold text-xl m-2">
                   Education
                 </h4>
@@ -164,6 +117,32 @@ export default function Edit(props) {
                     />
                   </div>
                 </div>
+                <h4 className="text-black font-semibold text-xl m-2">
+                  Achievements
+                </h4>
+                <hr />
+                <div className="">
+                  {/* Space Bharne */}
+                <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+              <span className="text-[#808080]"></span>
+            </p>
+            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+              <span className="text-[#808080]"></span>
+            </p>
+            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+              <span className="text-[#808080]"></span>
+            </p>
+            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+              <span className="text-[#808080]"></span>
+            </p>
+            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+              <span className="text-[#808080]"></span>
+            </p>
+            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+              <span className="text-[#808080]"></span>
+            </p>
+
+                </div>
                 <div className="flex justify-between m-3">
                   <h4 className="text-black font-semibold text-xl m-2">
                     Experience
@@ -208,10 +187,10 @@ export default function Edit(props) {
                   <div className="flex justify-center">
                     <h4 className="font-semibold text-base">Oda Dink</h4>
                   </div>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center mb-2">
                     <p className="text-sm">Programmer</p>
                   </div>
-                  <div className="flex justify-evenly mt-3 text-sm mb-3">
+                  {/* <div className="flex justify-evenly mt-3 text-sm mb-3">
                     <p className="text-center">
                       {" "}
                       241 <br /> following
@@ -220,7 +199,7 @@ export default function Edit(props) {
                       {" "}
                       78324 <br /> followers
                     </p>
-                  </div>
+                  </div> */}
                   <hr />
 
                   <div className="flex justify-center mt-5">
@@ -260,7 +239,26 @@ export default function Edit(props) {
                     <p className="text-sm ml-3 mt-2">awbc@gmail.com</p>
                   </div>
 
-                  <div className="flex justify-center mt-3 mb-3">
+                  <div className="flex justify-start mt-5 ml-[24px]">
+                    <svg
+                      width="35"
+                      height="38"
+                      viewBox="0 0 93 85"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <ellipse
+                        cx="46.2053"
+                        cy="42.5"
+                        rx="45.8166"
+                        ry="42.5"
+                        fill="black"
+                      />
+                    </svg>
+                    <p className="text-sm ml-3 mt-2">Coimbatore</p>
+                  </div>
+
+                  {/* <div className="flex justify-center mt-3 mb-3">
                     <svg
                       width="195"
                       height="45"
@@ -299,7 +297,7 @@ export default function Edit(props) {
                         stroke="white"
                       />
                     </svg>
-                  </div>
+                  </div> */}
                   <br />
                   <div className="bg-[#F2F2F2]"></div>
                 </div>
