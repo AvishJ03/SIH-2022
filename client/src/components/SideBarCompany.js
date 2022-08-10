@@ -15,7 +15,6 @@ const SideBarCompany = ({ selected }) => {
       <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
     ),
     Message: <AiFillMessage size="20" style={{ color: "white" }} />,
-    Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
   };
   return (
     <div className="h-screen">

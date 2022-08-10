@@ -123,25 +123,24 @@ export default function Edit(props) {
                 <hr />
                 <div className="">
                   {/* Space Bharne */}
-                <p className="text-[#40189D] font-medium text-[14px] p-2.5">
-              <span className="text-[#808080]"></span>
-            </p>
-            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
-              <span className="text-[#808080]"></span>
-            </p>
-            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
-              <span className="text-[#808080]"></span>
-            </p>
-            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
-              <span className="text-[#808080]"></span>
-            </p>
-            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
-              <span className="text-[#808080]"></span>
-            </p>
-            <p className="text-[#40189D] font-medium text-[14px] p-2.5">
-              <span className="text-[#808080]"></span>
-            </p>
-
+                  <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+                    <span className="text-[#808080]"></span>
+                  </p>
+                  <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+                    <span className="text-[#808080]"></span>
+                  </p>
+                  <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+                    <span className="text-[#808080]"></span>
+                  </p>
+                  <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+                    <span className="text-[#808080]"></span>
+                  </p>
+                  <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+                    <span className="text-[#808080]"></span>
+                  </p>
+                  <p className="text-[#40189D] font-medium text-[14px] p-2.5">
+                    <span className="text-[#808080]"></span>
+                  </p>
                 </div>
                 <div className="flex justify-between m-3">
                   <h4 className="text-black font-semibold text-xl m-2">

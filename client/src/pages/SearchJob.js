@@ -6,9 +6,9 @@ import Sidebar from "../components/Sidebar";
 const SearchJob = () => {
   return (
     <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
-        <Sidebar selected="Search Job" />
+      <Sidebar selected="Search Job" />
       <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
-      <Header heading="Job Details" user="Oda Dink" />
+        <Header heading="Job Details" user="Oda Dink" />
         <div className="flex justify-between">
           <div className="text-sm font-semibold mt-4">
             Showing numbers from numbers
@@ -58,12 +58,20 @@ const SearchJob = () => {
             </div>
           </button>
           <button className="bg-[#dfcef7] w-44 h-7  rounded-2xl flex justify-evenly border border-purple">
-            <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]"><div className="text-purple font-bold">1</div></div>
-            <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]"><div className="text-purple font-bold">2</div></div>
-            <div className="bg-[#c3a0f5] w-12 h-6 rounded-full"><div className="text-purple font-bold">3</div></div>
-            <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]"><div className="text-purple font-bold">4</div></div>
+            <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]">
+              <div className="text-purple font-bold">1</div>
+            </div>
+            <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]">
+              <div className="text-purple font-bold">2</div>
+            </div>
+            <div className="bg-[#c3a0f5] w-12 h-6 rounded-full">
+              <div className="text-purple font-bold">3</div>
+            </div>
+            <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]">
+              <div className="text-purple font-bold">4</div>
+            </div>
           </button>
-          < button className="bg-white w-20 h-7 mx-3 rounded-2xl border border-purple hover:bg-[#d0b5f5]">
+          <button className="bg-white w-20 h-7 mx-3 rounded-2xl border border-purple hover:bg-[#d0b5f5]">
             <div className="text-purple font-sm text-center font-semibold">
               Next&gt;&gt;
             </div>
@@ -75,4 +83,3 @@ const SearchJob = () => {
 };
 
 export default SearchJob;
-
