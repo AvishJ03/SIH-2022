@@ -19,31 +19,31 @@ export default function Edit(props) {
             </p>
             <div className="flex">
               <div className="bg-white rounded-[34px] relative mr-10 h-[0%] w-4/5">
-                <h3 className="text-[#40189D] font-bold text-2xl flex justify-between m-2">
+                <h3 className="text-[#40189D] font-extrabold text-2xl flex justify-between m-5 mt-9">
                   Edit Profile
-                  <button className="rounded-[34px] bg-[#40189D] text-white text-lg p-2">
+                  <button className="rounded-[34px] bg-[#40189D] text-white text-base p-2 px-8">
                     Save Changes
                   </button>
                 </h3>
 
-                <h4 className="text-black font-semibold text-xl m-2">
+                <h4 className="text-black font-semibold text-xl m-2 mx-5">
                   Generals
                 </h4>
                 <hr />
-                <form>
-                  <div className="flex justify-start">
+                <form className="m-2">
+                  <div className="flex ">
                     <div className="m-3">
                       <label>First Name: </label>
                       <input
                         type="text"
-                        className="border-[#40189D] bg-[#F2F2F2]"
+                        className="border-[#40189D] bg-[#F2F2F2] p-1"
                       />
                     </div>
-                    <div className="m-3">
+                    <div className="m-3 mx-[3.6rem]">
                       <label>Last Name: </label>
                       <input
                         type="text"
-                        className="border-[#40189D] bg-[#F2F2F2]"
+                        className="border-[#40189D] bg-[#F2F2F2] p-1"
                       />
                     </div>
                   </div>
@@ -53,21 +53,21 @@ export default function Edit(props) {
                       <label>Phone Number: </label>
                       <input
                         type="number"
-                        className="border-[#40189D] bg-[#F2F2F2]"
+                        className="border-[#40189D] bg-[#F2F2F2] p-1"
                       />
                     </div>
                     <div className="m-3">
                       <label>Email: </label>
                       <input
                         type="email"
-                        className="border-[#40189D] bg-[#F2F2F2]"
+                        className="border-[#40189D] bg-[#F2F2F2] p-1"
                       />
                     </div>
                     <div className="m-3">
                       <label>Current City: </label>
                       <input
                         type="text"
-                        className="border-[#40189D] bg-[#F2F2F2]"
+                        className="border-[#40189D] bg-[#F2F2F2] p-1"
                       />
                     </div>
                   </div>
