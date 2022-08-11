@@ -39,7 +39,7 @@ const Dashboard = () => {
             icon={<GrMail size="25" style={{ color: "white" }} />}
           />
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between mx-4 items-center">
           <div className="w-[22.3%] h-full bg-white rounded-3xl flex flex-col justify-evenly items-center">
             {/* profile pic */}
             <div className="w-10 h-10 bg-black rounded-full"></div>
@@ -51,6 +51,12 @@ const Dashboard = () => {
           </div>
           <div className="w-[74%] h-full bg-white rounded-3xl">
             <Chart />
+          </div>
+        </div>
+        <div>
+          <p className="font-bold">Recommended Jobs</p>
+          <div>
+            
           </div>
         </div>
       </div>
