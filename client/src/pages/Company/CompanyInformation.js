@@ -1,5 +1,5 @@
 import React from "react";
-import SideBarCompany from "../components/SideBarCompany";
+import SideBarCompany from "../../components/SideBarCompany";
 
 const CompanyInformation = () => {
   return (

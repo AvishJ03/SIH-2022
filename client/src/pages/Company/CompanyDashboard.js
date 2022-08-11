@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../components/Header";
-import SideBarCompany from "../components/SideBarCompany";
+import Header from "../../components/Header";
+import SideBarCompany from "../../components/SideBarCompany";
 import { BsFillCalendarFill } from "react-icons/bs";
 import { FaSuitcase, FaUser } from "react-icons/fa";
-import DashboardCards from "../components/DashboardCards";
-import CompanyLogo from "../assets/CompanyLogo.jpg";
-import BackgroundImg from "../assets/BackgroundImg.jpg";
+import DashboardCards from "../../components/DashboardCards";
+import CompanyLogo from "../../assets/CompanyLogo.jpg";
+import BackgroundImg from "../../assets/BackgroundImg.jpg";
 
 const CompanyDashboard = () => {
   return (

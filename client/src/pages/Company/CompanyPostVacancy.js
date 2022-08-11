@@ -1,4 +1,4 @@
-import SideBarCompany from "../components/SideBarCompany"
+import SideBarCompany from "../../components/SideBarCompany"
 
 const CompanyPostVacancy = () => {
   return (

@@ -1,18 +1,18 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../../components/Sidebar";
 import { GrMail } from "react-icons/gr";
 import { BsFillCalendarFill } from "react-icons/bs";
 import { FaSuitcase, FaUser } from "react-icons/fa";
-import DashboardCards from "../components/DashboardCards";
-import Header from "../components/Header";
-import Chart from "../components/Chart";
-import Card from "../components/Card";
+import DashboardCards from "../../components/DashboardCards";
+import Header from "../../components/Header";
+import Chart from "../../components/Chart";
+import Card from "../../components/Card";
 
 const Dashboard = () => {
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
       <Sidebar selected="Dashboard" />
-      <div className="bg-[#F2F2F2] flex flex-col justify-evenly w-full px-10 pb-5 ml-10 rounded-l-3xl">
+      <div className="bg-[#F2F2F2] flex flex-col justify-evenly w-full pt-2 px-10 pb-5 ml-10 rounded-l-3xl">
         <Header heading="Dashboard" user="Oda Dink" />
         <div className="h-1/5 my-2 flex justify-between gap-10">
           <DashboardCards

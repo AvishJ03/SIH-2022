@@ -1,15 +1,6 @@
 import React from 'react'
-import { HiMenuAlt1 } from "react-icons/hi";
-import { BsFillBellFill, BsSlack } from "react-icons/bs";
-import {
-  AiFillHome,
-  AiOutlineSearch,
-  AiFillMessage,
-  AiFillProfile,
-} from "react-icons/ai";
-import { IoExtensionPuzzleSharp } from "react-icons/io5";
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
+import Sidebar from '../../components/Sidebar';
+import Header from '../../components/Header';
 
 const ApplicationStud = () => {
   return (
