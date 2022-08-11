@@ -11,6 +11,8 @@ import CompanyInformation from "./pages/CompanyInformation.js";
 import ApplicationStud from "./pages/ApplicationStud";
 import ApplicationCompany from "./pages/ApplicationCompany";
 import CompanyDashboard from "./pages/CompanyDashboard.js";
+import EducationInfo from "./pages/EducationInfo";
+import GradDetails from "./pages/GradDetails";
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
       {/* <StudentSignUp /> */}
       {/* <Login /> */}
       {/* <SignupCompany/> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
       {/* <Sidebar /> */}
       {/* <StudentProfile /> */}
       {/* <Edit /> */}
@@ -27,7 +29,11 @@ function App() {
       {/* <CompanyInformation /> */}
       {/* <ApplicationStud/> */}
       {/* <ApplicationCompany/> */}
+      {/* <ApplicationStud /> */}
+      {/* <ApplicationCompany /> */}
       {/* <CompanyDashboard/> */}
+      {/* <EducationInfo /> */}
+      {/* <GradDetails /> */}
     </div>
   );
 }
