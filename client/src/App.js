@@ -14,6 +14,7 @@ import CompanyDashboard from "./pages/CompanyDashboard.js";
 import EducationInfo from "./pages/EducationInfo";
 import GradDetails from "./pages/GradDetails";
 import StudentProfile from "./pages/StudentProfile";
+import CompanyPostVacancy from "./pages/CompanyPostVacancy.js";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       {/* <CompanyDashboard/> */}
       {/* <EducationInfo /> */}
       {/* <GradDetails /> */}
+      {/* <CompanyPostVacancy /> */}
     </div>
   );
 }
