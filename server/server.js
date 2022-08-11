@@ -3,12 +3,13 @@ require('./db/mongoose');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const bodyParser = require('body-parser');
-const userRouter = require('./routes/user.route')
+// const bodyParser = require('body-parser');
+const studentRouter = require('./routes/student.route')
 
 app.use(cors());
-app.use(bodyParser.json());
-app.use(userRouter);
+// app.use(bodyParser.json());
+app.use(express.json());
+app.use(studentRouter);
 
 const port = process.env.PORT || 5000;
 
