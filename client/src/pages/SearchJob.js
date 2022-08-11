@@ -39,7 +39,10 @@ const SearchJob = () => {
         </div>
         <div className="text-xs text-[#808080]"> Based on the Preferences</div>
 
-        <div className="grid grid-cols-1 grid-flow-row gap-3 2xl:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-3 gap-5">
+          <Card />
+          <Card />
+          <Card />
           <Card />
           <Card />
           <Card />
@@ -48,7 +51,7 @@ const SearchJob = () => {
           <Card />
         </div>
 
-        <div className="text-black text-sm font-normal">
+        <div className="text-black text-sm font-normal mt-5">
           Showing 6 out of 56 data
         </div>
         <div className="flex justify-end">

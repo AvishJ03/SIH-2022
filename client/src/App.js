@@ -13,10 +13,11 @@ import ApplicationCompany from "./pages/ApplicationCompany";
 import CompanyDashboard from "./pages/CompanyDashboard.js";
 import EducationInfo from "./pages/EducationInfo";
 import GradDetails from "./pages/GradDetails";
+import StudentProfile from "./pages/StudentProfile";
 
 function App() {
   return (
-    <div className="App font-main">
+    <div className="App font-main h-full overflow-x-hidden">
       {/* <StudentSignUp /> */}
       {/* <Login /> */}
       {/* <SignupCompany/> */}
@@ -27,8 +28,6 @@ function App() {
       {/* <SearchJob /> */}
       {/* <JobDetails employees='80-100' review='4.5' location='Coimbatore, India' company='Highspeed Studios' about='Creative Design Academy' position='Senior Database Programmer'/> */}
       {/* <CompanyInformation /> */}
-      {/* <ApplicationStud/> */}
-      {/* <ApplicationCompany/> */}
       {/* <ApplicationStud /> */}
       {/* <ApplicationCompany /> */}
       {/* <CompanyDashboard/> */}

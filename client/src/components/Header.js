@@ -4,7 +4,7 @@ import { HiMenuAlt1 } from "react-icons/hi";
 const Header = ({ heading, user }) => {
   return (
     <div className="flex justify-between">
-      <div className="flex">
+      <div className="flex items-center">
         <HiMenuAlt1 size="30" />
         <div className="text-xl ml-2 font-bold text-left">
           <h1>{heading}</h1>
