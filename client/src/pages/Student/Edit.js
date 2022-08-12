@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
-import Header from "../components/Header";
+import Header from "../../components/Header";
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../../components/Sidebar";
 
 export default function Edit(props) {
   return (

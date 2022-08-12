@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "../components/Card";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Card from "../../components/Card";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
 
 const SearchJob = () => {
   return (
@@ -13,11 +13,12 @@ const SearchJob = () => {
           <div className="text-sm font-semibold mt-4">
             Showing numbers from numbers
           </div>
-          <div class="rounded-full w-4 h-4 mt-5 border border-[#808080] bg-white" />
+          
+          <input type="radio" className="w-4 h-4 mt-5 border border-[#808080] bg-white" />
           <div className="text-sm font-semibold mt-4 text-[#808080]">
             Fulltime
           </div>
-          <div class="rounded-full mt-5 w-4 h-4 border border-[#808080] bg-white " />
+          <input type="radio" className="w-4 h-4 mt-5 border border-[#808080] bg-white" />
           <div className="text-sm font-semibold mt-4 text-[#808080]">
             Work From Home
           </div>
@@ -39,7 +40,10 @@ const SearchJob = () => {
         </div>
         <div className="text-xs text-[#808080]"> Based on the Preferences</div>
 
-        <div className="grid grid-cols-1 grid-flow-row gap-3 2xl:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-3 gap-5">
+          <Card />
+          <Card />
+          <Card />
           <Card />
           <Card />
           <Card />
@@ -48,7 +52,7 @@ const SearchJob = () => {
           <Card />
         </div>
 
-        <div className="text-black text-sm font-normal">
+        <div className="text-black text-sm font-normal mt-5">
           Showing 6 out of 56 data
         </div>
         <div className="flex justify-end">

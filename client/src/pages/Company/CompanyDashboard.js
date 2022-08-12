@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../components/Header";
-import SideBarCompany from "../components/SideBarCompany";
+import Header from "../../components/Header";
+import SideBarCompany from "../../components/SideBarCompany";
 import { BsFillCalendarFill } from "react-icons/bs";
 import { FaSuitcase, FaUser } from "react-icons/fa";
-import DashboardCards from "../components/DashboardCards";
-import CompanyLogo from "../assets/CompanyLogo.jpg";
-import BackgroundImg from "../assets/BackgroundImg.jpg";
+import DashboardCards from "../../components/DashboardCards";
+import CompanyLogo from "../../assets/CompanyLogo.jpg";
+import BackgroundImg from "../../assets/BackgroundImg.jpg";
 
 const CompanyDashboard = () => {
   return (
@@ -13,9 +13,9 @@ const CompanyDashboard = () => {
       <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
         <SideBarCompany selected="Dashboard" />
         <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
-          <div className="max-w-7xl mx-auto py-6 px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <Header heading="Dashboard" user="Company" />
-            <div className="h-1/5 flex justify-between">
+            <div className="h-1/5 flex my-2 justify-between gap-10">
               <DashboardCards
                 bg="#4E36E2"
                 title="Applications Recieved"

@@ -1,8 +1,8 @@
-import Header from "../components/Header";
-import CompanyLogo from "../assets/CompanyLogo.jpg";
-import BackgroundImg from "../assets/BackgroundImg.jpg";
+import Header from "../../components/Header";
+import CompanyLogo from "../../assets/CompanyLogo.jpg";
+import BackgroundImg from "../../assets/BackgroundImg.jpg";
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../../components/Sidebar";
 
 export default function JobDetails(props) {
   return (
