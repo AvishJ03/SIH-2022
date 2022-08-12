@@ -13,21 +13,21 @@ const StudentProfile = () => {
             <form>
               <div className="flex flex-col min-w-full min-h-full mb-4">
                 <label className="mb-4 font-bold">Name:</label>
-                <div className="flex flex-row flex-wrap justify-between">
+                <div className="flex flex-row  justify-between">
                   <input
                     type="text"
                     name="title"
-                    className="rounded-xl border-purple w-10 border-none focus:border-white"
+                    className="rounded-xl border-purple w-10 border focus:border-white"
                   />
                   <input
                     type="text"
                     name="fname"
-                    className="rounded-xl border-purple w-48 border-none"
+                    className="rounded-xl border-purple w-36 border"
                   />
                   <input
                     type="text"
                     name="lname"
-                    className="rounded-xl border-purple w-48 border-none"
+                    className="rounded-xl border-purple w-48 border"
                   />
                 </div>
               </div>
@@ -37,7 +37,7 @@ const StudentProfile = () => {
                   <input
                     type="text"
                     name="Gender"
-                    className="rounded-xl border-purple w-96 border-none"
+                    className="rounded-xl border-purple w-96 border"
                   />
                 </div>
               </div>
@@ -49,7 +49,7 @@ const StudentProfile = () => {
                   <input
                     type="text"
                     name="mobNo"
-                    className="rounded-xl border-purple w-96 border-none"
+                    className="rounded-xl border-purple w-96 border"
                   />
                 </div>
               </div>
@@ -61,14 +61,14 @@ const StudentProfile = () => {
                   <input
                     type="text"
                     name="city"
-                    className="rounded-xl border-purple w-96"
+                    className="rounded-xl border-purple  border w-96"
                   />
                 </div>
               </div>
               <div className="flex flex-row-reverse min-w-full min-h-full mt-4">
                 <button
                   type="submit"
-                  className="flex-reverse align bg-purple rounded-xl w-24 "
+                  className="flex-reverse align bg-purple rounded-xl w-24 text-white"
                 >
                   Next
                 </button>
