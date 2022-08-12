@@ -13,11 +13,12 @@ const SearchJob = () => {
           <div className="text-sm font-semibold mt-4">
             Showing numbers from numbers
           </div>
-          <div class="rounded-full w-4 h-4 mt-5 border border-[#808080] bg-white" />
+          
+          <input type="radio" className="w-4 h-4 mt-5 border border-[#808080] bg-white" />
           <div className="text-sm font-semibold mt-4 text-[#808080]">
             Fulltime
           </div>
-          <div class="rounded-full mt-5 w-4 h-4 border border-[#808080] bg-white " />
+          <input type="radio" className="w-4 h-4 mt-5 border border-[#808080] bg-white" />
           <div className="text-sm font-semibold mt-4 text-[#808080]">
             Work From Home
           </div>
