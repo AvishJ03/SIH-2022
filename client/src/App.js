@@ -34,7 +34,7 @@ function App() {
       {/* <CompanyInformation /> */}
       {/* <ApplicationStud /> */}
       {/* <ApplicationCompany /> */}
-      {/* <CompanyDashboard/> */}
+      <CompanyDashboard/>
       {/* <EducationInfo /> */}
       {/* <GradDetails /> */}
       {/* <CompanyPostVacancy /> */}

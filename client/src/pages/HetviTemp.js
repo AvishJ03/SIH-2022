@@ -34,7 +34,7 @@ const EducationInfo = () => {
                             </div>
                         </div>
                         <div className="flex flex-row-reverse min-w-full min-h-full mt-12">
-                            <button type="submit" className="flex-reverse align bg-purple rounded-xl p-2 px-11 text-white">Next</button>
+                            <button type="submit" className="flex-reverse align bg-purple rounded-xl p-2 px-9 text-white">Next</button>
                         </div>
                     </form>
                 </div>

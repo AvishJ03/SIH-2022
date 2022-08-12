@@ -16,6 +16,10 @@ module.exports = {
         main: ["IBM Plex Sans", "sans-serif"],
         ourfont: ["Poppins", "serif"], 
       },
+      boxShadow: {
+        "main-sd": "1px 1px 7px 2px rgba(0, 0, 0, 0.25)",
+        "ourshad": "1px 1px 20px rgba(0, 0, 0, 0.2)",
+      },
     },
   },
   plugins: [],

@@ -10,12 +10,12 @@ import BackgroundImg from "../../assets/BackgroundImg.jpg";
 const CompanyDashboard = () => {
   return (
     <div>
-      <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
+      <div className="bg-[#40189D] w-full min-h-screen h-full flex font-ourfont">
         <SideBarCompany selected="Dashboard" />
         <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
           <div className="max-w-7xl mx-auto px-6">
             <Header heading="Dashboard" user="Company" />
-            <div className="h-1/5 flex my-2 justify-between gap-10">
+            <div className="h-1/5 flex my-10 justify-between gap-10">
               <DashboardCards
                 bg="#4E36E2"
                 title="Applications Recieved"
@@ -37,7 +37,7 @@ const CompanyDashboard = () => {
                 icon={<FaUser size="20" style={{ color: "white" }} />}
               />
             </div>
-            <div className="flex mt-[2%] relative">
+            <div className="flex mt-11 relative">
               {/* Company Card */}
               <div className="bg-white rounded-[34px] relative mr-10 h-[0%]">
                 <img
@@ -76,7 +76,7 @@ const CompanyDashboard = () => {
                   <i className="fa-solid fa-location-dot pt-2"></i>
                   <div className="pl-4">
                     <h2 className="font-bold">Coimbatore, India</h2>
-                    <h6 className="text-[#808080] text-[12px] font-medium">
+                    <h6 className="text-[#808080] text-[12px] font-medium ml-1">
                       Location
                     </h6>
                   </div>
@@ -125,7 +125,7 @@ const CompanyDashboard = () => {
                       </p>
                     </div>
                   </div>
-                  <button className="bg-[#40189D] hover:bg-[#6440b7] text-white font-bold py-2 px-4 rounded-full h-0% text-center text-[15px] absolute bottom-4 right-4">
+                  <button className="bg-[#40189D] hover:bg-[#6440b7] text-white font-semibold py-[0.7rem] px-9 rounded-full h-0% text-center text-[15px] absolute bottom-4 right-4">
                     Edit Profile
                   </button>
                 </div>
