@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         main: ["IBM Plex Sans", "sans-serif"],
+        ourfont: ["Poppins", "serif"], 
       },
     },
   },

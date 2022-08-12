@@ -4,12 +4,12 @@ import SideBarCompany from "../components/SideBarCompany";
 const CompanyInformation = () => {
   return (
     <>
-      <div className="bg-[#40189D] w-full min-h-screen flex font-main">
+      <div className="bg-[#40189D] w-full min-h-screen flex font-ourfont">
         <SideBarCompany selected="Profile" />
-        <div className="bg-white w-full rounded-tl-[100px] rounded-bl-[100px]">
+        <div className="bg-white w-full rounded-tl-[45px] rounded-bl-[45px] ml-16">
           <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <header>
-              <h1 className="text-3xl font-bold text-center ml-4">
+              <h1 className="text-3xl font-extrabold text-center ml-4">
                 Company Information
               </h1>
             </header>
@@ -21,58 +21,58 @@ const CompanyInformation = () => {
                 <form className="mt-4">
                   <div className="mx-8 mt-8 text-lg">
                     <div className="m-3">
-                      <label className="">Upload Background</label>
+                      <label className="font-semibold">Upload Background</label>
                       <input type="file" name="bg" id="bg" className="m-3" />
                     </div>
                     <div className="m-3">
-                      <label className="">Upload Logo</label>
+                      <label className="font-semibold">Upload Logo</label>
                       <input type="file" name="bg" id="bg" className="m-3" />
                     </div>
-                    <div className="flex justify-between mt-16 mx-16">
-                      <div className="m-3">
-                        <label>Name: </label>
+                    <div className="flex justify-between mt-16 mx-32">
+                      <div className="m-3 ">
+                        <label className="font-semibold">Name: </label>
                         <br />
                         <input
                           type="text"
-                          className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-4"
+                          className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                         />
                       </div>
-                      <div className="m-3">
-                        <label>Location: </label>
+                      <div className="m-3 mr-32">
+                        <label className="font-semibold">Location: </label>
                         <br />
                         <input
                           type="text"
-                          className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-4"
+                          className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="flex justify-between my-4 text-lg mx-24">
+                  <div className="flex justify-between my-4 text-lg mx-40">
                     <div className="m-3">
-                      <label>Phone Number: </label>
+                      <label className="font-semibold">Phone Number: </label>
                       <br />
                       <input
                         type="number"
-                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-4"
+                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                       />
                     </div>
-                    <div className="m-3">
-                      <label>No. Of Employees: </label>
+                    <div className="m-3 mr-32">
+                      <label className="font-semibold">No. Of Employees: </label>
                       <br />
                       <input
                         type="number"
-                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-4"
+                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                       />
                     </div>
                   </div>
-                  <div className="flex justify-between my-4 text-lg mx-24">
+                  <div className="flex justify-between my-4 text-lg mx-40">
                     <div className="m-3">
-                      <label>Company Type: </label>
+                      <label className="font-semibold">Company Type: </label>
                       <br />
                       <select
                         name="type"
                         id="type"
-                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-4"
+                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                       >
                         <option value="none" selected disabled hidden>
                           Select an Option
@@ -99,31 +99,31 @@ const CompanyInformation = () => {
                         <option value="NGO">NGO</option>
                       </select>
                     </div>
-                    <div className="m-3">
-                      <label>Website: </label>
+                    <div className="m-3 mr-32">
+                      <label className="font-semibold">Website: </label>
                       <br />
                       <input
                         type="location"
-                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-4"
+                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                       />
                     </div>
                   </div>
                 </form>
                 <form>
-                  <div className="m-8">
-                    <h4 className="text-2xl font-bold">Description</h4>
+                  <div className="m-8 mt-20">
+                    <h4 className="text-2xl font-semibold">Description</h4>
                     <hr />
                   </div>
                   <div className="m-8">
                     <textarea
                       rows="10"
                       cols="100"
-                      className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] mt-4"
+                      className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] mt-4 p-3"
                     />
                   </div>
                 </form>
                 <div className="flex justify-end">
-                  <button className="bg-purple text-white m-8 rounded-[34px] p-2 text-center w-1/6">
+                  <button className="bg-purple text-white m-8 rounded-[34px] p-3 text-center w-1/6 font-semibold">
                     Save Changes
                   </button>
                 </div>

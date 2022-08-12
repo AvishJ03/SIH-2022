@@ -8,6 +8,7 @@ import SearchJob from "./pages/SearchJob";
 import Edit from "./pages/Edit.js";
 import SideBarCompany from "./components/SideBarCompany.js";
 import CompanyInformation from "./pages/CompanyInformation.js";
+import CompanyInfo from "./pages/CompanyInfo.js";
 import ApplicationStud from "./pages/ApplicationStud";
 import ApplicationCompany from "./pages/ApplicationCompany";
 import CompanyDashboard from "./pages/CompanyDashboard.js";
@@ -24,6 +25,7 @@ function App() {
       {/* <Edit /> */}
       {/* <SearchJob /> */}
       {/* <JobDetails employees='80-100' review='4.5' location='Coimbatore, India' company='Highspeed Studios' about='Creative Design Academy' position='Senior Database Programmer'/> */}
+      {/* <CompanyInfo /> */}
       <CompanyInformation />
       {/* <ApplicationStud/> */}
       {/* <ApplicationCompany/> */}
