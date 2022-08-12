@@ -34,7 +34,9 @@ const StudentSignUp = () => {
           </div>
           <div className="self-start ml-9 w-5/6 flex">
             <div className="w-1/2">
-              <p className="text-left text-black" text-black>First Name</p>
+              <p className="text-left text-black" text-black>
+                First Name
+              </p>
               <input
                 className="w-[95%] -ml-2 rounded-lg p-1 text-black bg-white border-purple border-4"
                 type="text"

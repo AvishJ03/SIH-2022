@@ -4,11 +4,9 @@ const SignupCompany = () => {
     <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main">
       <div className="w-1/2 h-11/12 text-center">
         <h1 className="text-4xl font-semibold inline">We find the </h1>
-        <h1 className="text-secondary text-4xl font-semibold inline">
-          Right
-        </h1>
+        <h1 className="text-secondary text-4xl font-semibold inline">Right</h1>
         <h1 className="text-4xl font-semibold inline"> People!</h1>
-        <div className="bg-[#FEF9F9] w-2/3 h-[500px] mx-auto flex flex-col justify-evenly mt-10 px-10 rounded-2xl">          
+        <div className="bg-[#FEF9F9] w-2/3 h-[500px] mx-auto flex flex-col justify-evenly mt-10 px-10 rounded-2xl">
           <div>
             <p className="text-left text-black">Official Email ID</p>
             <input
@@ -27,22 +25,22 @@ const SignupCompany = () => {
           </div>
           <div className="w-full">
             <div className="self-start w-full flex">
-                <div className="w-1/2">
+              <div className="w-1/2">
                 <p className="text-left text-black">First Name</p>
                 <input
-                    className="w-[100%]  rounded-lg p-1 text-black bg-white border-purple border-4"
-                    type="text"
-                    placeholder="First Name"
+                  className="w-[100%]  rounded-lg p-1 text-black bg-white border-purple border-4"
+                  type="text"
+                  placeholder="First Name"
                 />
-                </div>
-                <div className="w-1/2 ml-2">
+              </div>
+              <div className="w-1/2 ml-2">
                 <p className="text-left text-black">Last Name</p>
                 <input
-                    className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
-                    type="text"
-                    placeholder="Last Name"
+                  className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
+                  type="text"
+                  placeholder="Last Name"
                 />
-                </div>
+              </div>
             </div>
           </div>
           <div>

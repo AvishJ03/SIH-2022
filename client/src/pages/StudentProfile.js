@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar"
+import Sidebar from "../components/Sidebar";
 
 const StudentProfile = () => {
   return (
@@ -43,7 +43,7 @@ const StudentProfile = () => {
             </div>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default StudentProfile
+export default StudentProfile;
