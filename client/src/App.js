@@ -15,6 +15,9 @@ import EducationInfo from "./pages/Student/EducationInfo";
 import GradDetails from "./pages/Student/GradDetails";
 import StudentProfile from "./pages/Student/StudentProfile";
 import CompanyPostVacancy from "./pages/Company/CompanyPostVacancy";
+import Skills from "./pages/Student/Skills";
+import WorkSamples from "./pages/Student/WorkSamples";
+
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
       {/* <EducationInfo /> */}
       {/* <GradDetails /> */}
       {/* <CompanyPostVacancy /> */}
+      {/* <Skills/> */}
+      {/* <WorkSamples/> */}
+      
     </div>
   );
 }
