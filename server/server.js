@@ -5,17 +5,17 @@ const app = express();
 const cors = require('cors');
 // const bodyParser = require('body-parser');
 const studentRouter = require('./routes/student.route')
+const companyRouter = require('./routes/company.route')
+const jobRouter = require('./routes/job.route')
 
 app.use(cors());
 // app.use(bodyParser.json());
 app.use(express.json());
 app.use(studentRouter);
+app.use(companyRouter);
+app.use(jobRouter);
 
 const port = process.env.PORT || 5000;
-
-app.get('/', (req, res) => {
-    res.send('App route');
-})
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

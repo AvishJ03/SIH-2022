@@ -31,10 +31,10 @@ function App() {
       {/* <Edit /> */}
       {/* <SearchJob /> */}
       {/* <JobDetails employees='80-100' review='4.5' location='Coimbatore, India' company='Highspeed Studios' about='Creative Design Academy' position='Senior Database Programmer'/> */}
-      {/* <CompanyInformation /> */}
+      <CompanyInformation />
       {/* <ApplicationStud /> */}
       {/* <ApplicationCompany /> */}
-      <CompanyDashboard/>
+      {/* <CompanyDashboard/> */}
       {/* <EducationInfo /> */}
       {/* <GradDetails /> */}
       {/* <CompanyPostVacancy /> */}
