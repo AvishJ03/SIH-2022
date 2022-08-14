@@ -1,9 +1,9 @@
-import Sidebar from "../../components/Sidebar"
+import StudInfoSidebar from "../../components/StudInfoSidebar";
 
 const GradDetails = () => {
   return (
     <div className='bg-purple w-full h-screen flex font-ourfont'>
-        <Sidebar selected="Dashboard" />
+        <StudInfoSidebar selected="Educational" />
         <div className="bg-[#F2F2F2] w-full h-screen px-10 pt-4 ml-10 rounded-l-3xl flex justify-center items-center">
             <div className="flex flex-col w-1/2 h1/2">
                 <div className="text-center text-4xl font-bold pb-4 mb-7">Graduation Details</div>
