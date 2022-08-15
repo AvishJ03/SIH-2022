@@ -13,9 +13,9 @@ const GradDetails = () => {
                             <label className="font-semibold text-lg">Graduation Status* :</label>
                             <div className="justify-around">
                                 <div className="flex flex-row flex-wrap">
-                                    <input type="radio" id = "radio1" name = "radio1" value="radio1"/>
+                                    <input type="radio" id = "radio1" name = "radio" value="radio"/>
                                     <label className="font-normal ml-2">Pursuing</label> &nbsp;&nbsp;
-                                    <input type="radio" id = "radio2" name = "radio2" value="radio2"/>
+                                    <input type="radio" id = "radio2" name = "radio" value="radio"/>
                                     <label className="font-normal ml-2">Completed</label>
                                 </div>
                             </div>
