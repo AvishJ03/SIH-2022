@@ -6,7 +6,7 @@ const auth = require('../middleware/studentAuth');
 router.get('/students', async (req, res) => {
     try {
         const students = await Student.find({});
-        res.send({ user: students });
+        res.status(200).send({ studentUsers: students });
     } catch(error) {
         res.status(400).send(error);
     }
@@ -17,7 +17,7 @@ router.post('/students', async (req, res) => {
     try {
         await student.save();
         const token = await student.generateAuthToken();
-        res.status(201).send({ user: student, token });
+        res.status(201).send({ studentUser: student, studentToken: token });
     } catch(error) {
         res.status(400).send(error);
     }
@@ -27,20 +27,20 @@ router.post('/students/login', async (req, res) => {
     try {
         const student = await Student.findByCredentials(req.body.email, req.body.password);
         const token = await student.generateAuthToken();
-        res.status(200).send({ user: student, token });
+        res.status(200).send({ studentUser: student, studentToken: token });
     } catch(error) {
         res.status(400).send(error);
     }
 });
 
 router.get('/students/self', auth, async (req, res) => {
-    res.status(200).send(req.user);
+    res.status(200).send(req.studentUser);
 });
 
 router.post('/students/logout', auth, async (req, res) => {
     try {
-        req.user.tokens = [];
-        await req.user.save();
+        req.studentUser.tokens = [];
+        await req.studentUser.save();
         res.status(200).send({message: 'Successfully logged out.'});
     } catch(error) {
         res.status(400).send({
@@ -58,9 +58,9 @@ router.patch('/students/self', auth, async (req, res) => {
         return res.status(400).send();
     }
     try {
-        updates.forEach((update) => req.user[update] = req.body[update]);
-        await req.user.save();
-        res.status(200).send(req.user);
+        updates.forEach((update) => req.studentUser[update] = req.body[update]);
+        await req.studentUser.save();
+        res.status(200).send(req.studentUser);
     } catch(error) {
         res.status(400).send({
             error: e,
@@ -71,8 +71,8 @@ router.patch('/students/self', auth, async (req, res) => {
 
 router.delete('/students/self', auth, async (req, res) => {
     try {
-        await req.user.remove();
-        res.status(200).send(req.user);
+        await req.studentUser.remove();
+        res.status(200).send(req.studentUser);
     } catch(error) {
         res.status(400).send({
             error: e,

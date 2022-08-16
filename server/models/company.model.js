@@ -21,39 +21,44 @@ const companySchema = new mongoose.Schema({
             }
         }
     },
-    number: {
+    contactNo: {
         type: Number,
         trim: true,
-        required: true
+        required: true,
+        validate(value) {
+            if(!validator.isMobilePhone(`${value}`)) {
+                throw new Error('Invalid phone number.');
+            }
+        }
     },
     noOfEmp: {
         type: Number,
-        trim: true,
-        required: true
+        trim: true
     },
     location: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     typeOfCompany: {
         type: String,
-        enum: [ 'PbLC', 'PrLC', 'JVC', 'PF', 'OPC', 'SP', 'BO', 'NGO' ],
-        required: true,
+        trim: true,
+        enum: [ 'PbLC', 'PrLC', 'JVC', 'PF', 'OPC', 'SP', 'BO', 'NGO' ]
     },
     website: {
         type: String,
         trim: true,
-        // required: true
+        validate(value) {
+            if(!validator.isURL(value)) {
+                throw new Error('Invalid website URL.');
+            }
+        }
     },
     logo: {
-        type: String,
-        // required: true
+        type: String
     },
     companyInfo: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     password: {
         type: String,
@@ -72,37 +77,37 @@ const companySchema = new mongoose.Schema({
 });
 
 companySchema.methods.generateAuthToken = async function() {
-    const token = jwt.sign({ _id: this.id.toString() }, process.env.JWT_SECRET);
+    const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET);
     this.tokens = this.tokens.concat({ token });
-    console.log(this.tokens);
     await this.save();
     return token;
 }
 
 companySchema.methods.toJSON = function() {
-    const userObject = this.toObject();
-    delete userObject.password;
-    delete userObject.tokens;
-    return userObject;
+    const companyObject = this.toObject();
+    delete companyObject.password;
+    delete companyObject.tokens;
+    delete companyObject.logo;
+    return companyObject;
 }
 
 companySchema.statics.findByCredentials = async (email, password) => {
-    const user = await Company.findOne({ email });
-    if(!user) {
+    const company = await Company.findOne({ email });
+    if(!company) {
         throw new Error('Invalid email.');
     }
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, company.password);
     if(!isMatch) {
         throw new Error('Unable to login.');
     }
-    return user;
+    return company;
 }
 
 companySchema.pre('save', async function(next) {
     if(this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 8);
     }
-    next()
+    next();
 });
 
 const Company = mongoose.model('Company', companySchema);

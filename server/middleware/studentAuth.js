@@ -5,12 +5,12 @@ const studentAuth = async (req, res, next) => {
     try {
         const token = req.header('Authorization').replace('Bearer ', '');
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await Student.findOne({ _id: decoded._id, 'tokens.token': token });
-        if(!user) {
+        const student = await Student.findOne({ _id: decoded._id, 'tokens.token': token });
+        if(!student) {
             throw new Error();
         }
-        req.token = token;
-        req.user = user;
+        req.studentToken = token;
+        req.studentUser = student;
         next();
     } catch(error) {
         res.status(401).send({error: 'Please authenticate.'});

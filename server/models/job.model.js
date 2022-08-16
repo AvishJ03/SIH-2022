@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 const jobSchema = new mongoose.Schema({
     noOfPos: {
@@ -11,43 +12,60 @@ const jobSchema = new mongoose.Schema({
         trim: true,
         required: true
     },
-    company:{
+    company: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Company",
+        required: true
     },
     skills: [{
         type: String,
-        // required: true,
+        required: true
     }],
     empType: {
         type: String,
-        enum: [ 'PartTime', 'FullTime'],
-        // required: true,
+        enum: [ 'PartTime', 'FullTime' ],
+        required: true
     },
     minExp: {
         type: Number,
-        // required: true,
+        required: true
     },
     desc: {
         type: String,
-        // required: true,
+        required: true
     },
     salary: {
         type: Number,
-        // required: true,
+        required: true
     },
     location: {
         type: String,
-        enum: [ 'Remote', 'In-Office'],
-        // required: true,
+        enum: [ 'Remote', 'In-Office' ],
+        required: true
     },
     duration: {
         type: Number,
-        // required: true,
+        required: true
     },
+    token: {
+        type: String
+    }
 }, {
     timestamps: true
 });
+
+jobSchema.methods.generateJobToken = async function() {
+    const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET);
+    this.token = token;
+    await this.save();
+    return token;
+}
+
+jobSchema.methods.toJSON = function() {
+    const jobObject = this.toObject();
+    delete jobObject.token;
+    return jobObject;
+}
 
 const Job = mongoose.model('Job', jobSchema);
 
