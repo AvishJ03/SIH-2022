@@ -3,6 +3,15 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+const skillsSchema = new mongoose.schema({
+    multipleSkills: {
+        type: String,
+        required: true,
+        trim: true
+    },
+},{
+    timestamps: true
+});
 const studentSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -36,13 +45,95 @@ const studentSchema = new mongoose.Schema({
         minlength: 7,
         trim: true
     },
+    mobileNo: {
+        type: Number,
+        required: true,
+        // minlength: 0,
+        // maxlength: 10
+    },
+    currentCity: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    graduation: {
+        type: Number,
+        required: true
+    },
+    seniorSecDiploma: {
+        type: Number,
+        required: true
+    },
+    secondary: {
+        type: Number,
+        required: true
+    },
+    gradStatus: {
+        type: String,
+        possibleValues: ['Pursuing', 'Completed'],
+        required: true
+    },
+    startYear: {
+        type: Number,
+        required: true,
+        minlength: 0,
+        maxlength: 4
+    },
+    endYear: {
+        type: Number,
+        required: true,
+        minlength: 0,
+        maxlength: 4
+    },
+    degree: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    stream: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    performScale: {
+        type: Number,
+    },
+    perform: {
+        type: Number,
+    },
+    skillsStudent: [skillsSchema],
+    blogLink: {
+        type: String,
+        trim: true,
+        // required: true
+    },
+    githubLink: {
+        type: String,
+        trim: true,
+        // required: true
+    },
+    playstoreLink: {
+        type: String,
+        trim: true,
+        // required: true
+    },
+    behanceLink: {
+        type: String,
+        trim: true,
+        // required: true
+    },
+    otherPortfolioLink: {
+        type: String,
+        trim: true,
+        // required: true
+    },
     tokens: [{
         token: {
             type: String,
             required: true
         }
     }]
-}, {
+},    {
     timestamps: true
 });
 
