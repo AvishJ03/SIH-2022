@@ -4,6 +4,8 @@ const Application = require('../models/application.model');
 const studentAuth = require('../middleware/studentAuth');
 const Job = require('../models/job.model');
 const jwt = require('jsonwebtoken');
+const companyAuth = require('../middleware/companyAuth');
+const jobAuth = require('../middleware/jobAuth');
 
 router.post('/applications/:id', studentAuth, async (req, res) => {
     try {
@@ -34,6 +36,15 @@ router.get('/applications/students/:id', async (req, res) => {
         const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
         const applications = await Application.findOne({ applicant: decoded._id }).populate('applicant').populate('job');
         res.status(200).send(applications);
+    } catch(error) {
+        res.status(400).send(error);
+    }
+});
+
+router.patch('/applications/jobs/:id/students/:appId', companyAuth, jobAuth, async (req, res) => {
+    try {
+        const application = await Application.findById(req.params.appId);
+        res.status(200).send({ company: req.companyUser, job: req.job, application });
     } catch(error) {
         res.status(400).send(error);
     }

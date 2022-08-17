@@ -3,7 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const skillsSchema = new mongoose.schema({
+const skillsSchema = mongoose.Schema({
     multipleSkills: {
         type: String,
         required: true,
@@ -11,7 +11,7 @@ const skillsSchema = new mongoose.schema({
     }
 });
 
-const studentSchema = new mongoose.Schema({
+const studentSchema = mongoose.Schema({
     firstName: {
         type: String,
         trim: true,
