@@ -61,25 +61,20 @@ const studentSchema = mongoose.Schema({
     },
     currentCity: {
         type: String,
-        required: true,
         trim: true
     },
     graduation: {
-        type: Number,
-        required: true
+        type: Number
     },
     seniorSecDiploma: {
-        type: Number,
-        required: true
+        type: Number
     },
     secondary: {
-        type: Number,
-        required: true
+        type: Number
     },
     gradStatus: {
         type: String,
-        possibleValues: ['Pursuing', 'Completed'],
-        required: true
+        possibleValues: ['Pursuing', 'Completed']
     },
     startYear: {
         type: Number,

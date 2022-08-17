@@ -41,10 +41,22 @@ router.get('/applications/students/:id', async (req, res) => {
     }
 });
 
+/*
+    {
+        "status": "under review"
+    }
+*/
 router.patch('/applications/jobs/:id/students/:appId', companyAuth, jobAuth, async (req, res) => {
+    const updates = Object.keys(req.body);
+    const validOperations = ['status'];
+    const isUpdateValid = updates.every((update) => validOperations.includes(update));
+    if(!isUpdateValid) {
+        return res.status(400).send('Invalid update request.');
+    }
     try {
-        const application = await Application.findById(req.params.appId);
-        res.status(200).send({ company: req.companyUser, job: req.job, application });
+        const application = await Application.findOneAndUpdate({ _id: req.params.appId, job: req.job }, req.body, { new: true });
+        await application.save();
+        res.status(200).send(application);
     } catch(error) {
         res.status(400).send(error);
     }
