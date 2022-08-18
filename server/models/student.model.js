@@ -3,7 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const skillsSchema = mongoose.Schema({
+const skillsSchema = new mongoose.Schema({
     multipleSkills: {
         type: String,
         required: true,
@@ -11,7 +11,7 @@ const skillsSchema = mongoose.Schema({
     }
 });
 
-const studentSchema = mongoose.Schema({
+const studentSchema = new mongoose.Schema({
     firstName: {
         type: String,
         trim: true,
@@ -157,6 +157,12 @@ const studentSchema = mongoose.Schema({
     }]
 }, {
     timestamps: true
+});
+
+studentSchema.virtual('applications', {
+    ref: 'Application',
+    localField: '_id',
+    foreignField: 'applicant'
 });
 
 studentSchema.methods.generateAuthToken = async function() {

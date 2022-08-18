@@ -54,6 +54,12 @@ const jobSchema = new mongoose.Schema({
     timestamps: true
 });
 
+jobSchema.virtual('applicants', {
+    ref: 'Application',
+    localField: '_id',
+    foreignField: 'job'
+});
+
 jobSchema.methods.generateJobToken = async function() {
     const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET);
     this.token = token;

@@ -81,4 +81,16 @@ router.delete('/students/self', auth, async (req, res) => {
     }
 });
 
+router.get('/students/self/applications', auth, async (req, res) => {
+    try {
+        await req.studentUser.populate('applications');
+        res.status(200).send(req.studentUser.applications);
+    } catch(error) {
+        res.status(400).send({
+            error: e,
+            message: "Something went wrong"
+        });
+    }
+});
+
 module.exports = router;

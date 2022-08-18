@@ -81,4 +81,16 @@ router.delete('/company/self', auth, async (req, res) => {
     }
 });
 
+router.get('/company/self/jobs', auth, async (req, res) => {
+    try {
+        await req.companyUser.populate('jobs');
+        res.status(200).send(req.companyUser.jobs);
+    } catch(error) {
+        res.status(400).send({
+            error: e,
+            message: "Something went wrong"
+        });
+    }
+});
+
 module.exports = router;

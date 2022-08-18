@@ -63,7 +63,7 @@ router.patch('/jobs/:id', companyAuth, jobAuth, async (req, res) => {
         res.status(200).send(req.job);
     } catch(error) {
         res.status(400).send({
-            error: e,
+            error,
             message: "Something went wrong"
         });
     }
@@ -75,7 +75,19 @@ router.delete('/jobs/:id', companyAuth, jobAuth, async (req, res) => {
         res.status(200).send(req.job);
     } catch(error) {
         res.status(400).send({
-            error: e,
+            error,
+            message: "Something went wrong"
+        });
+    }
+});
+
+router.get('/jobs/:id/applications', companyAuth, jobAuth, async (req, res) => {
+    try {
+        await req.job.populate('applicants');
+        res.status(200).send(req.job.applicants);
+    } catch(error) {
+        res.status(400).send({
+            error,
             message: "Something went wrong"
         });
     }
