@@ -11,8 +11,7 @@ import CompanyInformation from "./pages/Company/CompanyInformation";
 import ApplicationStud from "./pages/Student/ApplicationStud";
 import ApplicationCompany from "./pages/Company/ApplicationCompany";
 import CompanyDashboard from "./pages/Company/CompanyDashboard";
-import EducationInfo from "./pages/Student/EducationInfo";
-import GradDetails from "./pages/Student/GradDetails";
+import EducationInfo from "./pages/Student/EducationInfo.js";
 import StudentProfile from "./pages/Student/StudentProfile";
 import CompanyPostVacancy from "./pages/Company/CompanyPostVacancy";
 import Skills from "./pages/Student/Skills";
@@ -31,16 +30,15 @@ function App() {
       {/* <Edit /> */}
       {/* <SearchJob /> */}
       {/* <JobDetails employees='80-100' review='4.5' location='Coimbatore, India' company='Highspeed Studios' about='Creative Design Academy' position='Senior Database Programmer'/> */}
-      <CompanyInformation />
+      {/* <CompanyInformation /> */}
       {/* <ApplicationStud /> */}
       {/* <ApplicationCompany /> */}
       {/* <CompanyDashboard/> */}
-      {/* <EducationInfo /> */}
-      {/* <GradDetails /> */}
+      <EducationInfo />
       {/* <CompanyPostVacancy /> */}
       {/* <Skills/> */}
       {/* <WorkSamples/> */}
-      
+
     </div>
   );
 }
