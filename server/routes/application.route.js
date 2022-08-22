@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const companyAuth = require('../middleware/companyAuth');
 const jobAuth = require('../middleware/jobAuth');
 
+// id is job token
 router.post('/applications/:id', studentAuth, async (req, res) => {
     try {
         const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
@@ -22,6 +23,7 @@ router.post('/applications/:id', studentAuth, async (req, res) => {
     }
 });
 
+// id is job token
 router.get('/applications/jobs/:id', async (req, res) => {
     try {
         const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
@@ -32,6 +34,7 @@ router.get('/applications/jobs/:id', async (req, res) => {
     }
 });
 
+// id is student token
 router.get('/applications/students/:id', async (req, res) => {
     try {
         const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
@@ -43,10 +46,12 @@ router.get('/applications/students/:id', async (req, res) => {
 });
 
 /*
+    request body
     {
         "status": "under review"
     }
 */
+// id is job token and appId is application _id
 router.patch('/applications/jobs/:id/students/:appId', companyAuth, jobAuth, async (req, res) => {
     const update = Object.keys(req.body);
     const validOperation = ['status'];

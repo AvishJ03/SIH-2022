@@ -3,6 +3,15 @@ const router = express.Router();
 const Company = require('../models/company.model');
 const auth = require('../middleware/companyAuth');
 
+/*
+    request body
+    {
+    "name": "SIH 4",
+    "email": "sih4@gmail.com",
+    "password": "sihcoimbatore",
+    "contactNo": 9876543210
+    }
+*/
 router.post('/company', async (req, res) => {
     const company = new Company(req.body);
     try {
@@ -14,6 +23,13 @@ router.post('/company', async (req, res) => {
     }
 });
 
+/*
+    request body
+    {
+    "email": "sih4@gmail.com",
+    "password": "sihcoimbatore"
+    }
+*/
 router.post('/company/login', async (req, res) => {
     try {
         const company = await Company.findByCredentials(req.body.email, req.body.password);
@@ -41,6 +57,16 @@ router.post('/company/logout', auth, async (req, res) => {
     }
 });
 
+/*
+    request body
+    {
+    "noOfEmp": 8,
+    "location": "Coimbatore",
+    "website": "www.sih.com",
+    "typeOfCompany": "PF",
+    "companyInfo": "My Company"
+    }
+*/
 router.patch('/company/self', auth, async (req, res) => {
     const updates = Object.keys(req.body);
     const validOperations = ['name', 'email', 'contactNo', 'noOfEmp', 'location', 'typeOfCompany', 'website', 'companyInfo', 'password'];

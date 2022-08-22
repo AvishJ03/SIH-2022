@@ -3,6 +3,15 @@ const router = express.Router();
 const Student = require('../models/student.model');
 const auth = require('../middleware/studentAuth');
 
+/*
+    request body
+    {
+    "firstName": "Parshva",
+    "lastName": "Vyas",
+    "email": "parshva@gmail.com",
+    "password": "parshva123"
+    }
+*/
 router.post('/students', async (req, res) => {
     const student = new Student(req.body);
     try {
@@ -14,6 +23,13 @@ router.post('/students', async (req, res) => {
     }
 });
 
+/*
+    request body
+    {
+    "email": "parshva@gmail.com",
+    "password": "parshva123"
+    }
+*/
 router.post('/students/login', async (req, res) => {
     try {
         const student = await Student.findByCredentials(req.body.email, req.body.password);
@@ -41,6 +57,13 @@ router.post('/students/logout', auth, async (req, res) => {
     }
 });
 
+/*
+    request body
+    {
+    "gender": "M",
+    "age": 20
+    }
+*/
 router.patch('/students/self', auth, async (req, res) => {
     const updates = Object.keys(req.body);
     const validOperations = ['firstName', 'lastName', 'gender', 'email', 'age', 'password'];
