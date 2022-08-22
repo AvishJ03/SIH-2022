@@ -20,8 +20,7 @@ const applicationSchema = mongoose.Schema({
     applicant: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'Student',
-        unique: true
+        ref: 'Student'
     }
 }, {
     timestamps: true

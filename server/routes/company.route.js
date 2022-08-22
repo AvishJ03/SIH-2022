@@ -3,15 +3,6 @@ const router = express.Router();
 const Company = require('../models/company.model');
 const auth = require('../middleware/companyAuth');
 
-router.get('/company', async (req, res) => {
-    try {
-        const companies = await Company.find({});
-        res.status(200).send({ companyUsers: companies });
-    } catch(error) {
-        res.status(400).send(error);
-    }
-});
-
 router.post('/company', async (req, res) => {
     const company = new Company(req.body);
     try {

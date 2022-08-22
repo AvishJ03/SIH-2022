@@ -16,6 +16,7 @@ router.post('/applications/:id', studentAuth, async (req, res) => {
         }
         const application = new Application({ applicant: req.studentUser._id, job });
         await application.save();
+        res.status(200).send(application);
     } catch(error) {
         res.status(400).send(error);
     }
@@ -24,7 +25,7 @@ router.post('/applications/:id', studentAuth, async (req, res) => {
 router.get('/applications/jobs/:id', async (req, res) => {
     try {
         const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
-        const applications = await Application.findOne({ job: decoded._id }).populate('job').populate('applicant');
+        const applications = await Application.find({ job: decoded._id }).populate('job').populate('applicant');
         res.status(200).send(applications);
     } catch(error) {
         res.status(400).send(error);
@@ -34,7 +35,7 @@ router.get('/applications/jobs/:id', async (req, res) => {
 router.get('/applications/students/:id', async (req, res) => {
     try {
         const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
-        const applications = await Application.findOne({ applicant: decoded._id }).populate('applicant').populate('job');
+        const applications = await Application.find({ applicant: decoded._id }).populate('job');
         res.status(200).send(applications);
     } catch(error) {
         res.status(400).send(error);
@@ -47,9 +48,9 @@ router.get('/applications/students/:id', async (req, res) => {
     }
 */
 router.patch('/applications/jobs/:id/students/:appId', companyAuth, jobAuth, async (req, res) => {
-    const updates = Object.keys(req.body);
-    const validOperations = ['status'];
-    const isUpdateValid = updates.every((update) => validOperations.includes(update));
+    const update = Object.keys(req.body);
+    const validOperation = ['status'];
+    const isUpdateValid = update.every((update) => validOperation.includes(update));
     if(!isUpdateValid) {
         return res.status(400).send('Invalid update request.');
     }
