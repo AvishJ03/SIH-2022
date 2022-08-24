@@ -9,13 +9,20 @@ import { IoExtensionPuzzleSharp } from "react-icons/io5";
 
 const Sidebar = ({ selected }) => {
   const navs = {
-    Dashboard: <AiFillHome size="20" style={{ color: "white" }} />,
+    Dashboard: <a href="/dashboard"><AiFillHome size="20" style={{ color: "white" }}/> </a>,
     "Search Job": <AiOutlineSearch size="20" style={{ color: "white" }} />,
     Applications: (
       <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
     ),
     Message: <AiFillMessage size="20" style={{ color: "white" }} />,
     Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
+  };
+  const links = {
+    Dashboard: "/dashboard",
+    "Search Job": "/searchjob",
+    Applications: "/applicationstud",
+    Message: "/",
+    Profile: "/edit",
   };
   return (
     <div className="h-screen">
@@ -34,9 +41,9 @@ const Sidebar = ({ selected }) => {
                 className="flex justify-evenly mt-2 items-center px-4"
               >
                 {navs[key]}
-                <div className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
+                <a href={links[key]} className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
                   {key}
-                </div>
+                </a>
               </div>
             );
           } else {
@@ -46,9 +53,9 @@ const Sidebar = ({ selected }) => {
                 className="flex justify-start mt-2 items-center ml-2 px-2 "
               >
                 {navs[key]}
-                <div className=" text-white text-base font-bold ml-5">
+                <a href={links[key]} className=" text-white text-base font-bold ml-5">
                   {key}
-                </div>
+                </a>
               </div>
             );
           }
