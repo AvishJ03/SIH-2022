@@ -30,7 +30,7 @@ const Sidebar = ({ selected }) => {
         <div className="flex px-2">
           <div className="bg-[#FFFFFF] w-10 h-10 rounded-full"></div>
           <div className="text-white text-base font-bold ml-3 mt-2 text-center">
-            Sitename
+            HireIt
           </div>
         </div>
         {Object.keys(navs).map((key, index) => {
