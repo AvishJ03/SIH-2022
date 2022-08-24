@@ -100,11 +100,11 @@ companySchema.methods.toJSON = function() {
 companySchema.statics.findByCredentials = async (email, password) => {
     const company = await Company.findOne({ email });
     if(!company) {
-        next();
+        return null;
     }
     const isMatch = await bcrypt.compare(password, company.password);
     if(!isMatch) {
-        next();
+        return null;
     }
     return company;
 }

@@ -20,19 +20,25 @@ const Login = () => {
     try {
       const response = await axios.post(`${url}/login`, { email, password });
       console.log(response.data);
-      if(!response.data.companyUser) {
+      if(response.data.studentUser) {
         localStorage.setItem("token", response.data.studentToken);
-      } else {
+        localStorage.setItem("userType", "student");
+      } else if(response.data.companyUser) {
         localStorage.setItem("token", response.data.companyToken);
+        localStorage.setItem("userType", "company");
+      } else {
+        localStorage.setItem("token", null);
+        localStorage.setItem("userType", null);
       }
-      console.log(localStorage.getItem("user"));
+      console.log(localStorage.getItem("userType"));
       console.log(localStorage.getItem("token"));
       setEmail("");
       setPassword("");
+      alert("Successfully Logged in.");
     } catch(error) {
       setEmail("");
       setPassword("");
-      console.log('Error occured while logging in');
+      alert('Error occured while logging in');
     }
   }
   return (

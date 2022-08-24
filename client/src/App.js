@@ -4,10 +4,8 @@ import SignupCompany from "./pages/Authentication/SignupCompany";
 import StudentSignUp from "./pages/Authentication/StudentSignUp";
 import Dashboard from "./pages/Student/Dashboard.js";
 import JobDetails from "./pages/Student/JobDetails.js";
-import Sidebar from "./components/Sidebar.js";
 import SearchJob from "./pages/Student/SearchJob";
 import Edit from "./pages/Student/Edit.js";
-import SideBarCompany from "./components/SideBarCompany.js";
 import CompanyInformation from "./pages/Company/CompanyInformation";
 import ApplicationStud from "./pages/Student/ApplicationStud";
 import ApplicationCompany from "./pages/Company/ApplicationCompany";
@@ -18,9 +16,7 @@ import CompanyPostVacancy from "./pages/Company/CompanyPostVacancy";
 import Skills from "./pages/Student/Skills";
 import WorkSamples from "./pages/Student/WorkSamples";
 import Home from "./pages/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (

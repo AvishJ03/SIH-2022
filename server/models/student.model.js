@@ -182,11 +182,11 @@ studentSchema.methods.toJSON = function() {
 studentSchema.statics.findByCredentials = async (email, password) => {
     const student = await Student.findOne({ email });
     if(!student) {
-        next();
+        return null;
     }
     const isMatch = await bcrypt.compare(password, student.password);
     if(!isMatch) {
-        next();
+        return null;
     }
     return student;
 }
