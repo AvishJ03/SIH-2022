@@ -23,22 +23,22 @@ router.post('/students', async (req, res) => {
     }
 });
 
-/*
-    request body
-    {
-    "email": "parshva@gmail.com",
-    "password": "parshva123"
-    }
-*/
-router.post('/students/login', async (req, res) => {
-    try {
-        const student = await Student.findByCredentials(req.body.email, req.body.password);
-        const token = await student.generateAuthToken();
-        res.status(200).send({ studentUser: student, studentToken: token });
-    } catch(error) {
-        res.status(400).send(error);
-    }
-});
+// /*
+//     request body
+//     {
+//     "email": "parshva@gmail.com",
+//     "password": "parshva123"
+//     }
+// */
+// router.post('/students/login', async (req, res) => {
+//     try {
+//         const student = await Student.findByCredentials(req.body.email, req.body.password);
+//         const token = await student.generateAuthToken();
+//         res.status(200).send({ studentUser: student, studentToken: token });
+//     } catch(error) {
+//         res.status(400).send(error);
+//     }
+// });
 
 router.get('/students/self', auth, async (req, res) => {
     res.status(200).send(req.studentUser);
