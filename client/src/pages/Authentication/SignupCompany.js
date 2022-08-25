@@ -1,10 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-const SignupCompany = () => {
 
+const SignupCompany = () => {
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
+  const [ name, setName ] = useState("");
+  const [ contactNo, setContactNo ] = useState(0);
+  const [ typeOfCompany, setTypeOfCompany ] = useState('PF');
 
   const url = 'http://localhost:5000';
 
@@ -16,33 +18,40 @@ const SignupCompany = () => {
     setPassword(e.target.value);
   }
 
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  }
+
+  const handleContactChange = (e) => {
+    setContactNo(e.target.value);
+  }
+
+  const handleCompanyChange = (e) => {
+    setTypeOfCompany(e.target.value);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${url}/login`, { email, password });
+      const response = await axios.post(`${url}/company`, { email, password, contactNo, name, typeOfCompany });
       console.log(response.data);
-      if(response.data.studentUser) {
-        localStorage.setItem("token", response.data.studentToken);
-        localStorage.setItem("userType", "student");
-      } else if(response.data.companyUser) {
-        localStorage.setItem("token", response.data.companyToken);
-        localStorage.setItem("userType", "company");
-      } else {
-        localStorage.setItem("token", null);
-        localStorage.setItem("userType", null);
-      }
-      console.log(localStorage.getItem("userType"));
-      console.log(localStorage.getItem("token"));
+      localStorage.setItem("token", response.data.companyToken);
+      localStorage.setItem("userType", "company");
       setEmail("");
       setPassword("");
+      setName("");
+      setTypeOfCompany("PF");
+      setContactNo(0);
       alert("Successfully Logged in.");
     } catch(error) {
       setEmail("");
       setPassword("");
+      setName("");
+      setTypeOfCompany("PF");
+      setContactNo(0);
       alert('Error occured while logging in');
     }
   }
-
   return (
     <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main">
       <div className="w-1/2 h-11/12 text-center">
@@ -79,14 +88,24 @@ const SignupCompany = () => {
                   type="text"
                   placeholder="Name"
                   name="name"
+                  onChange={handleNameChange}
                 />
               </div>
               <div className="w-1/2 ml-2">
-                <label className="text-left text-black">Last Name</label>
+                <label className="text-left text-black">Company Type</label>
                 <select
                   className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
-                  name="typeOfCompany"
-                />
+                  name="typeOfCompany" onChange={handleCompanyChange}
+                >
+                  <option value="PbLc">Public Limited</option>
+                  <option value="PrLc">Privated Limited</option>
+                  <option value="JVC">Joint Venture</option>
+                  <option value="PF">Partnership Firm</option>
+                  <option value="OPC">One Person Company</option>
+                  <option value="SP">Sole Proprietory</option>
+                  <option value="BO">Branch Office</option>
+                  <option value="NGO">NGO</option>
+                </select>
               </div>
             </div>
           </div>
@@ -97,6 +116,7 @@ const SignupCompany = () => {
               type="number"
               placeholder=""
               name="contactNo"
+              onChange={handleContactChange}
             />
           </div>
           <button className="bg-purple w-2/5 self-center py-2 rounded-xl font-semibold" onClick={handleSubmit}>

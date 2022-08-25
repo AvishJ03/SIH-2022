@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
 const jobSchema = new mongoose.Schema({
+    type: {
+        type: String,
+        enum: [ 'Job', 'Internship' ],
+        required: true
+    },
     noOfPos: {
         type: Number,
         trim: true,
