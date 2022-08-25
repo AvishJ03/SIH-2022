@@ -10,11 +10,11 @@ const SearchJob = () => {
       <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
         <Header heading="Job Details" user="Oda Dink" />
         <div className="flex justify-between">
-          <div className="text-sm font-semibold mt-4">
+          <div className="text-sm font-semibold mt-2">
             Showing numbers from numbers
           </div>
           
-          <input type="radio" className="w-4 h-4 mt-5 border border-[#808080] bg-white" />
+          {/* <input type="radio" className="w-4 h-4 mt-5 border border-[#808080] bg-white" />
           <div className="text-sm font-semibold mt-4 text-[#808080]">
             Fulltime
           </div>
@@ -36,7 +36,7 @@ const SearchJob = () => {
           </div>
           <button className="bg-white w-20 h-6 mt-3 rounded-2xl justify-end border border-purple hover:bg-[#d0b5f5]">
             <div className="text-purple font-sm text-center">Newest</div>
-          </button>
+          </button> */}
         </div>
         <div className="text-xs text-[#808080]"> Based on the Preferences</div>
 

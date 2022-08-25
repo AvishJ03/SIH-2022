@@ -82,11 +82,11 @@ const Login = () => {
           <div className="flex self-center font-medium text-[#313638]">
             <p>New User?</p>&nbsp;
             <p>Register</p>&nbsp; (
-            <a className="text-secondary underline hover:text-purple" href="/">
+            <a className="text-secondary underline hover:text-purple" href="/studentsignup">
               Student
             </a>
             /
-            <a className="text-secondary underline hover:text-purple" href="/">
+            <a className="text-secondary underline hover:text-purple" href="/signupcompany">
               Company
             </a>
             )
