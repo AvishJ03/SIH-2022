@@ -25,53 +25,7 @@ export default function Edit(props) {
                     Save Changes
                   </button>
                 </h3>
-
-                <h4 className="text-black font-semibold text-xl m-2 mx-5">
-                  Generals
-                </h4>
-                <hr />
-                <form className="m-2">
-                  <div className="flex ">
-                    <div className="m-3">
-                      <label>First Name: </label>
-                      <input
-                        type="text"
-                        className="border-[#40189D] bg-[#F2F2F2] p-1"
-                      />
-                    </div>
-                    <div className="m-3 mx-[3.6rem]">
-                      <label>Last Name: </label>
-                      <input
-                        type="text"
-                        className="border-[#40189D] bg-[#F2F2F2] p-1"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <div className="m-3">
-                      <label>Phone Number: </label>
-                      <input
-                        type="number"
-                        className="border-[#40189D] bg-[#F2F2F2] p-1"
-                      />
-                    </div>
-                    <div className="m-3">
-                      <label>Email: </label>
-                      <input
-                        type="email"
-                        className="border-[#40189D] bg-[#F2F2F2] p-1"
-                      />
-                    </div>
-                    <div className="m-3">
-                      <label>Current City: </label>
-                      <input
-                        type="text"
-                        className="border-[#40189D] bg-[#F2F2F2] p-1"
-                      />
-                    </div>
-                  </div>
-                </form>
+                
                 <h4 className="text-black font-semibold text-xl m-2">
                   Education
                 </h4>
@@ -189,7 +143,7 @@ export default function Edit(props) {
                     <span className="text-[#808080]"></span>
                   </p>
                 </div>
-                <div className="flex justify-between m-3">
+                {/* <div className="flex justify-between m-3">
                   <h4 className="text-black font-semibold text-xl m-2">
                     Experience
                   </h4>
@@ -197,9 +151,9 @@ export default function Edit(props) {
                     + Add
                   </a>
                 </div>
-                <hr />
+                <hr /> */}
 
-                <div className="flex justify-between m-3">
+                {/* <div className="flex justify-between m-3">
                   <p>Highspeed Studios</p>
                   <p>Senior Database Programmer</p>
                   <p>2 years</p>
@@ -208,7 +162,7 @@ export default function Edit(props) {
                   <p>Lowspeed Studios</p>
                   <p>Junior Database Programmer</p>
                   <p>1 month</p>
-                </div>
+                </div> */}
               </div>
               <div className="relative h-[0%] w-1/5">
                 <div className="bg-white rounded-[34px]">
