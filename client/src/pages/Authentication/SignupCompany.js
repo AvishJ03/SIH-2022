@@ -56,7 +56,7 @@ const SignupCompany = () => {
           </button>
           <div className="flex self-center font-medium text-black">
             <p>Already Registered?</p>&nbsp;
-            <a className="text-secondary underline hover:text-purple" href="/">
+            <a className="text-secondary underline hover:text-purple" href="/login">
               Sign In
             </a>
           </div>
