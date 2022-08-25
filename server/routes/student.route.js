@@ -18,7 +18,7 @@ router.post('/students', async (req, res) => {
         await student.save();
         const token = await student.generateAuthToken();
         res.status(201).send({ studentUser: student, studentToken: token });
-    } catch(error) {
+    } catch (error) {
         res.status(400).send(error);
     }
 });
@@ -41,15 +41,20 @@ router.post('/students', async (req, res) => {
 // });
 
 router.get('/students/self', auth, async (req, res) => {
-    res.status(200).send(req.studentUser);
+    try { 
+        res.status(200).send(req.studentUser); 
+    } catch (error) {
+        console.log(error.message);
+    }
 });
 
 router.post('/students/logout', auth, async (req, res) => {
     try {
         req.studentUser.tokens = [];
         await req.studentUser.save();
-        res.status(200).send({message: 'Successfully logged out.'});
-    } catch(error) {
+        res.status(200).send({ message: 'Successfully logged out.' });
+    } catch (error) {
+        console.log(error.message);
         res.status(400).send({
             error,
             message: "Something went wrong"
@@ -66,16 +71,12 @@ router.post('/students/logout', auth, async (req, res) => {
 */
 router.patch('/students/self', auth, async (req, res) => {
     const updates = Object.keys(req.body);
-    const validOperations = ['firstName', 'lastName', 'gender', 'email', 'age', 'password', 'mobileNo', 'currentCity'];
-    const isUpdateValid = updates.every((update) => validOperations.includes(update));
-    if(!isUpdateValid) {
-        return res.status(400).send();
-    }
     try {
         updates.forEach((update) => req.studentUser[update] = req.body[update]);
         await req.studentUser.save();
         res.status(200).send(req.studentUser);
-    } catch(error) {
+    } catch (error) {
+        console.log(error.message);
         res.status(400).send({
             error: e,
             message: "Something went wrong"
@@ -87,7 +88,7 @@ router.delete('/students/self', auth, async (req, res) => {
     try {
         await req.studentUser.remove();
         res.status(200).send(req.studentUser);
-    } catch(error) {
+    } catch (error) {
         res.status(400).send({
             error: e,
             message: "Something went wrong"
@@ -99,7 +100,7 @@ router.get('/students/self/applications', auth, async (req, res) => {
     try {
         await req.studentUser.populate('applications');
         res.status(200).send(req.studentUser.applications);
-    } catch(error) {
+    } catch (error) {
         res.status(400).send({
             error: e,
             message: "Something went wrong"
