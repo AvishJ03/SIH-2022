@@ -69,11 +69,11 @@ const Dashboard = (props) => {
           <div className="w-[22.3%] h-full bg-white rounded-3xl flex flex-col justify-evenly items-center">
             {/* profile pic */}
             <div className="w-10 h-10 bg-black rounded-full"></div>
-            <p className="font-bold">{`${student.firstName} ${student.lastName}` ? `${student.firstName} ${student.lastName}` : 'No name entered!'}</p>
-            <p>{student.title ? student.title: 'No student title entered!'}</p>
-            <p>{student.skills ? student.skills : 'No skills entered!'}</p>
-            <p>{student.skills ? student.skills : 'No skills entered!'}</p>
-            <p>{student.skills ? student.skills : 'No skills entered!'}</p>
+            <p className="font-bold">{student && `${student.firstName} ${student.lastName}` ? `${student.firstName} ${student.lastName}` : 'No name entered!'}</p>
+            <p>{student ? student.title: 'No student title entered!'}</p>
+            <p>{student ? student.skills : 'No skills entered!'}</p>
+            <p>{student ? student.skills : 'No skills entered!'}</p>
+            <p>{student ? student.skills : 'No skills entered!'}</p>
           </div>
           <div className="w-[74%] h-full bg-white rounded-3xl">
             <Chart />

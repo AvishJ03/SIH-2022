@@ -34,7 +34,7 @@ const ApplicationCompany = () => {
               <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]" />
               <div className=" text-sm font-semibold mt-4">Student Name</div>
             </div>
-            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1">
+            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1" href="/edit">
               View Profile
             </button>
             {/* <div className="text-sm font-semibold mt-4">FREELANCE</div>
@@ -70,7 +70,7 @@ const ApplicationCompany = () => {
               <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]" />
               <div className=" text-sm font-semibold mt-4">Student Name</div>
             </div>
-            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1">
+            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1" href="/edit">
               View Profile
             </button>
             <div className="flex ml-2 justify-between">
@@ -103,7 +103,7 @@ const ApplicationCompany = () => {
               <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]" />
               <div className=" text-sm font-semibold mt-4">Student Name</div>
             </div>
-            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1">
+            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1" href="/edit">
               View Profile
             </button>
             <div className="flex ml-2 justify-between">
@@ -136,7 +136,7 @@ const ApplicationCompany = () => {
               <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]" />
               <div className=" text-sm font-semibold mt-4">Student Name</div>
             </div>
-            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1">
+            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1" href="/edit">
               View Profile
             </button>
             <div className="flex ml-2 justify-between">
@@ -169,7 +169,7 @@ const ApplicationCompany = () => {
               <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]" />
               <div className=" text-sm font-semibold mt-4">Student Name</div>
             </div>
-            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1">
+            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1" href="/edit">
               View Profile
             </button>
             <div className="flex ml-2 justify-between">
@@ -202,7 +202,7 @@ const ApplicationCompany = () => {
               <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]" />
               <div className=" text-sm font-semibold mt-4">Student Name</div>
             </div>
-            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1">
+            <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1" href="/edit">
               View Profile
             </button>
             <div className="flex ml-2 justify-between">
@@ -230,9 +230,9 @@ const ApplicationCompany = () => {
         &nbsp;
         <div className="flex justify-end">
                 <div className="bg-white w-24 h-10  mx-3 rounded-2xl">
-                    <button className="text-purple font-sm text-center align-middle font-semibold ">
+                    <a href="/edit"><button className="text-purple font-sm text-center align-middle font-semibold " >
                         &lt;&lt;Previous
-                    </button>
+                    </button></a>
                 </div>
                 {/* <div className="bg-[#dfcef7] w-44 h-10  rounded-2xl flex justify-evenly">
                     <div className="text-purple font-sm font-semibold align-middle">Pages</div>

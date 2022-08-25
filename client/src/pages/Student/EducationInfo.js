@@ -1,9 +1,11 @@
 import StudInfoSidebar from "../../components/StudInfoSidebar";
 import { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
 const EducationInfo = () => {
+    const navigate = useNavigate();
     const url = 'http://localhost:5000';
 
     const [gradStatus, setGradStatus] = useState({});
@@ -49,6 +51,7 @@ const EducationInfo = () => {
             console.log(response.data);
             console.log(localStorage.getItem('userType'));
             alert("Details Added");
+            navigate('/skills');
               
         }
         catch (error)

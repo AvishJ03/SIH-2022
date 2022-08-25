@@ -1,6 +1,13 @@
 import StudInfoSidebar from "../../components/StudInfoSidebar";
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Experience = () => {
+    const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+        navigate('/dashboard');
+    }
   return (
     <div className='bg-purple w-full h-fit flex font-ourfont'>
         <StudInfoSidebar selected={`Experience`} />
@@ -32,7 +39,7 @@ const Experience = () => {
                             </div>
                             <div className="flex min-w-full min-h-full mt-[3.75rem] justify-evenly">
                                 <button type="submit" className=" bg-purple rounded-xl text-white p-3 px-7">Back</button>
-                                <button type="submit" className=" bg-purple rounded-xl text-white p-3 px-7">Done</button>
+                                <button type="submit" className=" bg-purple rounded-xl text-white p-3 px-7" onClick={handleSubmit}>Done</button>
                             </div>
                         </form>
                     </div>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import StudInfoSidebar from "../../components/StudInfoSidebar";
-import axios from "axios"
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Skills=() =>{
+    const navigate = useNavigate();
     const [ skillsStudent, setSkillsStudent ] = useState("");
     const [ performScale, setPerformScale ] = useState("");
 
@@ -21,10 +23,22 @@ const Skills=() =>{
         try {
             const response = await axios.patch(`${url}/students/self`, {  }, {
                 headers: {
-                    'Authentication': `Bearer ${localStorage.getItem('token')}`
+                    'Authentication': `Bearer ${localStorage.getItem('token')}`,
+                    "Content-type": "application/json",
                 }
+
             });
-        } catch(error) {}
+
+            console.log(response.data);
+            console.log(localStorage.getItem('userType'));
+
+            alert("Succesful");
+            navigate('/worksamples');
+
+        } catch(error) {
+            alert("Error");
+
+        }
     }
 
     return(
@@ -63,7 +77,7 @@ const Skills=() =>{
                         </div>
     
                         <div className="flex flex-row-reverse min-w-full min-h-full mt-[3.75rem] justify-evenly">
-                        <button type="submit" className="bg-purple rounded-xl text-white p-3 px-11">Next</button>
+                        <button type="submit" className="bg-purple rounded-xl text-white p-3 px-11" onClick={handleSubmit}>Next</button>
                         <button type="submit" className=" bg-purple rounded-xl text-white p-3 px-7">Previous</button>
                         </div>
                     </form>

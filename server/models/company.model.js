@@ -42,7 +42,7 @@ const companySchema = new mongoose.Schema({
     typeOfCompany: {
         type: String,
         trim: true,
-        enum: [ 'PbLC', 'PrLC', 'JVC', 'PF', 'OPC', 'SP', 'BO', 'NGO' ]
+        enum: [ 'PbLC', 'PrLc', 'JVC', 'PF', 'OPC', 'SP', 'BO', 'NGO' ]
     },
     website: {
         type: String,

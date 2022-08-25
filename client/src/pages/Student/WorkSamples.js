@@ -1,9 +1,13 @@
 import React, { useState} from 'react';
 import StudInfoSidebar from "../../components/StudInfoSidebar";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const WorkSamples=() =>{
-    const [ blogLink, setBlogLink ] = useState("");
+
+  const navigate = useNavigate();
+
+  const [ blogLink, setBlogLink ] = useState("");
   const [ githubLink, setGithubLink ] = useState("");
   const [ playstoreLink, setPlaystoreLink ] = useState("");
   const [ behanceLink, setBehanceLink ] = useState("");
@@ -61,6 +65,7 @@ const WorkSamples=() =>{
       setBehanceLink("");
       setOtherPortfolioLink("");
       alert("Successfully added the Work Samples.");
+      navigate('/experience');
     } catch(error) {
         setBlogLink("");
         setGithubLink("");
