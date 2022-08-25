@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import SideBarCompany from "../../components/SideBarCompany";
 import { BsFillCalendarFill } from "react-icons/bs";
@@ -6,8 +6,57 @@ import { FaSuitcase, FaUser } from "react-icons/fa";
 import DashboardCards from "../../components/DashboardCards";
 import CompanyLogo from "../../assets/CompanyLogo.jpg";
 import BackgroundImg from "../../assets/BackgroundImg.jpg";
+import axios from 'axios';
 
 const CompanyDashboard = () => {
+  const [company, setCompany] = useState({});
+
+  const url = 'http://localhost:5000';
+
+  useEffect(() => {
+    // const getAllCompDashboard = async () => {
+    //   axios.get(`${url}/company/self`, {
+    //     headers: {
+    //       'Authorization': `Bearer ${localStorage.getItem('token')}`
+    //     }
+    //   })} // company?
+    //   .then((response) => {
+    //     const allCompDashboard = response.data.company.getCompDashboard;
+    //     getCompDashboard(allCompDashboard);
+    //   })
+    //   .catch(error => console.log(`Error: ${error}`));
+    // }
+    // const response = await getAllCompDashboard();
+    // console.log(response.data);
+    const getData = async () => {
+      try {
+        const response = await axios.get(`${url}/company/self`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        return response.data;
+      } catch(error) {
+        return null;
+      }
+    }
+    getData().then((user) => {
+      console.log(user);
+      setCompany(user);
+    })
+    console.log(company);
+  }, []);
+
+  console.log(company.contactNo);
+  console.log(company.email);
+  console.log(company.name);
+  console.log(company.noOfEmp);
+  console.log(company.location);
+  console.log(company.typeOfCompany);
+  console.log(company.website);
+  console.log(company.logo);
+  console.log(company.companyInfo);
+
   return (
     <div>
       <div className="bg-[#40189D] w-full min-h-screen h-full flex font-ourfont">
@@ -51,31 +100,31 @@ const CompanyDashboard = () => {
                   alt="Company Logo"
                 />
                 <h5 className="pt-10 text-center font-[Raleway] text-[18px]">
-                  Highspeed Studios
+                {company.name ? company.name : 'Company Name not found!.'}
                 </h5>
 
                 <div className="justify-items-center">
                   <div className="flex justify-left pl-4 pb-2 pt-8">
                     <i className="fa-solid fa-users pt-2" />
                     <div className="pl-4 pr-6">
-                      <h2 className="font-bold">80-100</h2>
+                      <h2 className="font-bold">{company.noOfEmp ? company.noOfEmp : 'No. of employees not found!'}</h2>
                       <h6 className="text-[#808080] text-[12px] font-medium">
                         Employees
                       </h6>
                     </div>
-                    <i className="fa-solid fa-star pt-2" />
-                    <div className="pl-4 pr-4">
+                    {/* <i className="fa-solid fa-star pt-2" /> */}
+                    {/* <div className="pl-4 pr-4">
                       <h2 className="font-bold">4.5</h2>
                       <h6 className="text-[#808080] text-[12px] font-medium">
                         Reviews
                       </h6>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="flex pl-4 justify-left pb-10">
                   <i className="fa-solid fa-location-dot pt-2"></i>
                   <div className="pl-4">
-                    <h2 className="font-bold">Coimbatore, India</h2>
+                    <h2 className="font-bold">{company.location ? company.location : 'Location not found!'}</h2>
                     <h6 className="text-[#808080] text-[12px] font-medium ml-1">
                       Location
                     </h6>
@@ -93,22 +142,22 @@ const CompanyDashboard = () => {
                       <h1 className=" font-[Raleway] text-[15px]">
                         Phone Number
                       </h1>
-                      <p>7646553256</p>
+                      <p>{company.contactNo ? company.contactNo : 'Contact Details not found!'}</p>
                     </div>
                     <div className="justify-items-start">
                       <h1 className=" font-[Raleway] text-[15px]">Type</h1>
-                      <p>Lorem ipsum dolor sit amet.</p>
+                      <p>{company.typeOfCompany ? company.typeOfCompany : 'Type of company not found!'}</p>
                     </div>
                   </div>
                   <div className="flex mt-[5%] whitespace-nowrap ">
                     <div className="justify-items-start mr-60">
                       <h1 className=" font-[Raleway] text-[15px]">Email ID</h1>
-                      <p>abc@gmail.com</p>
+                      <p>{company.email}</p>
                     </div>
                     <div className="justify-items-start">
                       <h1 className=" font-[Raleway] text-[15px]">Website</h1>
                       <a href="www.abc.com" target={"_blank"}>
-                        www.abc.com
+                      {company.website ? company.website : 'Company Website not found!'}
                       </a>
                     </div>
                   </div>
@@ -118,10 +167,7 @@ const CompanyDashboard = () => {
                         Description
                       </h1>
                       <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Minus commodi, nemo animi corporis ab recusandae
-                        corrupti optio dolorum quod, aliquid fugit vel, culpa
-                        velit? Necessitatibus?
+                        {company.companyInfo ? company.companyInfo : 'Description of company not found!'}
                       </p>
                     </div>
                   </div>
