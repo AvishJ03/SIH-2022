@@ -16,10 +16,10 @@ const Card = ({ id }) => {
         return null;
       }
     }
-    const getCompany = async (id) => {
+    const getCompany = async (jid) => {
       try {
         const response = await axios.get(`${url}/company`, {
-          id: id,
+          id: jid,
         });
         return response.data[0]
       } catch (error) {
