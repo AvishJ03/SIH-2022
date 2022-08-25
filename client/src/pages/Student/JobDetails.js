@@ -21,14 +21,14 @@ export default function JobDetails(props) {
             </p>
             <div className="flex">
               {/* Company Card */}
-              <div className="bg-white rounded-[34px] relative mr-10 h-[0%]">
+              <div className="bg-white w-full rounded-[34px] relative mr-10 h-[0%]">
                 <img
-                  className="rounded-tl-[34px] rounded-tr-[34px] h-[200px]"
+                  className="rounded-tl-[34px] rounded-tr-[34px] w-full"
                   src={BackgroundImg}
                   alt="Background"
                 />
                 <img
-                  className="rounded-[10px] top-[30%] left-[27.5%] absolute w-[100px] h-[100px]"
+                  className="rounded-[10px] top-[35%] left-[31%] absolute w-[100px] h-[100px]"
                   src={CompanyLogo}
                   alt="Company Logo"
                 />
@@ -42,16 +42,9 @@ export default function JobDetails(props) {
                   <div className="flex justify-left pl-4 pb-2 pt-8">
                     <i className="fa-solid fa-users pt-2" />
                     <div className="pl-4 pr-6">
-                      <h2 className="font-bold">{props.employees}</h2>
+                      <h2 className="font-bold">80 - 100</h2>
                       <h6 className="text-[#808080] text-[12px] font-medium">
                         Employees
-                      </h6>
-                    </div>
-                    <i className="fa-solid fa-star pt-2" />
-                    <div className="pl-4 pr-4">
-                      <h2 className="font-bold">{props.review}</h2>
-                      <h6 className="text-[#808080] text-[12px] font-medium">
-                        Reviews
                       </h6>
                     </div>
                   </div>
@@ -74,7 +67,7 @@ export default function JobDetails(props) {
                     <button className="bg-[#40189D] hover:bg-[#6440b7] text-white font-bold py-2 px-4 rounded-full h-0% text-center text-[15px]">
                       Apply Now
                     </button>
-                    <i className="fa-solid fa-user pl-4 pt-4"></i>
+                    {/* <i className="fa-solid fa-user pl-4 pt-4"></i> */}
                   </div>
                 </div>
                 <div className="flex text-[12px] font-semibold">
@@ -90,9 +83,9 @@ export default function JobDetails(props) {
                     ></i>
                     <div className="">
                       <h6 className="text-[#808080] text-[12px] font-medium">
-                        Work Level
+                        Location
                       </h6>
-                      <h2 className="font-bold">Senior</h2>
+                      <h2 className="font-bold">Remote</h2>
                     </div>
                   </div>
                   <div className="flex">
