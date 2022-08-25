@@ -10,9 +10,13 @@ const EducationInfo = () => {
 
     const [gradStatus, setGradStatus] = useState({});
     const [score, setScore] = useState({});
-    const [degree, setDegree] = useState({});
+    const [hscmarks, setHscMarks] = useState({});
+    const [sscmarks, setSscMarks] = useState({});
+    const [degree, setDegree] =useState({});
     const [stream, setStream] = useState({});
     const [college, setCollege] = useState({});
+    const [hscschool, setHscSchool] = useState({});
+    const [sscschool, setSscSchool] = useState({});
     const [startYear, setStartYear] = useState({});
     const [endYear, setEndYear] = useState({});
 
@@ -34,6 +38,18 @@ const EducationInfo = () => {
     const handleEndChange = (e) => {
         setEndYear(e.target.value);
     };
+    const handleHscMarks = (e) => {
+        setHscMarks(e.target.value);
+    };
+    const handleHscSchool = (e) => {
+        setHscSchool(e.target.value);
+    };
+    const handleSscMarks = (e) => {
+        setSscMarks(e.target.value);
+    };
+    const handleSscSchool = (e) => {
+        setSscSchool(e.target.value);
+    };
     const handleCollege = (e) => {
         setCollege(e.target.value);
     };
@@ -49,9 +65,18 @@ const EducationInfo = () => {
                 college:college,
 
             }
-
+            const hsc ={
+                score:hscmarks,
+                college:hscschool,
+            }
+            const ssc={
+                score:sscmarks,
+                college:sscschool,
+            }
             const data = {
                 graduation: grad,
+                hsc:hsc,
+                ssc:ssc,
                 degree: degree,
                 stream: stream,
             };
@@ -138,25 +163,25 @@ const EducationInfo = () => {
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">XII (Senior Secondary) / Diploma Percentage*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='graduation' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='hscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleHscMarks} />
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">Higher Seconday College Name*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='graduation' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1"onChange={handleHscSchool} />
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">X (Secondary) Percentage*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='graduation' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='sscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleSscMarks}/>
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">School Name*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='graduation' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='sscschool' className="rounded-xl border border-purple w-96 p-1" onChange={handleSscSchool} />
                                 </div>
                             </div>
                             <div className="flex flex-row-reverse min-w-full min-h-full mt-7">
