@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StudInfoSidebar from "../../components/StudInfoSidebar";
+import axios from "axios"
 
 const Skills=() =>{
     const [ skillsStudent, setSkillsStudent ] = useState("");
@@ -9,11 +10,11 @@ const Skills=() =>{
   const url = 'http://localhost:5000';
 
   const handleSkills = (e) => {
-    setSkills(e.target.value);
+    setSkillsStudent(e.target.value);
   }
 
   const handleperformScale = (e) => {
-    setScale(e.target.value);
+    setPerformScale(e.target.value);
   }
 
 //   const handleNext = (e) => {
@@ -65,7 +66,7 @@ const Skills=() =>{
                         <div className="flex flex-col min-w-full min-h-full mb-7">
                             <label className="mb-2 font-medium">What Skills Do you have?</label>
                             <div className="flex flex-row flex-wrap justify-between">
-                                <input type='text' name='graduation' className="rounded-xl border border-purple w-96" onChange={handleSkills} value={graduation}/>
+                                <input type='text' name='graduation' className="rounded-xl border border-purple w-96" onChange={handleSkills}/>
                             </div>
                         </div>
                         <div className="flex flex-col min-w-full min-h-full mb-7">
@@ -102,40 +103,3 @@ const Skills=() =>{
     )
 }
 export default Skills;
-
-/*
-const graduationSchema = new mongoose.Schema({
-    score: {
-        type: Number
-    },
-    college: {
-        type: String
-    },
-    startYear: {
-        type: Number,
-        minlength: 0,
-        maxlength: 4
-    },
-    endYear: {
-        type: Number,
-        minlength: 0,
-        maxlength: 4
-    },
-    gradStatus: {
-        type: String,
-        enum: ['Pursuing', 'Completed']
-    },
-    engMarks: Number,
-    mathMarks: Number,
-    scienceMarks: Number
-});
-
-const linkSchema = new mongoose.Schema({
-    type: String,
-    trim: true,
-    validate(value) {
-        if(!validator.isURL(value)) {
-            throw new Error('Invalid website URL.');
-        }
-    }
-}); */
