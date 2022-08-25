@@ -8,6 +8,8 @@ const EducationInfo = () => {
 
     const [gradStatus, setGradStatus] = useState({});
     const [score, setScore] = useState({});
+    const [degree, setDegree] = useState({});
+    const [stream, setStream] = useState({});
     const [startYear, setStartYear] = useState({});
     const [endYear, setEndYear] = useState({});
 
@@ -18,6 +20,14 @@ const EducationInfo = () => {
     const handleScoreChange = (e) =>
     {
         setScore(e.target.value);
+    };
+    const handleDegree = (e) =>
+    {
+        setDegree(e.target.value);
+    };
+    const handleStream = (e) =>
+    {
+        setStream(e.target.value);
     };
     const handleStartChange = (e) =>
     {
@@ -36,8 +46,11 @@ const EducationInfo = () => {
             const data={
                 gradStatus: gradStatus,
                 score: score,
+                degree:degree,
+                stream:stream,
                 startYear: startYear,
                 endYear: endYear,
+                
             };
             const response = await axios.patch(`${url}/students/self`, data, {
                 headers: {
@@ -90,6 +103,16 @@ const EducationInfo = () => {
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-4">
                                 <div className="flex flex-row flex-wrap">
+                                    <label className="mb-4 font-semibold">Degree*:<br/>
+                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" onChange={handleDegree} />
+                                    </label>&nbsp;&nbsp;
+                                    <label className="mb-4 font-semibold ml-24">Stream*:<br/>
+                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" onChange={handleStream} />
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="flex flex-col min-w-full min-h-full mb-4">
+                                <div className="flex flex-row flex-wrap">
                                     <label className="mb-4 font-semibold">Start Year*:<br/>
                                     <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" onChange={handleStartChange}/>
                                     </label>&nbsp;&nbsp;
@@ -98,16 +121,7 @@ const EducationInfo = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div className="flex flex-col min-w-full min-h-full mb-4">
-                                <div className="flex flex-row flex-wrap">
-                                    <label className="mb-4 font-semibold">Degree*:<br/>
-                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
-                                    </label>&nbsp;&nbsp;
-                                    <label className="mb-4 font-semibold ml-24">Stream*:<br/>
-                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
-                                    </label>
-                                </div>
-                            </div>
+                            
                             {/* <div className="flex flex-col min-w-full min-h-full mb-4">
                                 <div className="flex flex-row flex-wrap">
                                     <label className="mb-4 font-semibold">Performance Scale:<br/>
