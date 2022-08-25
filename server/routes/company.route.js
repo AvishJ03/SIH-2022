@@ -20,6 +20,7 @@ router.post('/company', async (req, res) => {
         res.status(201).send({ companyUser: company, companyToken: token });
     } catch(error) {
         res.status(400).send(error);
+        console.log(error.message);
     }
 });
 
@@ -82,7 +83,9 @@ router.patch('/company/self', auth, async (req, res) => {
         res.status(400).send({
             error: e,
             message: "Something went wrong"
+        
         });
+        // console.log(error.message);
     }
 });
 

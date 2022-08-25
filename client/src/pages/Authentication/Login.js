@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
 
@@ -34,6 +36,14 @@ const Login = () => {
       setEmail("");
       setPassword("");
       alert("Successfully Logged in.");
+      if(response.data.studentUser)
+      {
+        navigate('/dashboard');
+      }
+      else{
+        navigate('/companydashboard')
+
+      }
     } catch(error) {
       setEmail("");
       setPassword("");

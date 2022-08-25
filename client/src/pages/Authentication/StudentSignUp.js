@@ -2,7 +2,10 @@ import React from "react";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
+import {useNavigate} from "react-router";
 const StudentSignUp = () => {
+
+  let navigate=useNavigate();
 
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
@@ -43,6 +46,7 @@ const StudentSignUp = () => {
       setFirstName("");
       setLastName("");
       alert("Registered");
+      navigate('/studentprofile');
     } catch(error) {
       setEmail("");
       setPassword("");
