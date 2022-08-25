@@ -11,7 +11,7 @@ import { IoExtensionPuzzleSharp } from "react-icons/io5";
 const SideBarCompany = ({ selected }) => {
   const navs = {
     Dashboard: <AiFillHome size="20" style={{ color: "white" }} />,
-    Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
+    // Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
     "Post Vacancy": <MdPostAdd size="20" style={{ color: "white" }} />,
     Applications: (
       <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
@@ -19,7 +19,8 @@ const SideBarCompany = ({ selected }) => {
     Message: <AiFillMessage size="20" style={{ color: "white" }} />,
   };
   const links = {
-    Profile: "/companydashboard",
+    // Profile: "/companydashboard",
+    "Post Vacancy": "/companypostvacancy",
     Applications: "/applicationcompany",
     Message: "",
   };
@@ -40,7 +41,7 @@ const SideBarCompany = ({ selected }) => {
                 className="flex justify-evenly mt-2 items-center px-4"
               >
                 {navs[key]}
-                <a href={links[key]} className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
+                <a href={links[key]} className="bg-[#F2F2F2] h-[100%] w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
                   {key}
                 </a>
               </div>
