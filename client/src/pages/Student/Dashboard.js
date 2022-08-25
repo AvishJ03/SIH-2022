@@ -54,8 +54,8 @@ const Dashboard = (props) => {
     getJobs().then((id) => {
       console.log(id);
       setJobs(id);
+      console.log(id);
     }).catch(() => setJobs([]))
-    console.log(id);
   });
 
   return (

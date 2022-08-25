@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Card = ({ id }) => {
   const [jobs, setJobs] = useState({});
@@ -15,7 +16,7 @@ const Card = ({ id }) => {
         return null;
       }
     }
-    const job = await getJob()
+    getJob()
   }, []);
   return (
     <div>
