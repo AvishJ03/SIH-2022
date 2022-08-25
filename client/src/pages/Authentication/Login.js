@@ -60,6 +60,7 @@ const Login = () => {
               placeholder="abc@xyz.com"
               id="email"
               name="email"
+              value={email}
               onChange={handleEmailChange}
             />
           </div>
@@ -71,6 +72,7 @@ const Login = () => {
               placeholder="********"
               name="password"
               id="password"
+              value={password}
               onChange={handlePasswordChange}
             />
           </div>
