@@ -7,8 +7,56 @@ const EducationInfo = () => {
     const url = 'http://localhost:5000';
 
     const [gradStatus, setGradStatus] = useState({});
-    const [graduation, setGraduation] = useState({});
-    // const [graduation, setGraduation] = useState({});
+    const [score, setScore] = useState({});
+    const [startYear, setStartYear] = useState({});
+    const [endYear, setEndYear] = useState({});
+
+    const handleGradChange = (e) =>
+    {
+        setGradStatus(e.target.value);
+    };
+    const handleScoreChange = (e) =>
+    {
+        setScore(e.target.value);
+    };
+    const handleStartChange = (e) =>
+    {
+        setStartYear(e.target.value);
+    };
+    const handleEndChange = (e) =>
+    {
+        setEndYear(e.target.value);
+    };
+
+    const handleSubmit = async (e) =>
+    {
+        e.preventDefault();
+        try{
+        
+            const data={
+                gradStatus: gradStatus,
+                score: score,
+                startYear: startYear,
+                endYear: endYear,
+            };
+            const response = await axios.patch(`${url}/students/self`, data, {
+                headers: {
+                  "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                  "Content-type": "application/json",
+                },
+              });
+            console.log(data);
+            console.log(response.data);
+            console.log(localStorage.getItem('userType'));
+            alert("Details Added");
+              
+        }
+        catch (error)
+        {
+            alert("Error Occured");
+        }
+    }
+
   return (
     <div className='bg-purple w-full h-fit flex font-ourfont'>
         <StudInfoSidebar selected={`Educational`} />
@@ -21,9 +69,9 @@ const EducationInfo = () => {
                                 <label className="font-semibold text-lg">Graduation Status* :</label>
                                 <div className="justify-around">
                                     <div className="flex flex-row flex-wrap">
-                                        <input type="radio" id = "radio1" name = "radio" value="radio"/>
+                                        <input type="radio" id = "radio1" name = "radio" value="Pursuing" onChange={handleGradChange}/>
                                         <label className="font-normal ml-2">Pursuing</label> &nbsp;&nbsp;
-                                        <input type="radio" id = "radio2" name = "radio" value="radio"/>
+                                        <input type="radio" id = "radio2" name = "radio" value="Completed" onChange={handleGradChange}/>
                                         <label className="font-normal ml-2">Completed</label>
                                     </div>
                                 </div>
@@ -31,7 +79,7 @@ const EducationInfo = () => {
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">Graduation (CGPA / Marks)*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='graduation' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='graduation' className="rounded-xl border border-purple w-96 p-1" onChange={handleScoreChange}/>
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
@@ -43,10 +91,10 @@ const EducationInfo = () => {
                             <div className="flex flex-col min-w-full min-h-full mb-4">
                                 <div className="flex flex-row flex-wrap">
                                     <label className="mb-4 font-semibold">Start Year*:<br/>
-                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
+                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" onChange={handleStartChange}/>
                                     </label>&nbsp;&nbsp;
                                     <label className="mb-4 font-semibold ml-24">End Year*:<br/>
-                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
+                                    <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" onChange={handleEndChange}/>
                                     </label>
                                 </div>
                             </div>
@@ -95,7 +143,7 @@ const EducationInfo = () => {
                                 </div>
                             </div>
                             <div className="flex flex-row-reverse min-w-full min-h-full mt-7">
-                                <button type="submit" className="flex-reverse align bg-purple rounded-xl text-white p-2 px-10">Add</button>
+                                <button type="submit" className="flex-reverse align bg-purple rounded-xl text-white p-2 px-10" onClick={handleSubmit}>Add</button>
                             </div>
                         </form>
                     </div>
