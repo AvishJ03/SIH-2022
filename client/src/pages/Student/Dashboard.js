@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import { GrMail } from "react-icons/gr";
 import { BsFillCalendarFill } from "react-icons/bs";
@@ -7,8 +7,33 @@ import DashboardCards from "../../components/DashboardCards";
 import Header from "../../components/Header";
 import Chart from "../../components/Chart";
 import Card from "../../components/Card";
+import axios from "axios";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const [student, setStudent] = useState({});
+
+  const url = 'http://localhost:5000';
+
+  useEffect(() => {
+    const getDashboard = async () => {
+      try {
+        const response = await axios.get(`${url}/students/self`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        return response.data;
+      } catch(error) {
+        return null;
+      }
+    }
+    getDashboard().then((user) => {
+      console.log(user);
+      setStudent(user);
+    }).catch(() => setStudent([]))
+    console.log(student);
+  });
+
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
       <Sidebar selected="Dashboard" />
@@ -17,13 +42,13 @@ const Dashboard = () => {
         <div className="h-1/5 my-2 flex justify-between gap-10">
           <DashboardCards
             bg="#4E36E2"
-            title="Interviews Scheduled"
+            title="Applications Sent"
             value="78"
             icon={<BsFillCalendarFill size="20" style={{ color: "white" }} />}
           />
           <DashboardCards
             bg="#49A8F8"
-            title="Applications Sent"
+            title="Recommended Jobs"
             value="110"
             icon={<FaSuitcase size="20" style={{ color: "white" }} />}
           />
@@ -44,11 +69,11 @@ const Dashboard = () => {
           <div className="w-[22.3%] h-full bg-white rounded-3xl flex flex-col justify-evenly items-center">
             {/* profile pic */}
             <div className="w-10 h-10 bg-black rounded-full"></div>
-            <p className="font-bold">Oda Dink</p>
-            <p>Programmer</p>
-            <p>Skill - 1 : 9/10</p>
-            <p>Skill - 2 : 9/10</p>
-            <p>Skill - 3 : 9/10</p>
+            <p className="font-bold">{`${student.firstName} ${student.lastName}` ? `${student.firstName} ${student.lastName}` : 'No name entered!'}</p>
+            <p>{student.title ? student.title: 'No student title entered!'}</p>
+            <p>{student.skills ? student.skills : 'No skills entered!'}</p>
+            <p>{student.skills ? student.skills : 'No skills entered!'}</p>
+            <p>{student.skills ? student.skills : 'No skills entered!'}</p>
           </div>
           <div className="w-[74%] h-full bg-white rounded-3xl">
             <Chart />
