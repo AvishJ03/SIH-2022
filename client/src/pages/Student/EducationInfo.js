@@ -1,12 +1,20 @@
 import StudInfoSidebar from "../../components/StudInfoSidebar";
+import { useState } from "react";
+import axios from 'axios';
+
 
 const EducationInfo = () => {
+    const url = 'http://localhost:5000';
+
+    const [gradStatus, setGradStatus] = useState({});
+    const [graduation, setGraduation] = useState({});
+    // const [graduation, setGraduation] = useState({});
   return (
     <div className='bg-purple w-full h-fit flex font-ourfont'>
         <StudInfoSidebar selected={`Educational`} />
             <div className="container bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl flex flex-wrap justify-center items-center">
                 <div className="flex flex-col w-1/2 h1/2 py-8">
-                <div className="text-center text-4xl font-bold pb-4 mb-7">Graduation Details</div>
+                <div className="text-center text-4xl font-bold pb-4 mb-7">Education Details</div>
                     <div className="container rounded-2xl bg-lightPurple min-w-full min-h-full p-10 shadow-main-sd">
                         <form>
                             <div className="flex flex-col min-w-full min-h-full mb-5">

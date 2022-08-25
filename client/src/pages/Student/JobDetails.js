@@ -14,7 +14,7 @@ export default function JobDetails(props) {
         <div className="bg-[#F2F2F2] w-full px-2 ml-10 rounded-l-3xl">
           <div className="max-w-7xl mx-auto py-6 px-6">
             {/* Replace with your content */}
-            <Header heading="Job Details" user="Oda Dink" />
+            <Header heading="Job Details" user="Oda Dink" />   
             <p className="text-purple font-medium text-[14px] p-2.5">
               Search Job/{" "}
               <span className="text-[#808080]">{props.position}</span>

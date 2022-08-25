@@ -74,7 +74,7 @@ const studentSchema = new mongoose.Schema({
     },
     gradStatus: {
         type: String,
-        possibleValues: ['Pursuing', 'Completed']
+        enum: ['Pursuing', 'Completed']
     },
     startYear: {
         type: Number,
@@ -122,6 +122,7 @@ const studentSchema = new mongoose.Schema({
             }
         }
     },
+
     playstoreLink: {
         type: String,
         trim: true,
