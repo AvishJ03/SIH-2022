@@ -1,5 +1,48 @@
 import React from "react";
+import { useState } from "react";
+import axios from "axios";
 const SignupCompany = () => {
+
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+
+  const url = 'http://localhost:5000';
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${url}/login`, { email, password });
+      console.log(response.data);
+      if(response.data.studentUser) {
+        localStorage.setItem("token", response.data.studentToken);
+        localStorage.setItem("userType", "student");
+      } else if(response.data.companyUser) {
+        localStorage.setItem("token", response.data.companyToken);
+        localStorage.setItem("userType", "company");
+      } else {
+        localStorage.setItem("token", null);
+        localStorage.setItem("userType", null);
+      }
+      console.log(localStorage.getItem("userType"));
+      console.log(localStorage.getItem("token"));
+      setEmail("");
+      setPassword("");
+      alert("Successfully Logged in.");
+    } catch(error) {
+      setEmail("");
+      setPassword("");
+      alert('Error occured while logging in');
+    }
+  }
+
   return (
     <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main">
       <div className="w-1/2 h-11/12 text-center">
