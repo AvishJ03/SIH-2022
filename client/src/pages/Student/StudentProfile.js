@@ -1,9 +1,11 @@
 import StudInfoSidebar from "../../components/StudInfoSidebar";
 import { useState ,useEffect} from "react";
 import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
 const StudentProfile = () => {
 
+    const navigate = useNavigate();  
     const url = "http://localhost:5000";
     const [student,setStudent] =useState({});
     const [firstName, setFirstName] = useState("");
@@ -72,6 +74,8 @@ const StudentProfile = () => {
             //   setFirstName
 
               alert("Details Added");
+              navigate('/educationinfo');
+
 
         }
         catch (error) {

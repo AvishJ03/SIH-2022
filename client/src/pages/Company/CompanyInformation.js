@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import SideBarCompany from "../../components/SideBarCompany";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const CompanyInformation = () => {
+  const navigate = useNavigate();
   const url = 'http://localhost:5000'
   const [ website, setWebsite ] = useState("");
   const [ companyInfo, setCompanyInfo ] = useState("");
   const [ noOfEmp, setNoOfEmp ] = useState('');
   const [ typeOfCompany, setTypeOfCompany ] = useState("");
   const [ location, setLocation ] = useState("");
-  const [ contactNo, setContactNo ] = useState(null);
-  const [ company, setCompany ] = useState(null);
+  const [ contactNo, setContactNo ] = useState("");
+  const [ company, setCompany ] = useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -40,7 +42,7 @@ const CompanyInformation = () => {
       }
     }
     getData();
-  });
+  }, []);
 
   const handleLocation = (e) => {
     setLocation(e.target.value);
@@ -67,11 +69,11 @@ const CompanyInformation = () => {
       console.log(localStorage.getItem('token'));
       const data=
       {
-        website, 
-        companyInfo, 
-        typeOfCompany,
-        location,
-        noOfEmp
+        website: website, 
+        companyInfo: companyInfo, 
+        typeOfCompany: typeOfCompany,
+        location: location,
+        noOfEmp: noOfEmp,
       };
       console.log(localStorage.getItem('token'));
       console.log(data);
@@ -97,6 +99,8 @@ const CompanyInformation = () => {
       setCompanyInfo(response.data.companyInfo);
       setLocation("");
       alert("Registered");
+      navigate('/companydashboard');
+      
     } catch(error) {
       setWebsite("");
       setCompanyInfo("");
@@ -104,6 +108,7 @@ const CompanyInformation = () => {
       setTypeOfCompany("");
       setLocation("");
       alert('Error occured while patching');
+      console.log(error.message);
     }
   }
   
@@ -156,7 +161,7 @@ const CompanyInformation = () => {
                       <div
                         type="text"
                         className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] h-[50%] mt-2 p-[0.3rem] text-base">
-                          {company.contactNo ? company.contactNo : ''}
+                          {company ? company.contactNo : ''}
                       </div>
                     </div>
                     <div className="m-3 mr-32">

@@ -1,58 +1,13 @@
 import StudInfoSidebar from "../../components/StudInfoSidebar";
-import React, { useState} from 'react';
-import axios from 'axios';
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Experience = () => {
-    const [ title, setTitle ] = useState("");
-    const [ workspace, setWorkspace ] = useState("");
-    const [ duration, setDuration ] = useState("");
-  
-    const url = 'http://localhost:5000';
-  
-    const handleTitle = (e) => {
-      setTitle(e.target.value);
+    const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+        navigate('/dashboard');
     }
-  
-    const handleWorkspace = (e) => {
-      setWorkspace(e.target.value);
-    }
-  
-    const handleDuration = (e) => {
-      setDuration(e.target.value);
-    }
- 
-  
-    const handleDone = async (e) => {
-      e.preventDefault();
-      try {
-          const data = {
-              title:title,
-              workspace:workspace,
-              duration:duration,
-            };
-  
-          console.log(localStorage);
-        const response = await axios.patch(`${url}/students/self`, {exp: data},
-        {
-          headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`,
-            "Content-type": "application/json",
-          },
-        });
-        console.log(response.data);
-        // console.log(localStorage.getItem('userType'));
-        setTitle("");
-        setWorkspace("");
-        setDuration("");
-        alert("Successfully added the Experiences.");
-      } catch(error) {
-        setTitle("");
-        setWorkspace("");
-        setDuration("");
-        alert('Error occured while adding the Experiences');
-      }
-    }
-    
   return (
     <div className='bg-purple w-full h-fit flex font-ourfont'>
         <StudInfoSidebar selected={`Experience`} />
@@ -84,7 +39,7 @@ const Experience = () => {
                             </div>
                             <div className="flex min-w-full min-h-full mt-[3.75rem] justify-evenly">
                                 <button type="submit" className=" bg-purple rounded-xl text-white p-3 px-7">Back</button>
-                                <button type="submit" className=" bg-purple rounded-xl text-white p-3 px-7" onClick={handleDone}>Done</button>
+                                <button type="submit" className=" bg-purple rounded-xl text-white p-3 px-7" onClick={handleSubmit}>Done</button>
                             </div>
                         </form>
                     </div>

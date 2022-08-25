@@ -1,8 +1,10 @@
 import SideBarCompany from "../../components/SideBarCompany";
 import axios from "axios";
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 
 const CompanyPostVacancy = () => {
+  const navigate=useNavigate();
   const url = "http://localhost:5000";
   const [jobType, setJobType] = useState("Internship");
   const [title, setTitle] = useState("");
@@ -82,6 +84,7 @@ const CompanyPostVacancy = () => {
       setLocation("");
       setDuration("");
       alert("Registered");
+      navigate('/applicationcompany');
     } catch (error) {
       console.log(error.message);
       setTitle("");

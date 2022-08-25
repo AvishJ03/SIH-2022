@@ -7,11 +7,13 @@ import DashboardCards from "../../components/DashboardCards";
 import CompanyLogo from "../../assets/CompanyLogo.jpg";
 import BackgroundImg from "../../assets/BackgroundImg.jpg";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const CompanyDashboard = () => {
   const [company, setCompany] = useState({});
   const [job, setJob] = useState({});
 
+  const navigate =useNavigate();
   const url = 'http://localhost:5000';
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const CompanyDashboard = () => {
     getData().then((user) => {
       console.log(user);
       setCompany(user);
-    })
+    }).catch(() => setCompany(null));
     getApplications().then((jobs) => {
       console.log(jobs);
       setJob(jobs);
@@ -50,16 +52,21 @@ const CompanyDashboard = () => {
     console.log(company);
   }, []);
 
-  console.log(company.contactNo);
-  console.log(company.email);
-  console.log(company.name);
-  console.log(company.noOfEmp);
-  console.log(company.location);
-  console.log(company.typeOfCompany);
-  console.log(company.website);
-  console.log(company.logo);
-  console.log(company.companyInfo);
-  console.log(job.length);
+  const handleSubmit = async (e) => {
+
+    navigate('/companyinformation');
+  }
+
+  // console.log(company.contactNo);
+  // console.log(company.email);
+  // console.log(company.name);
+  // console.log(company.noOfEmp);
+  // console.log(company.location);
+  // console.log(company.typeOfCompany);
+  // console.log(company.website);
+  // console.log(company.logo);
+  // console.log(company.companyInfo);
+  // console.log(job.length);
 
   return (
     <div>
@@ -72,7 +79,7 @@ const CompanyDashboard = () => {
               <DashboardCards
                 bg="#4E36E2"
                 title="Applications Filled"
-                value={job.length}
+                value={job ? job.length : 0}
                 icon={
                   <BsFillCalendarFill size="20" style={{ color: "white" }} />
                 }
@@ -80,13 +87,13 @@ const CompanyDashboard = () => {
               <DashboardCards
                 bg="#49A8F8"
                 title="Vacancies posted"
-                value={job.length}
+                value={job ? job.length : 0}
                 icon={<FaSuitcase size="20" style={{ color: "white" }} />}
               />
               <DashboardCards
                 bg="#1ACE85"
                 title="Candidates Selected"
-                value={job.length}
+                value={job ? job.length : 0}
                 icon={<FaUser size="20" style={{ color: "white" }} />}
               />
             </div>
@@ -104,14 +111,14 @@ const CompanyDashboard = () => {
                   alt="Company Logo"
                 />
                 <h5 className="pt-10 text-center font-[Raleway] text-[18px]">
-                {company.name ? company.name : 'Company Name not found!.'}
+                {company ? company.name : 'Company Name not found!.'}
                 </h5>
 
                 <div className="justify-items-center">
                   <div className="flex justify-left pl-4 pb-2 pt-8">
                     <i className="fa-solid fa-users pt-2" />
                     <div className="pl-4 pr-6">
-                      <h2 className="font-bold">{company.noOfEmp ? company.noOfEmp : 'No. of employees not found!'}</h2>
+                      <h2 className="font-bold">{company ? company.noOfEmp : 'No. of employees not found!'}</h2>
                       <h6 className="text-[#808080] text-[12px] font-medium">
                         Employees
                       </h6>
@@ -128,7 +135,7 @@ const CompanyDashboard = () => {
                 <div className="flex pl-4 justify-left pb-10">
                   <i className="fa-solid fa-location-dot pt-2"></i>
                   <div className="pl-4">
-                    <h2 className="font-bold">{company.location ? company.location : 'Location not found!'}</h2>
+                    <h2 className="font-bold">{company ? company.location : 'Location not found!'}</h2>
                     <h6 className="text-[#808080] text-[12px] font-medium ml-1">
                       Location
                     </h6>
@@ -146,22 +153,22 @@ const CompanyDashboard = () => {
                       <h1 className=" font-[Raleway] text-[15px]">
                         Phone Number
                       </h1>
-                      <p>{company.contactNo ? company.contactNo : 'Contact Details not found!'}</p>
+                      <p>{company ? company.contactNo : 'Contact Details not found!'}</p>
                     </div>
                     <div className="justify-items-start">
                       <h1 className=" font-[Raleway] text-[15px]">Type</h1>
-                      <p>{company.typeOfCompany ? company.typeOfCompany : 'Type of company not found!'}</p>
+                      <p>{company ? company.typeOfCompany : 'Type of company not found!'}</p>
                     </div>
                   </div>
                   <div className="flex mt-[5%] whitespace-nowrap ">
                     <div className="justify-items-start mr-60">
                       <h1 className=" font-[Raleway] text-[15px]">Email ID</h1>
-                      <p>{company.email}</p>
+                      <p>{company ? company.email: ''}</p>
                     </div>
                     <div className="justify-items-start">
                       <h1 className=" font-[Raleway] text-[15px]">Website</h1>
                       <a href="www.abc.com" target={"_blank"}>
-                      {company.website ? company.website : 'Company Website not found!'}
+                      {company ? company.website : 'Company Website not found!'}
                       </a>
                     </div>
                   </div>
@@ -171,11 +178,11 @@ const CompanyDashboard = () => {
                         Description
                       </h1>
                       <p>
-                        {company.companyInfo ? company.companyInfo : 'Description of company not found!'}
+                        {company ? company.companyInfo : 'Description of company not found!'}
                       </p>
                     </div>
                   </div>
-                  <button className="bg-[#40189D] hover:bg-[#6440b7] text-white font-semibold py-[0.7rem] px-9 rounded-full h-0% text-center text-[15px] absolute bottom-4 right-4">
+                  <button onClick={handleSubmit}className="bg-[#40189D] hover:bg-[#6440b7] text-white font-semibold py-[0.7rem] px-9 rounded-full h-0% text-center text-[15px] absolute bottom-4 right-4">
                     Edit Profile
                   </button>
                 </div>
