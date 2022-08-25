@@ -20,6 +20,7 @@ const SideBarCompany = ({ selected }) => {
   };
   const links = {
     // Profile: "/companydashboard",
+    Dashboard: "/companydashboard",
     "Post Vacancy": "/companypostvacancy",
     Applications: "/applicationcompany",
     Message: "",
