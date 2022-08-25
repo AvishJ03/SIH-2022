@@ -5,6 +5,7 @@ import axios from "axios";
 const StudentProfile = () => {
 
     const url = "http://localhost:5000";
+    const [student,setStudent] =useState({});
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [gender, setGender] = useState("");
@@ -26,6 +27,26 @@ const StudentProfile = () => {
       const handleCityChange = (e) => {
         setCurrentCity(e.target.value);
       };
+      useEffect(() => {
+        const getData = async () => {
+          try {
+            const response = await axios.get(`${url}/students/self`, {
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+              }
+            });
+            return response.data;
+          } catch(error) {
+            return null;
+          }
+        }
+        getData().then((user) => {
+          console.log(user);
+          setStudent(user);
+        })
+        
+      }, []);
+    
 
       const handleSubmit = async (e) =>
       {

@@ -3,13 +3,41 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const skillsSchema = new mongoose.Schema({
-    multipleSkills: {
+const graduationSchema = new mongoose.Schema({
+    score: {
+        type: Number
+    },
+    college: {
+        type: String
+    },
+    startYear: {
+        type: Number,
+        minlength: 0,
+        maxlength: 4
+    },
+    endYear: {
+        type: Number,
+        minlength: 0,
+        maxlength: 4
+    },
+    gradStatus: {
         type: String,
-        required: true,
-        trim: true
-    }
+        enum: ['Pursuing', 'Completed']
+    },
+    engMarks: Number,
+    mathMarks: Number,
+    scienceMarks: Number
 });
+
+const linkSchema = new mongoose.Schema({
+    type: String,
+    trim: true,
+    validate(value) {
+        if(!validator.isURL(value)) {
+            throw new Error('Invalid website URL.');
+        }
+    }
+}); 
 
 const studentSchema = new mongoose.Schema({
     firstName: {
@@ -63,29 +91,10 @@ const studentSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    graduation: {
-        type: Number
-    },
-    seniorSecDiploma: {
-        type: Number
-    },
-    secondary: {
-        type: Number
-    },
-    gradStatus: {
-        type: String,
-        possibleValues: ['Pursuing', 'Completed']
-    },
-    startYear: {
-        type: Number,
-        minlength: 0,
-        maxlength: 4
-    },
-    endYear: {
-        type: Number,
-        minlength: 0,
-        maxlength: 4
-    },
+    title: String,
+    graduation: graduationSchema,
+    ssc: graduationSchema,
+    hsc: graduationSchema,
     degree: {
         type: String,
         trim: true
@@ -94,61 +103,15 @@ const studentSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    performScale: {
-        type: Number,
-    },
-    perform: {
-        type: Number,
-    },
-    skillsStudent: [skillsSchema],
-    profile: {
+    skillsStudent: String,
+    profilePic: {
         type: String
     },
-    blogLink: {
-        type: String,
-        trim: true,
-        validate(value) {
-            if(!validator.isURL(value)) {
-                throw new Error('Invalid website URL.');
-            }
-        }
-    },
-    githubLink: {
-        type: String,
-        trim: true,
-        validate(value) {
-            if(!validator.isURL(value)) {
-                throw new Error('Invalid website URL.');
-            }
-        }
-    },
-    playstoreLink: {
-        type: String,
-        trim: true,
-        validate(value) {
-            if(!validator.isURL(value)) {
-                throw new Error('Invalid website URL.');
-            }
-        }
-    },
-    behanceLink: {
-        type: String,
-        trim: true,
-        validate(value) {
-            if(!validator.isURL(value)) {
-                throw new Error('Invalid website URL.');
-            }
-        }
-    },
-    otherPortfolioLink: {
-        type: String,
-        trim: true,
-        validate(value) {
-            if(!validator.isURL(value)) {
-                throw new Error('Invalid website URL.');
-            }
-        }
-    },
+    blogLink: linkSchema,
+    githubLink: linkSchema,
+    playstoreLink: linkSchema,
+    behanceLink: linkSchema,
+    otherPortfolioLink: linkSchema,
     tokens: [{
         token: {
             type: String,

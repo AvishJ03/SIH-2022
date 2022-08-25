@@ -1,12 +1,20 @@
 import StudInfoSidebar from "../../components/StudInfoSidebar";
+import { useState } from "react";
+import axios from 'axios';
+
 
 const EducationInfo = () => {
+    const url = 'http://localhost:5000';
+
+    const [gradStatus, setGradStatus] = useState({});
+    const [graduation, setGraduation] = useState({});
+    // const [graduation, setGraduation] = useState({});
   return (
     <div className='bg-purple w-full h-fit flex font-ourfont'>
         <StudInfoSidebar selected={`Educational`} />
             <div className="container bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl flex flex-wrap justify-center items-center">
                 <div className="flex flex-col w-1/2 h1/2 py-8">
-                <div className="text-center text-4xl font-bold pb-4 mb-7">Graduation Details</div>
+                <div className="text-center text-4xl font-bold pb-4 mb-7">Education Details</div>
                     <div className="container rounded-2xl bg-lightPurple min-w-full min-h-full p-10 shadow-main-sd">
                         <form>
                             <div className="flex flex-col min-w-full min-h-full mb-5">
@@ -52,7 +60,7 @@ const EducationInfo = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div className="flex flex-col min-w-full min-h-full mb-4">
+                            {/* <div className="flex flex-col min-w-full min-h-full mb-4">
                                 <div className="flex flex-row flex-wrap">
                                     <label className="mb-4 font-semibold">Performance Scale:<br/>
                                     <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
@@ -61,7 +69,7 @@ const EducationInfo = () => {
                                     <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
                                     </label>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">XII (Senior Secondary) / Diploma Percentage*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
