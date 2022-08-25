@@ -16,33 +16,6 @@ const Skills=() =>{
   const handleperformScale = (e) => {
     setPerformScale(e.target.value);
   }
-
-//   const handleNext = (e) => {
-//     setNext(e.target.value);
-//   }
-
-//   const handlePrev = (e) => {
-//     setPrev(e.target.value);
-//   }
-
-//   const handleNext = async (e) => {
-//     e.preventDefault();
-    // try {
-    //   const response = await axios.post(`${url}/company`, { skillsStudent,performScale});
-    //   console.log(response.data);
-    //   localStorage.setItem("token", response.data.companyToken);
-    //   localStorage.setItem("userType", "company");
-    //   setSkills("");
-    //   setScale("");
-    //   setPrev("");
-    //   alert("Successfully Logged in.");
-    // } catch(error) {
-    //     setSkills("");
-    //     setScale("");
-    //     setPrev("");
-    //     alert('Error occured while logging in');
-    // }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
