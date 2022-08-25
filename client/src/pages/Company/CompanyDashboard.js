@@ -10,27 +10,26 @@ import axios from 'axios';
 
 const CompanyDashboard = () => {
   const [company, setCompany] = useState({});
+  const [job, setJob] = useState({});
 
   const url = 'http://localhost:5000';
 
   useEffect(() => {
-    // const getAllCompDashboard = async () => {
-    //   axios.get(`${url}/company/self`, {
-    //     headers: {
-    //       'Authorization': `Bearer ${localStorage.getItem('token')}`
-    //     }
-    //   })} // company?
-    //   .then((response) => {
-    //     const allCompDashboard = response.data.company.getCompDashboard;
-    //     getCompDashboard(allCompDashboard);
-    //   })
-    //   .catch(error => console.log(`Error: ${error}`));
-    // }
-    // const response = await getAllCompDashboard();
-    // console.log(response.data);
     const getData = async () => {
       try {
         const response = await axios.get(`${url}/company/self`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        return response.data;
+      } catch(error) {
+        return null;
+      }
+    }
+    const getApplications = async () => {
+      try {
+        const response = await axios.get(`${url}/company/self/jobs`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -44,6 +43,10 @@ const CompanyDashboard = () => {
       console.log(user);
       setCompany(user);
     })
+    getApplications().then((jobs) => {
+      console.log(jobs);
+      setJob(jobs);
+    }).catch(() => setJob([]))
     console.log(company);
   }, []);
 
@@ -56,6 +59,7 @@ const CompanyDashboard = () => {
   console.log(company.website);
   console.log(company.logo);
   console.log(company.companyInfo);
+  console.log(job.length);
 
   return (
     <div>
@@ -67,8 +71,8 @@ const CompanyDashboard = () => {
             <div className="h-1/5 flex my-10 justify-between gap-10">
               <DashboardCards
                 bg="#4E36E2"
-                title="Applications Recieved"
-                value="110"
+                title="Applications Filled"
+                value={job.length}
                 icon={
                   <BsFillCalendarFill size="20" style={{ color: "white" }} />
                 }
@@ -76,13 +80,13 @@ const CompanyDashboard = () => {
               <DashboardCards
                 bg="#49A8F8"
                 title="Vacancies posted"
-                value="3"
+                value={job.length}
                 icon={<FaSuitcase size="20" style={{ color: "white" }} />}
               />
               <DashboardCards
                 bg="#1ACE85"
                 title="Candidates Selected"
-                value="1"
+                value={job.length}
                 icon={<FaUser size="20" style={{ color: "white" }} />}
               />
             </div>
