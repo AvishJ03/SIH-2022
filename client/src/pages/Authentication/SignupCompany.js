@@ -5,7 +5,7 @@ const SignupCompany = () => {
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ name, setName ] = useState("");
-  const [ contactNo, setContactNo ] = useState(0);
+  const [ contactNo, setContactNo ] = useState(null);
   const [ typeOfCompany, setTypeOfCompany ] = useState('PF');
 
   const url = 'http://localhost:5000';
@@ -40,15 +40,13 @@ const SignupCompany = () => {
       setEmail("");
       setPassword("");
       setName("");
-      setTypeOfCompany("PF");
-      setContactNo(0);
+      setContactNo("");
       alert("Successfully Logged in.");
     } catch(error) {
       setEmail("");
       setPassword("");
       setName("");
-      setTypeOfCompany("PF");
-      setContactNo(0);
+      setContactNo("");
       alert('Error occured while logging in');
     }
   }
@@ -67,6 +65,7 @@ const SignupCompany = () => {
               placeholder="abc@xyz.com"
               name="email"
               onChange={handleEmailChange}
+              value={email}
             />
           </div>
           <div>
@@ -77,6 +76,7 @@ const SignupCompany = () => {
               placeholder="********"
               name="password"
               onChange={handlePasswordChange}
+              value={password}
             />
           </div>
           <div className="w-full">
@@ -89,6 +89,7 @@ const SignupCompany = () => {
                   placeholder="Name"
                   name="name"
                   onChange={handleNameChange}
+                  value={name}
                 />
               </div>
               <div className="w-1/2 ml-2">
@@ -97,6 +98,7 @@ const SignupCompany = () => {
                   className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
                   name="typeOfCompany" onChange={handleCompanyChange}
                 >
+                  <option>Select</option>
                   <option value="PbLc">Public Limited</option>
                   <option value="PrLc">Privated Limited</option>
                   <option value="JVC">Joint Venture</option>
@@ -114,9 +116,10 @@ const SignupCompany = () => {
             <input
               className="w-full self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="number"
-              placeholder=""
+              placeholder="Enter your contact number"
               name="contactNo"
               onChange={handleContactChange}
+              value={contactNo}
             />
           </div>
           <button className="bg-purple w-2/5 self-center py-2 rounded-xl font-semibold" onClick={handleSubmit}>
