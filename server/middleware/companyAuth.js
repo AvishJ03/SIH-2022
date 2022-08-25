@@ -9,6 +9,8 @@ const companyAuth = async (req, res, next) => {
         if(!company) {
             throw new Error('No company found');
         }
+        console.log(company);
+        console.log(token);
         req.companyToken = token;
         req.companyUser = company;
         next();
