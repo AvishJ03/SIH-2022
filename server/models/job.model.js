@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
 
 const jobSchema = new mongoose.Schema(
   {
@@ -54,10 +53,7 @@ const jobSchema = new mongoose.Schema(
     duration: {
       type: Number,
       // required: true
-    },
-    token: {
-      type: String,
-    },
+    }
   },
   {
     timestamps: true,
@@ -69,19 +65,6 @@ jobSchema.virtual("applicants", {
   localField: "_id",
   foreignField: "job",
 });
-
-jobSchema.methods.generateJobToken = async function () {
-  const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET);
-  this.token = token;
-  await this.save();
-  return token;
-};
-
-jobSchema.methods.toJSON = function () {
-  const jobObject = this.toObject();
-  delete jobObject.token;
-  return jobObject;
-};
 
 const Job = mongoose.model("Job", jobSchema);
 

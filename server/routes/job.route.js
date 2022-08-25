@@ -30,8 +30,7 @@ router.post('/jobs', companyAuth, async(req, res) => {
     const job = new Job({ ...req.body, company: req.companyUser._id });
     try {
         await job.save();
-        const jobToken = await job.generateJobToken();
-        res.status(201).send({ job, jobToken });
+        res.status(201).send(job);
     } catch (error) {
         console.log(error.message);
         res.status(200).send(error);
