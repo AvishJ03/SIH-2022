@@ -52,7 +52,7 @@ const EducationInfo = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div className="flex flex-col min-w-full min-h-full mb-4">
+                            {/* <div className="flex flex-col min-w-full min-h-full mb-4">
                                 <div className="flex flex-row flex-wrap">
                                     <label className="mb-4 font-semibold">Performance Scale:<br/>
                                     <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
@@ -61,7 +61,7 @@ const EducationInfo = () => {
                                     <input type='text' name='startyear' className="font-normal rounded-xl border border-purple w-48 p-1" />
                                     </label>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">XII (Senior Secondary) / Diploma Percentage*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
