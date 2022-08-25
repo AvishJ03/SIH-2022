@@ -11,8 +11,10 @@ import axios from "axios";
 
 const Dashboard = (props) => {
   const [student, setStudent] = useState({});
+  const [jobs, setJobs] = useState({})
 
   const url = 'http://localhost:5000';
+  const joburl = 'http://localhost:5001';
 
   useEffect(() => {
     const getDashboard = async () => {
@@ -23,7 +25,24 @@ const Dashboard = (props) => {
           }
         });
         return response.data;
-      } catch(error) {
+      } catch (error) {
+        return null;
+      }
+    }
+    const getJobs = async () => {
+      const data = {
+        title: "",
+        skills: "",
+        location: "",
+        jobType: "",
+        experience: "",
+      }
+      try {
+        const response = await axios.post(`${joburl}/rec`, {
+          headers: data,
+        });
+        return response.data.ids;
+      } catch (error) {
         return null;
       }
     }
@@ -32,6 +51,11 @@ const Dashboard = (props) => {
       setStudent(user);
     }).catch(() => setStudent([]))
     console.log(student);
+    getJobs().then((id) => {
+      console.log(id);
+      setJobs(id);
+      console.log(id);
+    }).catch(() => setJobs([]))
   });
 
   return (
@@ -82,9 +106,9 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card />
-            <Card />
-            <Card />
+            <Card id={jobs[0] ? jobs[0] : null} />
+            <Card id={jobs[0] ? jobs[1] : null} />
+            <Card id={jobs[0] ? jobs[2] : null} />
           </div>
           <button className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
         </div>

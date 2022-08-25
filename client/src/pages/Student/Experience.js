@@ -21,19 +21,19 @@ const Experience = () => {
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">Title / Position:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='title' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='title' className="rounded-xl border border-purple w-96 p-1" onChange={handleTitle} />
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">Workspace / Company:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='company' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='company' className="rounded-xl border border-purple w-96 p-1" onChange={handleWorkspace} />
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">Period:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='period' className="rounded-xl border border-purple w-96 p-1" />
+                                    <input type='text' name='period' className="rounded-xl border border-purple w-96 p-1" onChange={handleDuration}/>
                                 </div>
                             </div>
                             </div>

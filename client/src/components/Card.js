@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const Card = () => {
+const Card = ({ id }) => {
+  const [jobs, setJobs] = useState({});
+  const url = "http://localhost:5000/job"
+  useEffect(() => {
+    const getJob = async () => {
+      try {
+        const response = await axios.get(url, {
+          id: id,
+        });
+        console.log(response.data);
+        setJobs(response.data[0])
+      } catch (error) {
+        return null;
+      }
+    }
+    getJob()
+  }, []);
   return (
     <div>
       <div className="w-11/12 h-11/12 p-5 rounded-2xl bg-white">
