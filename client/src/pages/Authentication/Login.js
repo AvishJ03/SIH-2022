@@ -50,8 +50,8 @@ const Login = () => {
         </h1>
         <div className="bg-[#FEF9F9] w-2/3 h-[500px] mx-auto flex flex-col justify-evenly mt-10 px-10 rounded-2xl">
           
-          <div>
-            <label className="text-left ml-9 font-semibold text-[#201835]" htmlFor="email">
+          <div className="flex flex-col justify-start">
+            <label className="text-left ml-10 font-semibold text-[#201835]" htmlFor="email">
               Email ID
             </label>
             <input
@@ -64,8 +64,8 @@ const Login = () => {
               onChange={handleEmailChange}
             />
           </div>
-          <div>
-            <label className="text-left ml-9 text-black font-semibold" htmlFor="password">Password</label>
+          <div className="flex flex-col justify-start">
+            <label className="text-left  ml-10  font-semibold text-[#201835]" htmlFor="password">Password</label>
             <input
               className="w-5/6 self-center rounded-lg p-1 text-black bg-white border-purple border-2"
               type="password"

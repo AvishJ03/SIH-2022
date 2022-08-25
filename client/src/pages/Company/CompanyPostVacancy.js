@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const CompanyPostVacancy = () => {
   const url = "http://localhost:5000";
-  const [jobType, setJobType] = useState("internship");
+  const [jobType, setJobType] = useState("Internship");
   const [title, setTitle] = useState("");
   const [noOfPos, setNoOfPos] = useState("");
   const [skills, setSkills] = useState("");
@@ -98,10 +98,10 @@ const CompanyPostVacancy = () => {
   };
 
   const toggleJobType = (e) => {
-    if (jobType === "internship") {
-      setJobType("job");
+    if (jobType === "Internship") {
+      setJobType("Job");
     } else {
-      setJobType("internship");
+      setJobType("Internship");
     }
   };
   return (
@@ -118,8 +118,8 @@ const CompanyPostVacancy = () => {
               className="rounded-sm border border-purple w-48 focus:outline-none pl-2 py-1"
               onChange={toggleJobType}
             >
-              <option value="internship">Internship</option>
-              <option value="job">Job</option>
+              <option value="Internship">Internship</option>
+              <option value="Job">Job</option>
             </select>
           </div>
           <div className="container rounded-2xl bg-lightPurple min-w-full min-h-full p-10 shadow-main-sd">
@@ -175,11 +175,11 @@ const CompanyPostVacancy = () => {
                 </div>
                 <div className="flex flex-col min-w-[40%] min-h-full mb-4">
                   <label className="mb-1 font-semibold">
-                    {jobType === "internship" ? "Duration:" : "Salary:"}
+                    {jobType === "Internship" ? "Duration:" : "Salary:"}
                   </label>
                   <input
                     onChange={
-                      jobType === "internship"
+                      jobType === "Internship"
                         ? handleDurationChange
                         : handleSalaryChange
                     }
@@ -218,7 +218,7 @@ const CompanyPostVacancy = () => {
                   />
                 </div>
               </div>
-              {jobType === "internship" && (
+              {jobType === "Internship" && (
                 <div className="flex flex-col align-start mb-3">
                   <label className="mb-1 font-semibold text-black">
                     Stipend:
