@@ -58,8 +58,8 @@ const CompanyPostVacancy = () => {
         location: location,
         duration: duration,
       };
-      console.log(localStorage);
-      console.log(data);
+      // console.log(localStorage);
+      // console.log(data);
       const response = await axios.post(`${url}/jobs`, data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

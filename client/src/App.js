@@ -2,6 +2,7 @@ import React from "react";
 import { Login, StudentSignUp, SignupCompany } from "./pages/Authentication/index";
 import { ApplicationCompany, CompanyDashboard, CompanyInformation, CompanyPostVacancy } from "./pages/Company/index";
 import { ApplicationStud, Dashboard, Edit, EducationInfo, JobDetails, SearchJob, Skills, StudentProfile, WorkSamples } from "./pages/Student/index"
+import Experience from './pages/Student/Experience';
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/skills" element={<Skills />} />
         <Route path="/studentprofile" element={<StudentProfile />} />
         <Route path="/worksamples" element={<WorkSamples />} />
+        <Route path="/experience" element={<Experience />} />
       </Routes>
 
     </div>

@@ -66,7 +66,7 @@ router.post('/students/logout', auth, async (req, res) => {
 */
 router.patch('/students/self', auth, async (req, res) => {
     const updates = Object.keys(req.body);
-    const validOperations = ['firstName', 'lastName', 'gender', 'email', 'age', 'password'];
+    const validOperations = ['firstName', 'lastName', 'gender', 'email', 'age', 'password', 'mobileNo', 'currentCity'];
     const isUpdateValid = updates.every((update) => validOperations.includes(update));
     if(!isUpdateValid) {
         return res.status(400).send();
