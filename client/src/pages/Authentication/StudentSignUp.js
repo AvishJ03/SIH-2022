@@ -74,7 +74,9 @@ const StudentSignUp = () => {
               className="w-5/6 self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="email"
               placeholder="abc@xyz.com"
+              name="email"
               onChange={handleEmailChange}
+              value={email}
             />
           </div>
           <div>
@@ -84,6 +86,8 @@ const StudentSignUp = () => {
               type="password"
               placeholder="********"
               onChange={handlePasswordChange}
+              name="password"
+              value={password}
             />
           </div>
           <div className="self-start ml-9 w-5/6 flex">
@@ -95,7 +99,9 @@ const StudentSignUp = () => {
                 className="w-[95%] -ml-2 rounded-lg p-1 text-black bg-white border-purple border-4"
                 type="text"
                 placeholder="First Name"
+                name="firstName"
                 onChange={handleFirstNameChange}
+                value={firstName}
               />
             </div>
             <div className="w-1/2 ml-5">
@@ -104,7 +110,9 @@ const StudentSignUp = () => {
                 className="w-[95%] rounded-lg p-1 text-black bg-white border-purple border-4"
                 type="text"
                 placeholder="Last Name"
+                name="lastName"
                 onChange={handleLastNameChange}
+                value={lastName}
               />
             </div>
           </div>
