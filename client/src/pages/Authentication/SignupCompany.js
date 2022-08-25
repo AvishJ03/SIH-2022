@@ -6,52 +6,57 @@ const SignupCompany = () => {
         <h1 className="text-4xl font-semibold inline">We find the </h1>
         <h1 className="text-secondary text-4xl font-semibold inline">Right</h1>
         <h1 className="text-4xl font-semibold inline"> People!</h1>
-        <div className="bg-[#FEF9F9] w-2/3 h-[500px] mx-auto flex flex-col justify-evenly mt-10 px-10 rounded-2xl">
+        <form className="bg-[#FEF9F9] w-2/3 h-[500px] mx-auto flex flex-col justify-evenly mt-10 px-10 rounded-2xl">
           <div>
-            <p className="text-left text-black">Official Email ID</p>
+            <label className="text-left text-black">Official Email ID</label>
             <input
               className="w-full self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="email"
               placeholder="abc@xyz.com"
+              name="email"
+              onChange={handleEmailChange}
             />
           </div>
           <div>
-            <p className="text-left text-black">Password</p>
+            <label className="text-left text-black">Password</label>
             <input
               className="w-full self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="password"
               placeholder="********"
+              name="password"
+              onChange={handlePasswordChange}
             />
           </div>
           <div className="w-full">
             <div className="self-start w-full flex">
               <div className="w-1/2">
-                <p className="text-left text-black">First Name</p>
+                <label className="text-left text-black">First Name</label>
                 <input
                   className="w-[100%]  rounded-lg p-1 text-black bg-white border-purple border-4"
                   type="text"
-                  placeholder="First Name"
+                  placeholder="Name"
+                  name="name"
                 />
               </div>
               <div className="w-1/2 ml-2">
-                <p className="text-left text-black">Last Name</p>
-                <input
+                <label className="text-left text-black">Last Name</label>
+                <select
                   className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
-                  type="text"
-                  placeholder="Last Name"
+                  name="typeOfCompany"
                 />
               </div>
             </div>
           </div>
           <div>
-            <p className="text-left text-black">Mobile Number</p>
+            <label className="text-left text-black">Mobile Number</label>
             <input
               className="w-full self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="number"
               placeholder=""
+              name="contactNo"
             />
           </div>
-          <button className="bg-purple w-2/5 self-center py-2 rounded-xl font-semibold">
+          <button className="bg-purple w-2/5 self-center py-2 rounded-xl font-semibold" onClick={handleSubmit}>
             Register Now
           </button>
           <div className="flex self-center font-medium text-black">
@@ -60,9 +65,9 @@ const SignupCompany = () => {
               Sign In
             </a>
           </div>
-        </div>
+        </form>
       </div>
-      <div className="">
+      <div>
         <img
           className="rounded-full w-10/12"
           src="images/companysignup.gif"

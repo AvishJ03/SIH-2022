@@ -30,15 +30,15 @@ router.post('/company', async (req, res) => {
     "password": "sihcoimbatore"
     }
 */
-router.post('/company/login', async (req, res) => {
-    try {
-        const company = await Company.findByCredentials(req.body.email, req.body.password);
-        const token = await company.generateAuthToken();
-        res.status(200).send({ companyUser: company, companyToken: token });
-    } catch(error) {
-        res.status(400).send(error);
-    }
-});
+// router.post('/company/login', async (req, res) => {
+//     try {
+//         const company = await Company.findByCredentials(req.body.email, req.body.password);
+//         const token = await company.generateAuthToken();
+//         res.status(200).send({ companyUser: company, companyToken: token });
+//     } catch(error) {
+//         res.status(400).send(error);
+//     }
+// });
 
 router.get('/company/self', auth, async (req, res) => {
     res.status(200).send(req.companyUser);

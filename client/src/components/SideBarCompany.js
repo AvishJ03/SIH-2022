@@ -1,7 +1,8 @@
 import React from "react";
+import { MdHeight, MdPostAdd } from "react-icons/md";
+
 import {
   AiFillHome,
-  AiOutlineSearch,
   AiFillMessage,
   AiFillProfile,
 } from "react-icons/ai";
@@ -9,8 +10,9 @@ import { IoExtensionPuzzleSharp } from "react-icons/io5";
 
 const SideBarCompany = ({ selected }) => {
   const navs = {
-    Profile: <AiFillHome size="20" style={{ color: "white" }} />,
-    "Post Vacancy": <AiOutlineSearch size="20" style={{ color: "white" }} />,
+    Dashboard: <AiFillHome size="20" style={{ color: "white" }} />,
+    Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
+    "Post Vacancy": <MdPostAdd size="20" style={{ color: "white" }} />,
     Applications: (
       <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
     ),
@@ -27,7 +29,7 @@ const SideBarCompany = ({ selected }) => {
         <div className="flex px-2">
           <div className="bg-[#FFFFFF] w-10 h-10 rounded-full"></div>
           <a href="/" className="text-white text-base font-bold ml-3 mt-2 text-center">
-            Sitename
+            HireIt
           </a>
         </div>
         {Object.keys(navs).map((key, index) => {

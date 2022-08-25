@@ -55,7 +55,7 @@ const SearchJob = () => {
         <div className="text-black text-sm font-normal mt-5">
           Showing 6 out of 56 data
         </div>
-        <div className="flex justify-end">
+        {/* <div className="flex justify-end">
           <button className="bg-white w-24 h-7  mx-3 rounded-2xl border border-purple hover:bg-[#d0b5f5]">
             <div className="text-purple font-sm text-center font-semibold ">
               &lt;&lt;Previous
@@ -80,7 +80,36 @@ const SearchJob = () => {
               Next&gt;&gt;
             </div>
           </button>
-        </div>
+        </div> */}
+        <div className="flex justify-end">
+                <div className="bg-white w-24 h-10  mx-3 rounded-2xl">
+                    <button className="text-purple font-sm text-center align-middle font-semibold ">
+                        &lt;&lt;Previous
+                    </button>
+                </div>
+                {/* <div className="bg-[#dfcef7] w-44 h-10  rounded-2xl flex justify-evenly">
+                    <div className="text-purple font-sm font-semibold align-middle">Pages</div>
+                </div> */}
+                <button className="bg-[#dfcef7] w-44 h-7  rounded-2xl flex justify-evenly border border-purple">
+                <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]">
+                    <div className="text-purple font-bold">1</div>
+                </div>
+                <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]">
+                    <div className="text-purple font-bold">2</div>
+                </div>
+                <div className="bg-[#c3a0f5] w-12 h-6 rounded-full">
+                    <div className="text-purple font-bold">3</div>
+                </div>
+                <div className="bg-[#dfcef7] w-12 h-6 rounded-full hover:bg-[#d0b5f5]">
+                    <div className="text-purple font-bold">4</div>
+                </div>
+                </button>
+                <div className="bg-white w-20 h-10 mx-3 rounded-2xl">
+                    <button className="text-purple font-sm text-center align-middle font-semibold">
+                        Next&gt;&gt;
+                    </button>
+                </div>
+            </div>
       </div>
     </div>
   );
