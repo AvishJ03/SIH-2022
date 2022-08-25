@@ -115,7 +115,7 @@ const SignupCompany = () => {
             <label className="text-left text-black">Mobile Number</label>
             <input
               className="w-full self-center rounded-lg p-1 text-black bg-white border-purple border-4"
-              type="number"
+              type="text"
               placeholder="Enter your contact number"
               name="contactNo"
               onChange={handleContactChange}
