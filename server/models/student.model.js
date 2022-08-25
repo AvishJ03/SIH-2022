@@ -109,6 +109,17 @@ const studentSchema = new mongoose.Schema({
     profilePic: {
         type: String
     },
+    exp: {
+        title: {
+            type: String
+        },
+        duration: {
+            type: Number
+        },
+        position: {
+            type: String
+        }
+    },
     blogLink: linkSchema,
     githubLink: linkSchema,
     playstoreLink: linkSchema,
