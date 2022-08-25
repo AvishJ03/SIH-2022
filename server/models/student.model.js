@@ -30,11 +30,13 @@ const graduationSchema = new mongoose.Schema({
 });
 
 const linkSchema = new mongoose.Schema({
-    type: String,
-    trim: true,
-    validate(value) {
-        if(!validator.isURL(value)) {
-            throw new Error('Invalid website URL.');
+    link: {
+        type: String,
+        trim: true,
+        validate(value) {
+            if(!validator.isURL(value)) {
+                throw new Error('Invalid website URL.');
+            }
         }
     }
 }); 
