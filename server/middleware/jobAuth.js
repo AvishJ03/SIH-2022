@@ -3,13 +3,11 @@ const Job = require('../models/job.model');
 
 const jobAuth = async (req, res, next) => {
     try {
-        const jobToken = req.params.id;
-        const decoded = jwt.verify(jobToken, process.env.JWT_SECRET);
-        const job = await Job.findOne({ _id: decoded._id, company: req.companyUser, token: jobToken });
+        const jobId = req.params.id;
+        const job = await Job.findOne({ _id: jobId, company: req.companyUser });
         if(!job) {
             throw new Error('No job found');
         }
-        req.jobToken = jobToken;
         req.job = job;
         next();
     } catch(error) {

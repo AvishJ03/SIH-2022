@@ -1,7 +1,112 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SideBarCompany from "../../components/SideBarCompany";
+import axios from 'axios';
 
 const CompanyInformation = () => {
+  const url = 'http://localhost:5000'
+  const [ website, setWebsite ] = useState("");
+  const [ companyInfo, setCompanyInfo ] = useState("");
+  const [ noOfEmp, setNoOfEmp ] = useState('');
+  const [ typeOfCompany, setTypeOfCompany ] = useState("");
+  const [ location, setLocation ] = useState("");
+  const [ contactNo, setContactNo ] = useState(null);
+  const [ company, setCompany ] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(`${url}/company/self`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        setCompany(response.data.companyUser);
+        setNoOfEmp(company.noOfEmp);
+        setLocation(company.location);
+        setContactNo(company.contactNo);
+        setLocation(company.location);
+        setTypeOfCompany(company.typeOfCompany);
+        setCompanyInfo(company.companyInfo);
+        setWebsite(company.website);
+      } catch(error) {
+        setCompany(null);
+        setNoOfEmp("");
+        setLocation("");
+        setContactNo("");
+        setLocation("");
+        setTypeOfCompany("");
+        setCompanyInfo("");
+        setWebsite("");
+      }
+    }
+    getData();
+  });
+
+  const handleLocation = (e) => {
+    setLocation(e.target.value);
+  }
+  const handleEmp = (e) => {
+    setNoOfEmp(e.target.value);
+  }
+
+  const handleWebsiteChange = (e) => {
+    setWebsite(e.target.value);
+  }
+
+  const handleInfoChange = (e) => {
+    setCompanyInfo(e.target.value);
+  }
+
+  const handleCompanyType = (e) => {
+    setTypeOfCompany(e.target.value);
+  }
+
+  const handleSave = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(localStorage.getItem('token'));
+      const data=
+      {
+        website, 
+        companyInfo, 
+        typeOfCompany,
+        location,
+        noOfEmp
+      };
+      console.log(localStorage.getItem('token'));
+      console.log(data);
+      const response = await axios.patch(`${url}/company/self`,
+        data , {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      console.log(localStorage.getItem('token'));
+      console.log(data);
+      // console.log(localStorage.token);
+      console.log(response.data);
+      // localStorage.setItem("token", response.data.studentToken);
+      // localStorage.setItem("userType", "student");
+
+      
+      console.log(localStorage.getItem("userType"));
+      // console.log(localStorage.getItem("token"));
+      setWebsite(response.data.website);
+      setCompanyInfo(response.data.companyInfo);
+      setTypeOfCompany(response.data.typeOfCompany);
+      setCompanyInfo(response.data.companyInfo);
+      setLocation("");
+      alert("Registered");
+    } catch(error) {
+      setWebsite("");
+      setCompanyInfo("");
+      setLocation("");
+      setTypeOfCompany("");
+      setLocation("");
+      alert('Error occured while patching');
+    }
+  }
+  
   return (
     <>
       <div className="bg-[#40189D] w-full min-h-screen flex font-ourfont">
@@ -21,21 +126,16 @@ const CompanyInformation = () => {
                 <form className="mt-4">
                   <div className="mx-8 mt-8 text-lg">
                     <div className="m-3">
-                      <label className="font-semibold">Upload Background</label>
-                      <input type="file" name="bg" id="bg" className="m-3" />
-                    </div>
-                    <div className="m-3">
-                      <label className="font-semibold">Upload Logo</label>
+                      <label className="font-semibold" name='logo'>Upload Logo</label>
                       <input type="file" name="bg" id="bg" className="m-3" />
                     </div>
                     <div className="flex justify-between mt-16 mx-32">
                       <div className="m-3 ">
                         <label className="font-semibold">Name: </label>
                         <br />
-                        <input
-                          type="text"
-                          className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
-                        />
+                        <div
+                          className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base" 
+                        >{ company ? company.name : 'Company Name'}</div>
                       </div>
                       <div className="m-3 mr-32">
                         <label className="font-semibold">Location: </label>
@@ -43,6 +143,8 @@ const CompanyInformation = () => {
                         <input
                           type="text"
                           className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
+                          onChange={handleLocation}
+                          value={location}
                         />
                       </div>
                     </div>
@@ -51,10 +153,11 @@ const CompanyInformation = () => {
                     <div className="m-3">
                       <label className="font-semibold">Phone Number: </label>
                       <br />
-                      <input
-                        type="number"
-                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
-                      />
+                      <div
+                        type="text"
+                        className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] h-[50%] mt-2 p-[0.3rem] text-base">
+                          {company.contactNo ? company.contactNo : ''}
+                      </div>
                     </div>
                     <div className="m-3 mr-32">
                       <label className="font-semibold">No. Of Employees: </label>
@@ -62,6 +165,9 @@ const CompanyInformation = () => {
                       <input
                         type="number"
                         className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
+                        onChange={handleEmp}
+                        value={noOfEmp}
+                        name='noOfEmp'
                       />
                     </div>
                   </div>
@@ -73,29 +179,16 @@ const CompanyInformation = () => {
                         name="type"
                         id="type"
                         className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
+                        onChange={handleCompanyType}
                       >
-                        <option value="none" selected disabled hidden>
-                          Select an Option
-                        </option>
-                        <option value="Public Limited Company">
-                          Public Limited Company
-                        </option>
-                        <option value="Private Limited Company">
-                          Private Limited Company
-                        </option>
-                        <option value="Joint-Venture Company">
-                          Joint-Venture Company
-                        </option>
-                        <option value="Partnership Firm">
-                          Partnership Firm
-                        </option>
-                        <option value="One Person Company">
-                          One Person Company
-                        </option>
-                        <option value="Sole Proprietorship">
-                          Sole Proprietorship
-                        </option>
-                        <option value="Branch Office">Branch Office</option>
+                        <option value={null}>Select</option>
+                        <option value="PbLc">Public Limited</option>
+                        <option value="PrLc">Privated Limited</option>
+                        <option value="JVC">Joint Venture</option>
+                        <option value="PF">Partnership Firm</option>
+                        <option value="OPC">One Person Company</option>
+                        <option value="SP">Sole Proprietory</option>
+                        <option value="BO">Branch Office</option>
                         <option value="NGO">NGO</option>
                       </select>
                     </div>
@@ -105,11 +198,12 @@ const CompanyInformation = () => {
                       <input
                         type="location"
                         className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
+                        onChange={handleWebsiteChange}
+                        name='website'
+                        value={website}
                       />
                     </div>
                   </div>
-                </form>
-                <form>
                   <div className="m-8 mt-20">
                     <h4 className="text-2xl font-semibold">Description</h4>
                     <hr />
@@ -119,14 +213,16 @@ const CompanyInformation = () => {
                       rows="10"
                       cols="100"
                       className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] mt-4 p-3"
+                      onChange={handleInfoChange}
+                      name='companyInfo' 
                     />
                   </div>
+                  <div className="flex justify-end">
+                    <button className="bg-purple text-white m-8 rounded-[34px] p-3 text-center w-1/6 font-semibold" onClick={handleSave}>
+                      Save Changes
+                    </button>
+                  </div>
                 </form>
-                <div className="flex justify-end">
-                  <button className="bg-purple text-white m-8 rounded-[34px] p-3 text-center w-1/6 font-semibold">
-                    Save Changes
-                  </button>
-                </div>
               </div>
             </div>
           </div>
