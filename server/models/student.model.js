@@ -113,7 +113,10 @@ const studentSchema = new mongoose.Schema({
         title: {
             type: String
         },
-        duration: {
+        workspace:{
+            type: String
+        },
+        duration:{
             type: Number
         },
         position: {
