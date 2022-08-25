@@ -17,12 +17,12 @@ const StudInfoSidebar = ({ selected }) => {
     
   };
   const links = {
-    Personal: "studentprofile",
+    Personal: "/studentprofile",
     
-    Educational: "educationinfo",
-    Skills: "skills",
-    WorkSamples: "worksamples",
-    Experience: "",
+    Educational: "/educationinfo",
+    Skills: "/skills",
+    WorkSamples: "/worksamples",
+    Experience: "/experience",
     
   };
   return (
@@ -54,7 +54,7 @@ const StudInfoSidebar = ({ selected }) => {
                 className="flex justify-start mt-2 items-center ml-2 px-2 "
               >
                 {navs[key]}
-                <a jhref={links[key]} className=" text-white text-base font-bold ml-5">
+                <a href={links[key]} className=" text-white text-base font-bold ml-5">
                   {key}
                 </a>
               </div>
