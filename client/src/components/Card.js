@@ -10,12 +10,12 @@ const Card = ({ id }) => {
           id: id,
         });
         console.log(response.data);
-        return response.data;
+        setJobs(response.data[0])
       } catch (error) {
         return null;
       }
     }
-    const job = await getJob()
+    getJob()
   }, []);
   return (
     <div>
