@@ -119,9 +119,6 @@ const studentSchema = new mongoose.Schema({
         duration:{
             type: Number
         },
-        position: {
-            type: String
-        }
     },
     blogLink: linkSchema,
     githubLink: linkSchema,
