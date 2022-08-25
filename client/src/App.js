@@ -5,6 +5,7 @@ import { ApplicationStud, Dashboard, Edit, EducationInfo, JobDetails, SearchJob,
 import Experience from './pages/Student/Experience';
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
+// import DataTable from "./pages/DataTable";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/studentprofile" element={<StudentProfile />} />
         <Route path="/worksamples" element={<WorkSamples />} />
         <Route path="/experience" element={<Experience />} />
+        {/* <Route path="/"  element={<DataTable />} /> */}
       </Routes>
 
     </div>

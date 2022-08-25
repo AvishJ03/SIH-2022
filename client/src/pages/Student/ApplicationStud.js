@@ -13,7 +13,7 @@ const ApplicationStud = () => {
                 <div className="text-sm font-semibold mt-4">
                     Showing 'x' Applicants
                 </div>
-                <button className="bg-[#40189D] w-20 h-6 mt-3 rounded-full hover:bg-violet-600 active:bg-violet-700">
+                {/* <button className="bg-[#40189D] w-20 h-6 mt-3 rounded-full hover:bg-violet-600 active:bg-violet-700">
                 <div className="text-white font-medium text-center">All</div>
                 </button>
         
@@ -27,7 +27,7 @@ const ApplicationStud = () => {
         
                 <button className="bg-[#dfcef7] w-20 h-6 mt-3 rounded-full hover:bg-[#c69eff]">
                 <div className="text-[#808080] font-medium text-center">Selected</div>
-                </button>
+                </button> */}
         
                 {/* <div className="bg-white w-20 h-6 mt-3 rounded-2xl hover:bg-[#c69eff]">
                     <div className="text-[#808080] font-medium text-center">Newest</div>
@@ -35,31 +35,32 @@ const ApplicationStud = () => {
             </div>
       
             <div className="text-xs text-[#808080]"> Based on your Preferences</div>
+            <table className='w-[100%]'>
             <div className="bg-white rounded-t-lg mt-3">
-                <div className=" flex justify-around p-3">
-                    <div className="text-xl font-bold mt-4">Date Applied</div>
-                    <div className="text-xl font-bold mt-4">Company</div>
-                    <div className="text-xl font-bold mt-4">Type</div>
-                    <div className="text-xl font-bold mt-4">Position</div>
-                    <div className="text-xl font-bold mt-4">Contact</div>
-                    <div className="text-xl font-bold mt-4">Status</div>
-                </div>
+                <tr className=" flex justify-around p-3">
+                    <th className="text-xl font-bold mt-4">Date Applied</th>
+                    <th className="text-xl font-bold mt-4">Company</th>
+                    <th className="text-xl font-bold mt-4">Type</th>
+                    <th className="text-xl font-bold mt-4">Position</th>
+                    <th className="text-xl font-bold mt-4">Contact</th>
+                    <th className="text-xl font-bold mt-4">Status</th>
+                </tr>
             </div>
             
             {/* 1st company */}
-            <div className="bg-white mt-1">
-                <div className=" flex justify-around p-3">
+            <tr className="bg-white mt-1">
+                <td className=" flex justify-around p-3">
                     <div className="text-sm font-semibold mt-4">June 1, 2020</div>
                     <div className="flex ml-2 justify-between">
                         <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]"/>
-                        <div className=" text-xs font-semibold mt-4">Company Name</div>
+                        <td className=" text-xs font-semibold mt-4">Company Name</td>
                     </div>
-                    <div className="text-sm font-semibold mt-4">FREELANCE</div>
-                    <div className="text-sm font-semibold mt-4">Intern UI Designer</div>
-                    <div className="flex ml-2 justify-between">
+                    <td className="text-sm font-semibold mt-4">FREELANCE</td>
+                    <td className="text-sm font-semibold mt-4">Intern UI Designer</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
-                    </div>
+                    </td>
                     {/* <div className="relative"> */}
                     {/* <select className="appearance-none w-full bg-gray-200 border border-black text-black py-3 px-4 pr-8 rounded-full"> */}
                     {/* <select className="bg-white text-black text-sm border font-bold py-2 px-4 rounded-full">
@@ -68,105 +69,106 @@ const ApplicationStud = () => {
                         <option className="bg-[#2AC154] text-[#FFFFFF] text-sm border border-[#FFFFFF] font-bold py-2 px-4 rounded-full">Selected</option>
                     </select>
                     </div> */}
-                    <div className="bg-white text-[#808080] text-sm border border-[#808080] font-bold py-2 px-4 rounded-full">Pending</div>
+                    <td className="bg-white text-[#808080] text-sm border border-[#808080] font-bold py-2 px-4 rounded-full">Pending</td>
                     {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
-                </div>
-            </div>
+                </td>
+            </tr>
             
             {/* 2nd company */}
-            <div className="bg-white mt-1">
+            <tr className="bg-white mt-1">
                 <div className=" flex justify-around p-3">
-                    <div className="text-sm font-semibold mt-4">June 1, 2020</div>
-                    <div className="flex ml-2 justify-between">
+                    <td className="text-sm font-semibold mt-4">June 1, 2020</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]"/>
                         <div className=" text-xs font-semibold mt-4">Company Name</div>
-                    </div>
-                    <div className="text-sm font-semibold mt-4">FREELANCE</div>
-                    <div className="text-sm font-semibold mt-4">Intern UI Designer</div>
-                    <div className="flex ml-2 justify-between">
+                    </td>
+                    <td className="text-sm font-semibold mt-4">FREELANCE</td>
+                    <td className="text-sm font-semibold mt-4">Intern UI Designer</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
-                    </div>
-                    <div className="bg-white text-[#FEB782] text-sm border border-[#FEB782] font-bold py-2 px-4 rounded-full">Viewed</div>
+                    </td>
+                    <td className="bg-white text-[#FEB782] text-sm border border-[#FEB782] font-bold py-2 px-4 rounded-full">Viewed</td>
                     {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
                 </div>
-            </div>
+            </tr>
 
             {/* 3rd company */}
-            <div className="bg-white mt-1">
+            <tr className="bg-white mt-1">
                 <div className=" flex justify-around p-3">
-                    <div className="text-sm font-semibold mt-4">June 1, 2020</div>
-                    <div className="flex ml-2 justify-between">
+                    <td className="text-sm font-semibold mt-4">June 1, 2020</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]"/>
                         <div className=" text-xs font-semibold mt-4">Company Name</div>
-                    </div>
-                    <div className="text-sm font-semibold mt-4">FREELANCE</div>
-                    <div className="text-sm font-semibold mt-4">Intern UI Designer</div>
-                    <div className="flex ml-2 justify-between">
+                    </td>
+                    <td className="text-sm font-semibold mt-4">FREELANCE</td>
+                    <td className="text-sm font-semibold mt-4">Intern UI Designer</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
-                    </div>
-                    <div className="bg-white text-[#808080] text-sm border border-[#808080] font-bold py-2 px-4 rounded-full">Pending</div>
+                    </td>
+                    <td className="bg-white text-[#808080] text-sm border border-[#808080] font-bold py-2 px-4 rounded-full">Pending</td>
                     {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
                 </div>
-            </div>
+            </tr>
 
             {/* 4th company */}
-            <div className="bg-white mt-1">
+            <td className="bg-white mt-1">
                 <div className=" flex justify-around p-3">
-                    <div className="text-sm font-semibold mt-4">June 1, 2020</div>
-                    <div className="flex ml-2 justify-between">
+                    <td className="text-sm font-semibold mt-4">June 1, 2020</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]"/>
                         <div className=" text-xs font-semibold mt-4">Company Name</div>
-                    </div>
-                    <div className="text-sm font-semibold mt-4">FREELANCE</div>
-                    <div className="text-sm font-semibold mt-4">Intern UI Designer</div>
-                    <div className="flex ml-2 justify-between">
+                    </td>
+                    <td className="text-sm font-semibold mt-4">FREELANCE</td>
+                    <td className="text-sm font-semibold mt-4">Intern UI Designer</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
-                    </div>
-                    <div className="bg-[#2AC154] text-[#FFFFFF] text-sm border border-[#FFFFFF] font-bold py-2 px-4 rounded-full">Selected</div>
+                    </td>
+                    <td className="bg-[#2AC154] text-[#FFFFFF] text-sm border border-[#FFFFFF] font-bold py-2 px-4 rounded-full">Selected</td>
                     {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
                 </div>
-            </div>
+            </td>
 
             {/* 5th company */}
-            <div className="bg-white mt-1">
+            <tr className="bg-white mt-1">
                 <div className=" flex justify-around p-3">
-                    <div className="text-sm font-semibold mt-4">June 1, 2020</div>
-                    <div className="flex ml-2 justify-between">
+                    <td className="text-sm font-semibold mt-4">June 1, 2020</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]"/>
                         <div className=" text-xs font-semibold mt-4">Company Name</div>
-                    </div>
-                    <div className="text-sm font-semibold mt-4">FREELANCE</div>
-                    <div className="text-sm font-semibold mt-4">Intern UI Designer</div>
-                    <div className="flex ml-2 justify-between">
+                    </td>
+                    <td className="text-sm font-semibold mt-4">FREELANCE</td>
+                    <td className="text-sm font-semibold mt-4">Intern UI Designer</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
-                    </div>
-                    <div className="bg-white text-[#FEB782] text-sm border border-[#FEB782] font-bold py-2 px-4 rounded-full">Viewed</div>
+                    </td>
+                    <td className="bg-white text-[#FEB782] text-sm border border-[#FEB782] font-bold py-2 px-4 rounded-full">Viewed</td>
                     {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
                 </div>
-            </div>
+            </tr>
 
             {/* 6th company */}
-            <div className="bg-white mt-1 rounded-b-lg">
+            <tr className="bg-white mt-1 rounded-b-lg">
                 <div className=" flex justify-around p-3">
-                    <div className="text-sm font-semibold mt-4">June 1, 2020</div>
-                    <div className="flex ml-2 justify-between">
+                    <td className="text-sm font-semibold mt-4">June 1, 2020</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="border-solid border border-[#808080] rounded-md w-8 h-8 mt-3 bg-[#FFF9F9]"/>
                         <div className=" text-xs font-semibold mt-4">Company Name</div>
-                    </div>
-                    <div className="text-sm font-semibold mt-4">FREELANCE</div>
-                    <div className="text-sm font-semibold mt-4">Intern UI Designer</div>
-                    <div className="flex ml-2 justify-between">
+                    </td>
+                    <td className="text-sm font-semibold mt-4">FREELANCE</td>
+                    <td className="text-sm font-semibold mt-4">Intern UI Designer</td>
+                    <td className="flex ml-2 justify-between">
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
                         <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]"/>
-                    </div>
-                    <div className="bg-[#2AC154] text-[#FFFFFF] text-sm border border-[#FFFFFF] font-bold py-2 px-4 rounded-full">Selected</div>
+                    </td>
+                    <td className="bg-[#2AC154] text-[#FFFFFF] text-sm border border-[#FFFFFF] font-bold py-2 px-4 rounded-full">Selected</td>
                     {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
                 </div>
-            </div>
+            </tr>
+            </table>
 
             &nbsp;
             <div className="flex justify-end">
