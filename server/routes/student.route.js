@@ -101,6 +101,7 @@ router.get('/students/self/applications', auth, async (req, res) => {
         await req.studentUser.populate('applications');
         res.status(200).send(req.studentUser.applications);
     } catch (error) {
+        console.log(error.message);
         res.status(400).send({
             error,
             message: "Something went wrong"

@@ -105,7 +105,15 @@ const studentSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    skillsStudent: String,
+    skillsStudent: [{
+        name: {
+            type: String
+        },
+        level: {
+            type: Number
+        }
+    }],
+    skills: String,
     profilePic: {
         type: String
     },
