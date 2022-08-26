@@ -139,9 +139,9 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card jid={(jobs && jobs[0]) ? jobs["ids"][0] : null} />
-            <Card jid={(jobs && jobs[0]) ? jobs["ids"][1] : null} />
-            <Card jid={(jobs && jobs[0]) ? jobs["ids"][2] : null} />
+            <Card jid={(jobs && jobs['ids']) ? jobs["ids"][0] : null} />
+            <Card jid={(jobs && jobs['ids']) ? jobs["ids"][1] : null} />
+            <Card jid={(jobs && jobs['ids']) ? jobs["ids"][2] : null} />
           </div>
           <button
             onClick={handleSubmit}

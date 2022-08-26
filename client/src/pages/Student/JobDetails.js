@@ -64,11 +64,9 @@ export default function JobDetails(props) {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
-      return response.data;
+      navigate("/dashboard")
     } catch (error) {
-      // console.log(jid);
       console.log(error.message);
-      return null;
     }
   }
 
