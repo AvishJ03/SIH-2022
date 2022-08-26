@@ -40,6 +40,12 @@ export default function JobDetails(props) {
     
   }, []);
 
+  // const handleSubmit = async (e) =>
+  // {
+  //   navigate('/')
+  // }
+
+
 
 
 
@@ -104,7 +110,7 @@ export default function JobDetails(props) {
                 <div className="flex justify-between font-[Raleway] text-[25px] ">
                   <h1>{props.position}</h1>
                   <div className="flex">
-                    <button className="bg-[#40189D] hover:bg-[#6440b7] text-white font-bold py-2 px-4 rounded-full h-0% text-center text-[15px]">
+                    <button className="bg-[#40189D] hover:bg-[#6440b7] text-white font-bold py-2 px-4 rounded-full h-0% text-center text-[15px]" onClick={handleSubmit}>
                       Apply Now
                     </button>
                     {/* <i className="fa-solid fa-user pl-4 pt-4"></i> */}
