@@ -120,9 +120,9 @@ const studentSchema = new mongoose.Schema({
             type: Number
         },
     },
-    blogLink: linkSchema,
     githubLink: linkSchema,
-    playstoreLink: linkSchema,
+    blogLink: linkSchema,
+    linkedInLink: linkSchema,
     behanceLink: linkSchema,
     otherPortfolioLink: linkSchema,
     tokens: [{
