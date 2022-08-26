@@ -24,7 +24,7 @@ function App() {
         <Route path="/applicationstud" element={<ApplicationStud />} />
         <Route path="/edit" element={<Edit />} />
         <Route path="/educationinfo" element={<EducationInfo />} />
-        <Route path="/jobdetails/:id" element={<JobDetails />} />
+        <Route path="/jobdetails/:jid" element={<JobDetails />} />
         <Route path="/searchjob" element={<SearchJob />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/studentprofile" element={<StudentProfile />} />
