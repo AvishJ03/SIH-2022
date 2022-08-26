@@ -8,8 +8,10 @@ import Header from "../../components/Header";
 import Chart from "../../components/Chart";
 import Card from "../../components/Card";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = (props) => {
+  const navigate = useNavigate();
   const [student, setStudent] = useState({});
   const [jobs, setJobs] = useState(null);
 
@@ -74,6 +76,12 @@ const Dashboard = (props) => {
     console.log(student);
   }, []);
 
+  const handleSubmit = async (e) => {
+
+    navigate('/searchjob');
+
+  }
+
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
       <Sidebar selected="Dashboard" />
@@ -130,7 +138,7 @@ const Dashboard = (props) => {
             <Card id={jobs ? jobs['ids'][1] : null} />
             <Card id={jobs ? jobs['ids'][2] : null} />
           </div>
-          <button href="/searchjob" className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
+          <button onClick={handleSubmit} className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
         </div>
       </div>
     </div>
