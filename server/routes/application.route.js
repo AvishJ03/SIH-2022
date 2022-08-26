@@ -26,9 +26,8 @@ router.post('/applications/:id', studentAuth, async (req, res) => {
 // id is job token
 router.get('/applications/jobs/:id', async (req, res) => {
     try {
-        const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
-        const applications = await Application.find({ job: decoded._id }).populate('job').populate('applicant');
-        res.status(200).send(applications);
+        const applications = await Application.find({ job: req.params.id }).populate('job').populate('applicant');
+        res.status(200).send(applications.applicant);
     } catch(error) {
         res.status(400).send(error);
     }
