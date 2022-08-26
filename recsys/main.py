@@ -1,9 +1,10 @@
 from unittest import result
 from flask import Flask, jsonify, request
 import func
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route("/")
 def hello_world():
@@ -20,7 +21,7 @@ def rec():
     user = f"{title} {skills}"
     print(user)
     ids = func.recommend(user, jobType, location, experience)
-    return ids
+    # return ids
     result = {
         "ids": ids,
     }

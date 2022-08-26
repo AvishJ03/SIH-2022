@@ -10,8 +10,6 @@ const Skills=() =>{
     const [ hardSkill, setHardSkill ] = useState("");
     const [ hardScale, setHardScale ] = useState("");
     const [ skills, setSkills ] = useState([]);
-    const [counter, setCounter]=useState(0)
-    const [counterSoft, setCounterSoft]=useState(0)
 
   const url = 'http://localhost:5000';
 
