@@ -27,7 +27,7 @@ router.post('/applications/:id', studentAuth, async (req, res) => {
 router.get('/applications/jobs/:id', async (req, res) => {
     try {
         const applications = await Application.find({ job: req.params.id }).populate('applicant');
-        res.status(200).send(applications.applicant);
+        res.status(200).send(applications);
     } catch(error) {
         res.status(400).send(error);
     }
