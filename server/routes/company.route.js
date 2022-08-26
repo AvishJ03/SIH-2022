@@ -46,12 +46,14 @@ router.post('/company', async (req, res) => {
 router.get('/company/self', auth, async (req, res) => {
     res.status(200).send(req.companyUser);
 });
-router.get('/company', async (req, res) => {
+router.get('/company/:id', async (req, res) => {
     try {
-        const id = mongoose.Types.ObjectId(req.body.id);
-        const comp = await Company.find({ _id: id });
+        // const id = mongoose.Types.ObjectId(req.params.id);
+        console.log(req.params.id);
+        const comp = await Company.find({ _id: req.params.id });
         res.status(200).send(comp);
     } catch (error) {
+        console.log(req.params.id);
         res.status(400).send(error);
     }
 });
@@ -94,7 +96,7 @@ router.patch('/company/self', auth, async (req, res) => {
         res.status(400).send({
             error: e,
             message: "Something went wrong"
-        
+
         });
         // console.log(error.message);
     }
@@ -135,7 +137,7 @@ router.get('/company/self/applicants', auth, async (req, res) => {
             applicants.concat(job.applicants);
         });
         res.status(200).send(applicants);
-    } catch(error) {
+    } catch (error) {
         res.status(400).send({
             error,
             message: error.message

@@ -15,11 +15,12 @@ router.get('/jobs/self', companyAuth, async (req, res) => {
 });
 router.get('/job/:id', async (req, res) => {
     try {
-        // const id = mongoose.Types.ObjectId(req.params.id);
-        const job = await Job.find({ _id: req.params.id });
+        const id = mongoose.Types.ObjectId(req.params.id);
+        const job = await Job.find({ _id: id });
         res.status(200).send(job);
     } catch (error) {
-        res.status(400).send(error);
+        console.log(error.message);
+        res.status(400).send(error.message);
     }
 });
 

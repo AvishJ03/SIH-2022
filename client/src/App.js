@@ -16,7 +16,7 @@ function App() {
         <Route path="/signupcompany" element={<SignupCompany />} />
         <Route path="/studentsignup" element={<StudentSignUp />} />
         <Route path="/applicationcompany" element={<ApplicationCompany />} />
-        <Route path="/jobdetails" element={<JobDetails position="Full Stack Developer" company="ABCDev" about="abduaybda" location="Coimbatore" />} />
+        {/* <Route path="/jobdetails" element={<JobDetails position="Full Stack Developer" company="ABCDev" about="abduaybda" location="Coimbatore" />} /> */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/companyinformation" element={<CompanyInformation />} />
         <Route path="/companydashboard" element={<CompanyDashboard />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path="/applicationstud" element={<ApplicationStud />} />
         <Route path="/edit" element={<Edit />} />
         <Route path="/educationinfo" element={<EducationInfo />} />
-        <Route path="/jobdetails" element={<JobDetails />} />
+        <Route path="/jobdetails/:id" element={<JobDetails />} />
         <Route path="/searchjob" element={<SearchJob />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/studentprofile" element={<StudentProfile />} />

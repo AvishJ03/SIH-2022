@@ -8,8 +8,10 @@ import Header from "../../components/Header";
 import Chart from "../../components/Chart";
 import Card from "../../components/Card";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = (props) => {
+  const navigate = useNavigate();
   const [student, setStudent] = useState({});
   const [jobs, setJobs] = useState([]);
 
@@ -29,6 +31,16 @@ const Dashboard = (props) => {
         return null;
       }
     };
+
+    getDashboard().then((user) => {
+      console.log(user);
+      setStudent(user);
+    })
+      .catch(() => setJobs([]));
+    console.log(student);
+  }, []);
+
+  useEffect(() => {
     const getJobs = async (student) => {
       const data = {
         title: "Web Development",
@@ -59,20 +71,19 @@ const Dashboard = (props) => {
         return null;
       }
     };
-    getDashboard()
-      .then((user) => {
-        console.log(user);
-        setStudent(user);
-        return student;
-      })
-      .then(() => getJobs(student))
-      .then((id) => {
-        console.log(id);
-        setJobs(id);
-      })
-      .catch(() => setJobs([]));
-    console.log(student);
-  }, []);
+    getJobs(student).then((id) => {
+      console.log(id);
+      setJobs(id)
+    }).catch((err) => {
+      console.log(err.message);
+      setJobs(null)
+    })
+  }, [student])
+
+  function handleView(e){
+    e.preventDefault();
+    navigate("/searchjob")
+  }
 
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
@@ -126,11 +137,11 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card id={jobs['ids'] ? jobs['ids'][0] : null} />
-            <Card id={jobs['ids'] ? jobs['ids'][1] : null} />
-            <Card id={jobs['ids'] ? jobs['ids'][2] : null} />
+            <Card jid={jobs['ids'] ? jobs['ids'][0] : null} />
+            <Card jid={jobs['ids'] ? jobs['ids'][1] : null} />
+            <Card jid={jobs['ids'] ? jobs['ids'][2] : null} />
           </div>
-          <button href="/searchjob" className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
+          <button onClick={handleView} className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
         </div>
       </div>
     </div>

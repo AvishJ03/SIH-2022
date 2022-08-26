@@ -4,52 +4,16 @@ import BackgroundImg from "../../assets/BackgroundImg.jpg";
 import React from "react";
 import Sidebar from "../../components/Sidebar";
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
 export default function JobDetails(props) {
 
   const url = "http://localhost:5000";
+  const { id } = useParams()
   const navigate = useNavigate();
-  const [student, setStudent] = useState("");
-  const [title, setTitle] = useState("");
-  const [minExp, setMinExp] = useState("");
-  const [empType, setEmpType] = useState("");
-  const [salary, setSalary] = useState("");
-  const [desc, setDesc] = useState("");
-
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get(`${url}/students/self`, {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        });
-        return response.data;
-      } catch(error) {
-        return null;
-      }
-    }
-    getData().then((user) => {
-      console.log(user);
-      setStudent(user);
-    })
-    
-  }, []);
-
-  // const handleSubmit = async (e) =>
-  // {
-  //   navigate('/')
-  // }
-
-
-
-
-
-
+  console.log(id);
 
   return (
     <>
@@ -60,7 +24,7 @@ export default function JobDetails(props) {
         <div className="bg-[#F2F2F2] w-full px-2 ml-10 rounded-l-3xl">
           <div className="max-w-7xl mx-auto py-6 px-6">
             {/* Replace with your content */}
-            <Header heading="Job Details" user="Oda Dink" />   
+            <Header heading="Job Details" user="Oda Dink" />
             <p className="text-purple font-medium text-[14px] p-2.5">
               Search Job/{" "}
               <span className="text-[#808080]">{props.position}</span>
