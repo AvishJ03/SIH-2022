@@ -78,7 +78,7 @@ export default function JobDetails(props) {
                   src={CompanyLogo}
                   alt="Company Logo"
                 />
-                <h5 className="pt-10 text-center font-[Raleway] text-[18px]">
+                <h5 className="pt-20 text-center font-[Raleway] text-[18px]">
                   {props.company}
                 </h5>
                 <p className="text-[#808080] text-center text-[12px] font-medium">

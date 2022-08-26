@@ -1,5 +1,6 @@
 import React from "react";
 import { MdHeight, MdPostAdd } from "react-icons/md";
+import logo from '../assets/logo3.png'
 
 import {
   AiFillHome,
@@ -26,23 +27,19 @@ const SideBarCompany = ({ selected }) => {
     Message: "",
   };
   return (
-    <div className="h-screen">
+    <div className="h-screen w-1/5">
       <div className="flex flex-col h-2/3 justify-evenly ml-2">
-        <div className="flex px-2">
-          <div className="bg-[#FFFFFF] w-10 h-10 rounded-full"></div>
-          <a href="/" className="text-white text-base font-bold ml-3 mt-2 text-center">
-            HireIt
-          </a>
-        </div>
+        <img src={logo} alt="HireIt" className="w-2/3"/>
+       
         {Object.keys(navs).map((key, index) => {
           if (key === selected) {
             return (
               <div
                 key={index}
-                className="flex justify-evenly mt-2 items-center px-4"
+                className="flex justify-start mt-5 items-center px-4"
               >
                 {navs[key]}
-                <a href={links[key]} className="bg-[#F2F2F2] h-[100%] w-28 rounded-2xl ml-3 pt-2 text-base font-bold text-center">
+                <a href={links[key]} className="bg-[#F2F2F2] h-[100%] w-28 rounded-2xl ml-3 p-2 text-base font-bold text-center flex">
                   {key}
                 </a>
               </div>
