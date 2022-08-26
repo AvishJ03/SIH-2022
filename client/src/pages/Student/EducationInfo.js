@@ -161,15 +161,39 @@ const EducationInfo = () => {
                                 </div>
                             </div> */}
                             <div className="flex flex-col min-w-full min-h-full mb-7">
+                                <label className="font-semibold text-lg">Higher Seconday College Name*:</label>
+                                <div className="flex flex-row flex-wrap justify-between">
+                                    <input type='text' name='hscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleHscMarks} />
+                                </div>
+                            </div>
+                            <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">XII (Senior Secondary) / Diploma Percentage*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
                                     <input type='text' name='hscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleHscMarks} />
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
-                                <label className="font-semibold text-lg">Higher Seconday College Name*:</label>
+                                <label className="font-semibold text-lg">English Marks in XIIth:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1"onChange={handleHscSchool} />
+                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1" />
+                                </div>
+                            </div>
+                            <div className="flex flex-col min-w-full min-h-full mb-7">
+                                <label className="font-semibold text-lg">Science Marks in XIIth:</label>
+                                <div className="flex flex-row flex-wrap justify-between">
+                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1"/>
+                                </div>
+                            </div>
+                            <div className="flex flex-col min-w-full min-h-full mb-7">
+                                <label className="font-semibold text-lg">Math Marks in XIIth:</label>
+                                <div className="flex flex-row flex-wrap justify-between">
+                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1" />
+                                </div>
+                            </div>
+                            <div className="flex flex-col min-w-full min-h-full mb-7">
+                                <label className="font-semibold text-lg">School Name*:</label>
+                                <div className="flex flex-row flex-wrap justify-between">
+                                    <input type='text' name='sscschool' className="rounded-xl border border-purple w-96 p-1" onChange={handleSscSchool} />
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
@@ -179,9 +203,21 @@ const EducationInfo = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">
-                                <label className="font-semibold text-lg">School Name*:</label>
+                                <label className="font-semibold text-lg">English Marks in Xth:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='sscschool' className="rounded-xl border border-purple w-96 p-1" onChange={handleSscSchool} />
+                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1"/>
+                                </div>
+                            </div>
+                            <div className="flex flex-col min-w-full min-h-full mb-7">
+                                <label className="font-semibold text-lg">Science Marks in Xth:</label>
+                                <div className="flex flex-row flex-wrap justify-between">
+                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1" />
+                                </div>
+                            </div>
+                            <div className="flex flex-col min-w-full min-h-full mb-7">
+                                <label className="font-semibold text-lg">Math Marks in Xth:</label>
+                                <div className="flex flex-row flex-wrap justify-between">
+                                    <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1" />
                                 </div>
                             </div>
                             <div className="flex flex-row-reverse min-w-full min-h-full mt-7">

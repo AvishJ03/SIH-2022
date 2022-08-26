@@ -39,12 +39,23 @@ const WorkSamples=() =>{
     e.preventDefault();
     try {
         const data = {
-            blogLink: blogLink,
-            githubLink: githubLink,
-            playstoreLink: playstoreLink,
-            behanceLink: behanceLink,
-            otherPortfolioLink: otherPortfolioLink,
+            blogLink: {
+              link: blogLink
+            },
+            githubLink: {
+              link: githubLink
+            },
+            playstoreLink: {
+              link: playstoreLink
+            },
+            behanceLink: {
+              link: behanceLink
+            },
+            otherPortfolioLink: {
+              link: otherPortfolioLink
+            },
           };
+          console.log(data);
 
         console.log(localStorage);
       const response = await axios.patch(`${url}/students/self`, data,

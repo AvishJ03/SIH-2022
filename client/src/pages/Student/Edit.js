@@ -93,7 +93,7 @@ export default function Edit(props) {
                     <br />
                     {edit && edit.hsc ? edit.hsc.college : 'College not entered!'};
                     <br />
-                    {/* June 2020 - August 2024 */}
+                  
                   </p>
                   <p className="font-bold">{
                     edit &&
@@ -107,7 +107,7 @@ export default function Edit(props) {
                     <br />
                     {edit && edit.ssc ? edit.ssc.college : 'College not entered!'};
                     <br />
-                    {/* June 2020 - August 2024 */}
+                 
                   </p>
                   <p className="font-bold">{
                     edit &&
@@ -127,7 +127,10 @@ export default function Edit(props) {
 
                 <div className="flex justify-start">
                   <div className="m-3">
-                    <label>{edit.skillsStudent && edit ? edit.skillsStudent : 'No skills entered!'};</label>
+                    <label>
+                      {/* {edit.skillsStudent && edit ? edit.skillsStudent : 'No skills entered!'}; */}
+                      Programming
+                      </label>
                     <input
                       type="text"
                       className="border-[#40189D] bg-[#F2F2F2] ml-2"
@@ -174,7 +177,7 @@ export default function Edit(props) {
                   </div>
                 </div>
                 <h4 className="text-black font-semibold text-xl m-2">
-                  Achievements
+                  Experiences
                 </h4>
                 <hr />
                 <div className="">
@@ -450,4 +453,4 @@ export default function Edit(props) {
       </div>
     </>
   );
-}
+};

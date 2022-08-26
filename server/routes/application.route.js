@@ -26,8 +26,7 @@ router.post('/applications/:id', studentAuth, async (req, res) => {
 // id is job token
 router.get('/applications/jobs/:id', async (req, res) => {
     try {
-        const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
-        const applications = await Application.find({ job: decoded._id }).populate('job').populate('applicant');
+        const applications = await Application.find({ job: req.params.id }).populate('applicant');
         res.status(200).send(applications);
     } catch(error) {
         res.status(400).send(error);
@@ -39,7 +38,7 @@ router.get('/applications/students/:id', async (req, res) => {
     try {
         const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
         const applications = await Application.find({ applicant: decoded._id }).populate('job');
-        res.status(200).send(applications);
+        res.status(200).send(applications.job);
     } catch(error) {
         res.status(400).send(error);
     }

@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = (props) => {
   const navigate = useNavigate();
   const [student, setStudent] = useState({});
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState(null);
 
   const url = "http://localhost:5000";
   const joburl = "http://localhost:7000";
@@ -71,18 +71,25 @@ const Dashboard = (props) => {
         return null;
       }
     };
-    getJobs(student).then((id) => {
-      console.log(id);
-      setJobs(id)
-    }).catch((err) => {
-      console.log(err.message);
-      setJobs(null)
-    })
-  }, [student])
+    getDashboard()
+      .then((user) => {
+        console.log(user);
+        setStudent(user);
+        return student;
+      })
+      .then(() => getJobs(student))
+      .then((id) => {
+        console.log(id);
+        setJobs(id);
+      })
+      .catch(() => setJobs([]));
+    console.log(student);
+  }, []);
 
-  function handleView(e){
-    e.preventDefault();
-    navigate("/searchjob")
+  const handleSubmit = async (e) => {
+
+    navigate('/searchjob');
+
   }
 
   return (
@@ -137,11 +144,11 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card jid={jobs['ids'] ? jobs['ids'][0] : null} />
-            <Card jid={jobs['ids'] ? jobs['ids'][1] : null} />
-            <Card jid={jobs['ids'] ? jobs['ids'][2] : null} />
+            <Card id={jobs ? jobs['ids'][0] : null} />
+            <Card id={jobs ? jobs['ids'][1] : null} />
+            <Card id={jobs ? jobs['ids'][2] : null} />
           </div>
-          <button onClick={handleView} className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
+          <button onClick={handleSubmit} className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
         </div>
       </div>
     </div>
