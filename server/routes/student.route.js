@@ -109,4 +109,23 @@ router.get('/students/self/applications', auth, async (req, res) => {
     }
 });
 
+router.get('/students/:id', async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id);
+        if(!student) {
+            res.status(200).send({
+                message: 'Invalid ID'
+            })
+        }
+        res.status(200).send(student);
+    } catch(error) {
+        console.log(error.message);
+        res.status(500).send({
+            error,
+            message: error.message
+        })
+    }
+});
+
+
 module.exports = router;
