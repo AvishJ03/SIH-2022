@@ -86,10 +86,17 @@ const Dashboard = (props) => {
     console.log(student);
   }, []);
 
+    getJobs(student).then((id) => {
+      console.log(id);
+      setJobs(id)
+    }).catch((err) => {
+      console.log(err.message);
+      setJobs(null)
+    })
+  }
+
   const handleSubmit = async (e) => {
-
     navigate('/searchjob');
-
   }
 
   return (
@@ -144,14 +151,13 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card id={jobs ? jobs['ids'][0] : null} />
-            <Card id={jobs ? jobs['ids'][1] : null} />
-            <Card id={jobs ? jobs['ids'][2] : null} />
+            <Card jid={jobs ? jobs['ids'][0] : null} />
+            <Card jid={jobs ? jobs['ids'][1] : null} />
+            <Card jid={jobs ? jobs['ids'][2] : null} />
           </div>
           <button onClick={handleSubmit} className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
         </div>
       </div>
     </div>
   );
-};
 export default Dashboard;
