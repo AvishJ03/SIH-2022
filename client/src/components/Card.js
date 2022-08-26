@@ -33,7 +33,7 @@ const Card = ({ jid }) => {
       console.log(comp);
       setCompany(comp);
     });
-  }, []);
+  }, [jid]);
   return (
     <div>
       <div className="w-11/12 h-11/12 p-5 rounded-2xl bg-white">
