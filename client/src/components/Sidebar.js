@@ -29,9 +29,9 @@ const Sidebar = ({ selected }) => {
       <div className="flex flex-col h-2/3 justify-evenly ml-2">
         <div className="flex px-2">
           <div className="bg-[#FFFFFF] w-10 h-10 rounded-full"></div>
-          <div className="text-white text-base font-bold ml-3 mt-2 text-center">
+          <a href="/login" className="text-white text-base font-bold ml-3 mt-2 text-center">
             HireIt
-          </div>
+          </a>
         </div>
         {Object.keys(navs).map((key, index) => {
           if (key === selected) {
