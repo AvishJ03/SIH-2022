@@ -177,7 +177,7 @@ export default function Edit(props) {
                   </div>
                 </div>
                 <h4 className="text-black font-semibold text-xl m-2">
-                  Achievements
+                  Experiences
                 </h4>
                 <hr />
                 <div className="">
