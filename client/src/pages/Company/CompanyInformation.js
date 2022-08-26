@@ -22,14 +22,15 @@ const CompanyInformation = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
         });
-        setCompany(response.data.companyUser);
-        setNoOfEmp(company.noOfEmp);
-        setLocation(company.location);
-        setContactNo(company.contactNo);
-        setLocation(company.location);
-        setTypeOfCompany(company.typeOfCompany);
-        setCompanyInfo(company.companyInfo);
-        setWebsite(company.website);
+        // setCompany(response.data.companyUser);
+        // setNoOfEmp(company.noOfEmp);
+        // setLocation(company.location);
+        // setContactNo(company.contactNo);
+        // setLocation(company.location);
+        // setTypeOfCompany(company.typeOfCompany);
+        // setCompanyInfo(company.companyInfo);
+        // setWebsite(company.website);
+        return response.data;
       } catch(error) {
         setCompany(null);
         setNoOfEmp("");
@@ -41,8 +42,10 @@ const CompanyInformation = () => {
         setWebsite("");
       }
     }
-    getData();
-  }, []);
+    getData().then((res) => {
+      setCompany(res);
+    });
+  }, [company]);
 
   const handleLocation = (e) => {
     setLocation(e.target.value);
@@ -150,18 +153,18 @@ const CompanyInformation = () => {
                           className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                           onChange={handleLocation}
                           value={location}
+                          name='location'
                         />
                       </div>
                     </div>
                   </div>
                   <div className="flex justify-between my-4 text-lg mx-40">
                     <div className="m-3">
-                      <label className="font-semibold">Phone Number: </label>
+                      <label className="font-semibold">Phone Number:</label>
                       <br />
                       <div
-                        type="text"
                         className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] h-[50%] mt-2 p-[0.3rem] text-base">
-                          {company ? company.contactNo : ''}
+                          {company ? company.contactNo : 'Company Contact no'}
                       </div>
                     </div>
                     <div className="m-3 mr-32">
@@ -181,8 +184,8 @@ const CompanyInformation = () => {
                       <label className="font-semibold">Company Type: </label>
                       <br />
                       <select
-                        name="type"
-                        id="type"
+                        name="typeOfCompany"
+                        id="typeOfCompany"
                         className="border border-[#40189D] bg-[#F2F2F2] rounded-[34px] w-[150%] mt-2 p-[0.3rem] text-base"
                         onChange={handleCompanyType}
                       >
