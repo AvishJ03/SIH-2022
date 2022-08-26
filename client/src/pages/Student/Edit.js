@@ -3,14 +3,43 @@ import Header from "../../components/Header";
 import React from "react";
 import Sidebar from "../../components/Sidebar";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";  
 
 export default function Edit(props) {
+  const navigate = useNavigate();
 
-  
+  const handleSubmit = async (e) => {
 
+    navigate('/dashboard');
 
+  }
 
+  const [edit, setEdit] = useState({});
+
+  const url = 'http://localhost:5000';
+
+  useEffect(() => {
+    const getEdit = async () => {
+      try {
+        const response = await axios.get(`${url}/students/self`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        return response.data;
+      } catch (error) {
+        return null;
+      }
+    }
+    getEdit().then((user) => {
+      console.log(user);
+      setEdit(user);
+    }).catch(() => setEdit([]))
+    console.log(edit);
+  }, []);
+
+  // console.log(edit.degree);
   return (
     <>
       {/* Sidebar */}
@@ -28,45 +57,64 @@ export default function Edit(props) {
               <div className="bg-white rounded-[34px] relative mr-10 h-[0%] w-4/5">
                 <h3 className="text-[#40189D] font-extrabold text-2xl flex justify-between m-5 mt-9">
                   Edit Profile
-                  <button className="rounded-[34px] bg-[#40189D] text-white text-base p-2 px-8">
+                  <button className="rounded-[34px] bg-[#40189D] text-white text-base p-2 px-8" onClick={handleSubmit}>
                     Save Changes
                   </button>
                 </h3>
-                
+
                 <h4 className="text-black font-semibold text-xl m-2">
                   Education
                 </h4>
                 <hr />
-                <div className="flex justify-around m-3">
+                <div className="flex justify-between m-3">
                   <p>
-                    B.Tech in Information Technology
-                    <br />
-                    Dwarkadas J. Sanghvi College of Engineering
-                    <br />
-                    June 2020 - August 2024
+                    {edit && `${edit.degree} in ${edit.stream}` ? `${edit.degree} in ${edit.stream}` : 'Degree or Stream not entered!'};
+                    <br/>
+                    {edit && edit.graduation ? edit.graduation.college : 'College not entered!'};
+                    <br/>
+                    
+
+                    {
+                      edit && edit.graduation &&
+                        `${edit.graduation.startYear} - ${edit.graduation.endYear}` ? `${edit.graduation.startYear} - ${edit.graduation.endYear}` : 'Start or End year not entered!'
+                    }
+                  </p> 
+                  <p className="font-bold">
+                    {
+                      edit &&
+                        edit.graduation ? edit.graduation.score : 'Marks not entered!'
+                    }
                   </p>
-                  <p>CGPA: 9/10</p>
                 </div>
-                <div className="flex justify-around m-2">
+                <hr />
+                <div className="flex justify-between m-2">
                   <p>
-                    HSC
+                    Higher Secondary School Certificate
                     <br />
-                    Dwarkadas J. Sanghvi College of Engineering
+                    {edit && edit.hsc ? edit.hsc.college : 'College not entered!'};
                     <br />
-                    June 2020 - August 2024
+                    {/* June 2020 - August 2024 */}
                   </p>
-                  <p>90%</p>
+                  <p className="font-bold">{
+                    edit &&
+                      edit.hsc ? edit.hsc.score : 'Marks not entered!'
+                  }</p>
                 </div>
-                <div className="flex justify-around m-2">
+                <hr />
+                <div className="flex justify-between m-2">
                   <p>
                     SSC
                     <br />
-                    Dwarkadas J. Sanghvi College of Engineering
+                    {edit && edit.ssc ? edit.ssc.college : 'College not entered!'};
                     <br />
-                    June 2020 - August 2024
+                    {/* June 2020 - August 2024 */}
                   </p>
-                  <p>90%</p>
+                  <p className="font-bold">{
+                    edit &&
+                      edit.ssc ? edit.ssc.score : 'Marks not entered!'
+                  }</p>
                 </div>
+                <hr className="colour=[#F2F2F2]"/>
                 <div className="flex justify-between m-3">
                   <h4 className="text-black font-semibold text-xl m-2">
                     Skills
@@ -79,7 +127,7 @@ export default function Edit(props) {
 
                 <div className="flex justify-start">
                   <div className="m-3">
-                    <label>Programming:</label>
+                    <label>{edit.skillsStudent && edit ? edit.skillsStudent : 'No skills entered!'};</label>
                     <input
                       type="text"
                       className="border-[#40189D] bg-[#F2F2F2] ml-2"
@@ -192,10 +240,10 @@ export default function Edit(props) {
                     </svg>
                   </div>
                   <div className="flex justify-center">
-                    <h4 className="font-semibold text-base">Oda Dink</h4>
+                    <h4 className="font-semibold text-base">{edit && `${edit.firstName} ${edit.lastName}` ? `${edit.firstName} ${edit.lastName}` : 'No name entered!'}</h4>
                   </div>
                   <div className="flex justify-center mb-2">
-                    <p className="text-sm">Programmer</p>
+                    <p className="text-sm">{edit ? edit.title : 'Title not entered'}</p>
                   </div>
                   {/* <div className="flex justify-evenly mt-3 text-sm mb-3">
                     <p className="text-center">
@@ -209,7 +257,7 @@ export default function Edit(props) {
                   </div> */}
                   <hr />
 
-                  <div className="flex justify-center mt-5">
+                  <div className="flex justify-evenly mt-5">
                     <svg
                       width="35"
                       height="38"
@@ -225,9 +273,9 @@ export default function Edit(props) {
                         fill="black"
                       />
                     </svg>
-                    <p className="text-sm ml-3 mt-2">+91 1234567890</p>
+                    <p className="text-sm ml-3 mt-2">{edit ? edit.mobileNo : 'Mobile No. not found!'}</p>
                   </div>
-                  <div className="flex justify-center mt-5">
+                  <div className="flex justify-evenly mt-5">
                     <svg
                       width="35"
                       height="38"
@@ -243,10 +291,10 @@ export default function Edit(props) {
                         fill="black"
                       />
                     </svg>
-                    <p className="text-sm ml-3 mt-2">awbc@gmail.com</p>
+                    <p className="text-sm ml-3 mt-2">{edit ? edit.email : ''}</p>
                   </div>
 
-                  <div className="flex justify-start mt-5 ml-[24px]">
+                  <div className="flex justify-evenly mt-5 ml-[24px]">
                     <svg
                       width="35"
                       height="38"
@@ -262,7 +310,7 @@ export default function Edit(props) {
                         fill="black"
                       />
                     </svg>
-                    <p className="text-sm ml-3 mt-2">Coimbatore</p>
+                    <p className="text-sm ml-3 mt-2">{edit ? edit.currentCity : 'Current city not found!'}</p>
                   </div>
 
                   {/* <div className="flex justify-center mt-3 mb-3">
@@ -323,7 +371,10 @@ export default function Edit(props) {
                     >
                       <rect width="30" height="30" rx="10" fill="#FE434E" />
                     </svg>
-                    <a href="#">github.com/username</a>
+                    <a href="#">{edit &&
+                      edit.githubLink &&
+                        edit.githubLink.link ? edit.githubLink.link : 'GitHub link not not entered!'
+                    }</a>
                   </div>
                   <div className="flex justify m-2">
                     <svg
@@ -336,7 +387,10 @@ export default function Edit(props) {
                     >
                       <rect width="30" height="30" rx="10" fill="#8AC740" />
                     </svg>
-                    <a href="#">website.com</a>
+                    <a href="#">{edit&&
+                      edit.blogLink &&
+                        edit.blogLink.link ? edit.blogLink.link : 'Blog link not entered!'
+                    }</a>
                   </div>
                   <div className="flex justify m-2">
                     <svg
@@ -349,7 +403,10 @@ export default function Edit(props) {
                     >
                       <rect width="30" height="30" rx="10" fill="#79AEF4" />
                     </svg>
-                    <a href="#">linkedIn.com/user</a>
+                    <a href="#">{edit&&
+                      edit.linkedInLink &&
+                        edit.linkedInLink.link ? edit.linkedInLink.link : 'LinkedIn link not entered!'
+                    }</a>
                   </div>
                   <div className="flex justify m-2 mb-3">
                     <svg
@@ -362,7 +419,26 @@ export default function Edit(props) {
                     >
                       <rect width="30" height="30" rx="10" fill="#FA8A24" />
                     </svg>
-                    <a href="#">github.com/username</a>
+                    <a href="#">{edit&&
+                      edit.behanceLink &&
+                        edit.behanceLink.link ? edit.behanceLink.link : 'Behance link not entered!'
+                    }</a>
+                  </div>
+                  <div className="flex justify m-2">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 45 45"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className=""
+                    >
+                      <rect width="30" height="30" rx="10" fill="#79AEF4" />
+                    </svg>
+                    <a href="#">{edit&&
+                      edit.otherPortfolioLink &&
+                        edit.otherPortfolioLink.link ? edit.otherPortfolioLink.link : 'Other portfolio links not entered!'
+                    }</a>
                   </div>
                 </div>
               </div>

@@ -130,9 +130,7 @@ const Dashboard = (props) => {
             <Card id={jobs[1] ? jobs[1] : null} />
             <Card id={jobs[2] ? jobs[2] : null} />
           </div>
-          <button className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">
-            View More
-          </button>
+          <button href="/searchjob" className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
         </div>
       </div>
     </div>
