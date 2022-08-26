@@ -4,8 +4,17 @@ import React from "react";
 import Sidebar from "../../components/Sidebar";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Edit(props) {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+
+    navigate('/dashboard');
+
+  }
+
 
   
 
@@ -28,7 +37,7 @@ export default function Edit(props) {
               <div className="bg-white rounded-[34px] relative mr-10 h-[0%] w-4/5">
                 <h3 className="text-[#40189D] font-extrabold text-2xl flex justify-between m-5 mt-9">
                   Edit Profile
-                  <button className="rounded-[34px] bg-[#40189D] text-white text-base p-2 px-8">
+                  <button className="rounded-[34px] bg-[#40189D] text-white text-base p-2 px-8" onClick={handleSubmit}>
                     Save Changes
                   </button>
                 </h3>
