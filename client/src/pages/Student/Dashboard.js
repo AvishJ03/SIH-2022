@@ -71,7 +71,7 @@ const Dashboard = (props) => {
         return null;
       }
     };
-    getDashboard()
+    getJobs()
       .then((user) => {
         console.log(user);
         setStudent(user);
