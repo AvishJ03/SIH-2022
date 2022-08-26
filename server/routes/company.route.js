@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Company = require('../models/company.model');
 const auth = require('../middleware/companyAuth');
+const Job = require('../models/job.model');
 
 /*
     request body
@@ -106,6 +107,25 @@ router.get('/company/self/jobs', auth, async (req, res) => {
         res.status(400).send({
             error: e,
             message: "Something went wrong"
+        });
+    }
+});
+
+router.get('/company/self/applicants', auth, async (req, res) => {
+    try {
+        await req.companyUser.populate('jobs');
+        const companyJobs = req.companyUser.jobs;
+        const applicants = [];
+        companyJobs.forEach(async (j) => {
+            const job = await Job.findById(j._id);
+            job.populate('applicants');
+            applicants.concat(job.applicants);
+        });
+        res.status(200).send(applicants);
+    } catch(error) {
+        res.status(400).send({
+            error,
+            message: error.message
         });
     }
 });
