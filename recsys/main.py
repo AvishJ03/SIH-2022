@@ -18,7 +18,9 @@ def rec():
     jobType = request.headers.get("jobType")
     experience = int(request.headers.get("experience"))
     user = f"{title} {skills}"
+    print(user)
     ids = func.recommend(user, jobType, location, experience)
+    return ids
     result = {
         "ids": ids,
     }
@@ -26,4 +28,4 @@ def rec():
 
 
 if __name__ == "__main__":
-    app.run(port=5001,debug=True)
+    app.run(port=7000,debug=True)

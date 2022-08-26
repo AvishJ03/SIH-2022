@@ -13,10 +13,10 @@ router.get('/jobs/self', companyAuth, async (req, res) => {
         res.status(400).send(error);
     }
 });
-router.get('/job', async (req, res) => {
+router.get('/job/:id', async (req, res) => {
     try {
-        const id = mongoose.Types.ObjectId(req.body.id);
-        const job = await Job.find({ _id: id });
+        // const id = mongoose.Types.ObjectId(req.params.id);
+        const job = await Job.find({ _id: req.params.id });
         res.status(200).send(job);
     } catch (error) {
         res.status(400).send(error);
