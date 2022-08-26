@@ -1,8 +1,35 @@
 import React from "react";
 import SideBarCompany from "../../components/SideBarCompany";
 import Header from "../../components/Header";
+import ApplnCardCompany from "../../components/ApplnCardCompany";
+import { useState ,useEffect} from "react";
+import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
-const ApplicationCompany = () => {
+const ApplicationCompany = ({ jid = '6307bc06997f86d84884ba74'}) => {
+  const [student,setStudent] =useState({});
+  const navigate = useNavigate();
+  const url = "http://localhost:5000";
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(`${url}/applications/jobs/${jid}`);
+        return response.data;
+      } catch(error) {
+        return null;
+      }
+    }
+    getData().then((user) => {
+      console.log(user);
+      setStudent(user);
+    })
+    .catch(() => setStudent(null));
+    
+  }, [student]);
+
+
+
+console.log(student)
   return (
     <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
       <SideBarCompany selected="Applications" />
@@ -21,12 +48,15 @@ const ApplicationCompany = () => {
             {/* <div className="text-xl font-bold mt-4">Type</div>
                     <div className="text-xl font-bold mt-4">Position</div> */}
             <div className="text-xl font-bold mt-4">Profile</div>
-            <div className="text-xl font-bold mt-4">Contact</div>
+            {/* <div className="text-xl font-bold mt-4">Contact</div> */}
             <div className="text-xl font-bold mt-4">Action</div>
             {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
           </div>
         </div>
-        {/* 1st company */}
+        <div className="bg-white mt-1">
+          {student.length > 0 ? student.map((u) => (<ApplnCardCompany key={u._id} id={u._id} /> )) : ''}
+        </div>
+         {/* 1st company
         <div className="bg-white mt-1">
           <div className=" flex justify-around p-3">
             <div className="text-sm font-semibold mt-4">June 1, 2020</div>
@@ -39,7 +69,7 @@ const ApplicationCompany = () => {
             </button>
             {/* <div className="text-sm font-semibold mt-4">FREELANCE</div>
                     <div className="text-sm font-semibold mt-4">Intern UI Designer</div> */}
-            <div className="flex ml-2 justify-between">
+            {/* <div className="flex ml-2 justify-between">
               <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]" />
               <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]" />
             </div>
@@ -60,9 +90,9 @@ const ApplicationCompany = () => {
               </select>
             </div>
             {/* <div className="border-solid border border-[#808080] rounded-md w-4 h-4 mt-5 bg-[#FFF9F9]"/> */}
-          </div>
-        </div>
-        {/* 2nd company */}
+          {/* </div>
+        </div>  */}
+        {/* 2nd company
         <div className="bg-white mt-1">
           <div className=" flex justify-around p-3">
             <div className="text-sm font-semibold mt-4">June 1, 2020</div>
@@ -94,8 +124,8 @@ const ApplicationCompany = () => {
               </select>
             </div>
           </div>
-        </div>
-        {/* 3rd company */}
+        </div> */}
+        {/* 3rd company
         <div className="bg-white mt-1">
           <div className=" flex justify-around p-3">
             <div className="text-sm font-semibold mt-4">June 1, 2020</div>
@@ -127,8 +157,8 @@ const ApplicationCompany = () => {
               </select>
             </div>
           </div>
-        </div>
-        {/* 4th company */}
+        </div> */}
+        {/* 4th company
         <div className="bg-white mt-1">
           <div className=" flex justify-around p-3">
             <div className="text-sm font-semibold mt-4">June 1, 2020</div>
@@ -160,8 +190,8 @@ const ApplicationCompany = () => {
               </select>
             </div>
           </div>
-        </div>
-        {/* 5th company */}
+        </div> */}
+        {/* 5th company
         <div className="bg-white mt-1">
           <div className=" flex justify-around p-3">
             <div className="text-sm font-semibold mt-4">June 1, 2020</div>
@@ -193,8 +223,8 @@ const ApplicationCompany = () => {
               </select>
             </div>
           </div>
-        </div>
-        {/* 6th company */}
+        </div> */}
+        {/* 6th company
         <div className="bg-white mt-1 rounded-b-lg">
           <div className=" flex justify-around p-3">
             <div className="text-sm font-semibold mt-4">June 1, 2020</div>
@@ -226,7 +256,7 @@ const ApplicationCompany = () => {
               </select>
             </div>
           </div>
-        </div>
+        </div>  */}
         &nbsp;
         <div className="flex justify-end">
                 <div className="bg-white w-24 h-10  mx-3 rounded-2xl">

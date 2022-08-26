@@ -163,7 +163,7 @@ const EducationInfo = () => {
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">Higher Seconday College Name*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
-                                    <input type='text' name='hscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleHscMarks} />
+                                    <input type='text' name='hscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleHscSchool} />
                                 </div>
                             </div>
                             <div className="flex flex-col min-w-full min-h-full mb-7">

@@ -1,6 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 
-const ApplnCardCompany = (props) => {
+const ApplnCardCompany = ({ jid }) => {
+  const [applns, setApplns] = useState({});
+  const url = "http://localhost:5000";
+  useEffect(() => {
+    const getAppln = async() => {
+      try {
+        const response =await axios.get(`${url}/company/${jid}`);
+        console.log(response.data);
+        return response.data;
+      } catch(error) {
+        return null;
+      }
+    };
+    getAppln().then((appln) => {
+      console.log(appln);
+      setApplns(appln);
+    })
+  }, []);
+
     return (
         <div className="bg-white mt-1">
           <div className=" flex justify-around p-3">
@@ -12,10 +31,10 @@ const ApplnCardCompany = (props) => {
             <button className="text-sm font-semibold text-[#40189D] border border-[#808080] rounded-2xl p-1" href="/edit">
               View Profile
             </button>
-            <div className="flex ml-2 justify-between">
+            {/* <div className="flex ml-2 justify-between">
               <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]" />
               <div className="bg-white w-12 h-12 rounded-full border-solid border border-[#808080]" />
-            </div>
+            </div> */}
             <div className="relative">
               <select className="bg-white py-2 px-4 rounded-full">
                 <option className="bg-white text-[#40189D] text-sm font-semibold">

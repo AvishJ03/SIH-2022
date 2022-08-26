@@ -71,6 +71,21 @@ const Dashboard = (props) => {
         return null;
       }
     };
+    getJobs()
+      .then((user) => {
+        console.log(user);
+        setStudent(user);
+        return student;
+      })
+      .then(() => getJobs(student))
+      .then((id) => {
+        console.log(id);
+        setJobs(id);
+      })
+      .catch(() => setJobs([]));
+    console.log(student);
+  }, []);
+
     getJobs(student).then((id) => {
       console.log(id);
       setJobs(id)
@@ -78,7 +93,7 @@ const Dashboard = (props) => {
       console.log(err.message);
       setJobs(null)
     })
-  }, [student])
+  }
 
   const handleSubmit = async (e) => {
     navigate('/searchjob');
@@ -145,5 +160,4 @@ const Dashboard = (props) => {
       </div>
     </div>
   );
-};
 export default Dashboard;
