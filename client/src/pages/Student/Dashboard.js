@@ -29,13 +29,13 @@ const Dashboard = (props) => {
         return null;
       }
     }
-    const getJobs = async () => {
+    const getJobs = async (student) => {
       const data = {
-        title: "",
+        title: student['title'],
         skills: "",
-        location: "",
-        jobType: "",
-        experience: "",
+        location: student['currentCity'],
+        jobType: "Internships",
+        experience: 5,
       }
       try {
         const response = await axios.post(`${joburl}/rec`, {
@@ -51,12 +51,10 @@ const Dashboard = (props) => {
       setStudent(user);
     }).catch(() => setStudent([]))
     console.log(student);
-    getJobs().then((id) => {
-      console.log(id);
+    getJobs(student).then((id) => {
       setJobs(id);
-      console.log(id);
     }).catch(() => setJobs([]))
-  });
+  }, []);
 
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
@@ -106,9 +104,9 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card id={jobs[0] ? jobs[0] : null} />
-            <Card id={jobs[0] ? jobs[1] : null} />
-            <Card id={jobs[0] ? jobs[2] : null} />
+            <Card id={jobs ? jobs[0] : null} />
+            <Card id={jobs ? jobs[1] : null} />
+            <Card id={jobs ? jobs[2] : null} />
           </div>
           <button className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
         </div>
