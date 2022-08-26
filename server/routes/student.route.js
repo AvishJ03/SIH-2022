@@ -19,6 +19,7 @@ router.post('/students', async (req, res) => {
         const token = await student.generateAuthToken();
         res.status(201).send({ studentUser: student, studentToken: token });
     } catch (error) {
+        console.log(error.message);
         res.status(400).send(error);
     }
 });

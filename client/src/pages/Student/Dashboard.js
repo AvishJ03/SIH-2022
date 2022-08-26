@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = (props) => {
   const navigate = useNavigate();
   const [student, setStudent] = useState({});
-  const [jobs, setJobs] = useState(null);
+  const [jobs, setJobs] = useState([]);
 
   const url = "http://localhost:5000";
   const joburl = "http://localhost:7000";
@@ -32,10 +32,11 @@ const Dashboard = (props) => {
       }
     };
 
-    getDashboard().then((user) => {
-      console.log(user);
-      setStudent(user);
-    })
+    getDashboard()
+      .then((user) => {
+        console.log(user);
+        setStudent(user);
+      })
       .catch(() => setJobs([]));
     console.log(student);
   }, []);
@@ -71,33 +72,20 @@ const Dashboard = (props) => {
         return null;
       }
     };
-    getJobs()
-      .then((user) => {
-        console.log(user);
-        setStudent(user);
-        return student;
-      })
-      .then(() => getJobs(student))
+    getJobs(student)
       .then((id) => {
         console.log(id);
         setJobs(id);
       })
-      .catch(() => setJobs([]));
-    console.log(student);
-  }, []);
-
-    getJobs(student).then((id) => {
-      console.log(id);
-      setJobs(id)
-    }).catch((err) => {
-      console.log(err.message);
-      setJobs(null)
-    })
-  }
+      .catch((err) => {
+        console.log(err.message);
+        setJobs(null);
+      });
+  }, [student]);
 
   const handleSubmit = async (e) => {
-    navigate('/searchjob');
-  }
+    navigate("/searchjob");
+  };
 
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
@@ -151,13 +139,19 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card jid={jobs ? jobs['ids'][0] : null} />
-            <Card jid={jobs ? jobs['ids'][1] : null} />
-            <Card jid={jobs ? jobs['ids'][2] : null} />
+            <Card jid={(jobs && jobs[0]) ? jobs["ids"][0] : null} />
+            <Card jid={(jobs && jobs[0]) ? jobs["ids"][1] : null} />
+            <Card jid={(jobs && jobs[0]) ? jobs["ids"][2] : null} />
           </div>
-          <button onClick={handleSubmit} className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]">View More</button>
+          <button
+            onClick={handleSubmit}
+            className="float-right mt-2 bg-white p-2 rounded-2xl border border-purple hover:bg-[#d0b5f5]"
+          >
+            View More
+          </button>
         </div>
       </div>
     </div>
   );
+};
 export default Dashboard;
