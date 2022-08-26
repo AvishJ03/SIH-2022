@@ -78,7 +78,7 @@ router.patch('/students/self', auth, async (req, res) => {
     } catch (error) {
         console.log(error.message);
         res.status(400).send({
-            error: e,
+            error,
             message: "Something went wrong"
         });
     }
@@ -90,7 +90,7 @@ router.delete('/students/self', auth, async (req, res) => {
         res.status(200).send(req.studentUser);
     } catch (error) {
         res.status(400).send({
-            error: e,
+            error,
             message: "Something went wrong"
         });
     }
@@ -102,7 +102,7 @@ router.get('/students/self/applications', auth, async (req, res) => {
         res.status(200).send(req.studentUser.applications);
     } catch (error) {
         res.status(400).send({
-            error: e,
+            error,
             message: "Something went wrong"
         });
     }

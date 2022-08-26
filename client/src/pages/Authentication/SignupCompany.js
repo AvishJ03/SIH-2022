@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import {useNavigate} from "react-router";
 const SignupCompany = () => {
+
+  const navigate=useNavigate();
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ name, setName ] = useState("");
-  const [ contactNo, setContactNo ] = useState(null);
-  const [ typeOfCompany, setTypeOfCompany ] = useState('PF');
+  const [ contactNo, setContactNo ] = useState("");
+  const [ typeOfCompany, setTypeOfCompany ] = useState("");
 
   const url = 'http://localhost:5000';
 
@@ -33,7 +35,17 @@ const SignupCompany = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${url}/company`, { email, password, contactNo, name, typeOfCompany });
+
+      const data ={
+        email: email,
+        password: password,
+        contactNo: contactNo,
+        name: name,
+        typeOfCompany: typeOfCompany
+
+      };
+      console.log(data);
+      const response = await axios.post(`${url}/company`, data);
       console.log(response.data);
       localStorage.setItem("token", response.data.companyToken);
       localStorage.setItem("userType", "company");
@@ -41,7 +53,8 @@ const SignupCompany = () => {
       setPassword("");
       setName("");
       setContactNo("");
-      alert("Successfully Logged in.");
+      alert("Successfully Registered");
+      navigate("/companyinformation");
     } catch(error) {
       setEmail("");
       setPassword("");
@@ -82,7 +95,7 @@ const SignupCompany = () => {
           <div className="w-full">
             <div className="self-start w-full flex">
               <div className="w-1/2">
-                <label className="text-left text-black">First Name</label>
+                <label className="text-left text-black">Name</label>
                 <input
                   className="w-[100%]  rounded-lg p-1 text-black bg-white border-purple border-4"
                   type="text"

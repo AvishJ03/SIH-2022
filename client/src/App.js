@@ -16,7 +16,7 @@ function App() {
         <Route path="/signupcompany" element={<SignupCompany />} />
         <Route path="/studentsignup" element={<StudentSignUp />} />
         <Route path="/applicationcompany" element={<ApplicationCompany />} />
-        <Route path="/jobdetails" element={<JobDetails />} />
+        <Route path="/jobdetails" element={<JobDetails position="Full Stack Developer" company="ABCDev" about="abduaybda" location="Coimbatore" />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/companyinformation" element={<CompanyInformation />} />
         <Route path="/companydashboard" element={<CompanyDashboard />} />
