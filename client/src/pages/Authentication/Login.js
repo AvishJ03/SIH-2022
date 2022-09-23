@@ -35,7 +35,7 @@ const Login = () => {
       console.log(localStorage.getItem("token"));
       setEmail("");
       setPassword("");
-      alert("Successfully Logged in.");
+      // alert("Successfully Logged in.");
       if(response.data.studentUser)
       {
         navigate('/dashboard');

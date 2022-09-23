@@ -45,7 +45,7 @@ const StudentSignUp = () => {
       setPassword("");
       setFirstName("");
       setLastName("");
-      alert("Registered");
+      // alert("Registered");
       navigate('/studentprofile');
     } catch(error) {
       setEmail("");

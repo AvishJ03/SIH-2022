@@ -73,7 +73,7 @@ const StudentProfile = () => {
 
             //   setFirstName
 
-              alert("Details Added");
+              // alert("Details Added");
               navigate('/educationinfo');
 
 

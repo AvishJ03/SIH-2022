@@ -75,7 +75,7 @@ const WorkSamples=() =>{
       setPlaystoreLink("");
       setBehanceLink("");
       setOtherPortfolioLink("");
-      alert("Successfully added the Work Samples.");
+      // alert("Successfully added the Work Samples.");
       navigate('/experience');
     } catch(error) {
         setBlogLink("");

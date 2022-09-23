@@ -89,7 +89,7 @@ const EducationInfo = () => {
             console.log(data);
             console.log(response.data);
             console.log(localStorage.getItem('userType'));
-            alert("Details Added");
+            // alert("Details Added");
             navigate('/skills');
               
         }

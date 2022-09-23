@@ -53,7 +53,7 @@ const SignupCompany = () => {
       setPassword("");
       setName("");
       setContactNo("");
-      alert("Successfully Registered");
+      // alert("Successfully Registered");
       navigate("/companyinformation");
     } catch(error) {
       setEmail("");

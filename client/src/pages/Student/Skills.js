@@ -71,7 +71,7 @@ const Skills=() =>{
                 }
             });
             console.log(response.data);
-            alert("Succesful");
+            // alert("Succesful");
             navigate('/worksamples');
 
         } catch(error) {

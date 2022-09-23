@@ -83,7 +83,7 @@ const CompanyPostVacancy = () => {
       setSalary("");
       setLocation("");
       setDuration("");
-      alert("Registered");
+      // alert("Registered");
       navigate('/applicationcompany');
     } catch (error) {
       console.log(error.message);

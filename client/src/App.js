@@ -3,7 +3,7 @@ import { Login, StudentSignUp, SignupCompany } from "./pages/Authentication/inde
 import { ApplicationCompany, CompanyDashboard, CompanyInformation, CompanyPostVacancy } from "./pages/Company/index";
 import { ApplicationStud, Dashboard, Edit, EducationInfo, JobDetails, SearchJob, Skills, StudentProfile, WorkSamples } from "./pages/Student/index"
 import Experience from './pages/Student/Experience';
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 // import DataTable from "./pages/DataTable";
 
@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App font-main h-full overflow-x-hidden">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Login />} />
         <Route path="/signupcompany" element={<SignupCompany />} />
         <Route path="/studentsignup" element={<StudentSignUp />} />
         <Route path="/applicationcompany" element={<ApplicationCompany />} />

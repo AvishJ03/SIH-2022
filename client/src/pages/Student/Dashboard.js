@@ -14,6 +14,7 @@ const Dashboard = (props) => {
   const navigate = useNavigate();
   const [student, setStudent] = useState({});
   const [jobs, setJobs] = useState([]);
+  const [app, setApp] = useState(localStorage.getItem('app'));
 
   const url = "http://localhost:5000";
   const joburl = "http://localhost:7000";
@@ -34,11 +35,11 @@ const Dashboard = (props) => {
 
     getDashboard()
       .then((user) => {
-        console.log(user);
+        // console.log(user);
         setStudent(user);
       })
       .catch(() => setJobs([]));
-    console.log(student);
+    // console.log(student);
   }, []);
 
   useEffect(() => {
@@ -51,11 +52,11 @@ const Dashboard = (props) => {
         experience: 5,
       };
       console.log(
-        data.title,
+        // data.title,
         data.skills,
-        data.location,
-        data.jobType,
-        data.experience
+        // data.location,
+        // data.jobType,
+        // data.experience
       );
       try {
         const response = await axios.post(
@@ -81,11 +82,19 @@ const Dashboard = (props) => {
         console.log(err.message);
         setJobs(null);
       });
-  }, [student]);
+  }, [student, app]);
 
   const handleSubmit = async (e) => {
+    setApp(0);
+    localStorage.setItem('app', 0);
     navigate("/searchjob");
   };
+
+  const incrementApp = () => {
+    const newApp = Number(app) + 1;
+    setApp(newApp);
+    localStorage.setItem('app', newApp);
+  }
 
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
@@ -96,25 +105,25 @@ const Dashboard = (props) => {
           <DashboardCards
             bg="#4E36E2"
             title="Applications Sent"
-            value="78"
+            value={app}
             icon={<BsFillCalendarFill size="20" style={{ color: "white" }} />}
           />
           <DashboardCards
             bg="#49A8F8"
             title="Recommended Jobs"
-            value="110"
+            value="20"
             icon={<FaSuitcase size="20" style={{ color: "white" }} />}
           />
           <DashboardCards
             bg="#1ACE85"
             title="Profile Viewed"
-            value="47"
+            value="0"
             icon={<FaUser size="20" style={{ color: "white" }} />}
           />
           <DashboardCards
             bg="#8AC740"
             title="Offers Received"
-            value="10"
+            value="0"
             icon={<GrMail size="25" style={{ color: "white" }} />}
           />
         </div>
@@ -128,9 +137,10 @@ const Dashboard = (props) => {
                 : "No name entered!"}
             </p>
             <p>{student ? student.title : "No student title entered!"}</p>
+            {/* <p>{student ? student.skills : "No skills entered!"}</p>
             <p>{student ? student.skills : "No skills entered!"}</p>
-            <p>{student ? student.skills : "No skills entered!"}</p>
-            <p>{student ? student.skills : "No skills entered!"}</p>
+            <p>{student ? student.skills : "No skills entered!"}</p> */}
+            {student && student.skills ? student.skills.split(' ').map(skill => <p key={skill}>{skill}</p>) : 'No skills yet' }
           </div>
           <div className="w-[74%] h-full bg-white rounded-3xl">
             <Chart />
@@ -138,7 +148,7 @@ const Dashboard = (props) => {
         </div>
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
-          <div className="flex">
+          <div className="flex" onMouseLeave={incrementApp}>
             <Card jid={(jobs && jobs['ids']) ? jobs["ids"][0] : null} />
             <Card jid={(jobs && jobs['ids']) ? jobs["ids"][1] : null} />
             <Card jid={(jobs && jobs['ids']) ? jobs["ids"][2] : null} />

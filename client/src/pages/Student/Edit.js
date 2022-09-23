@@ -224,8 +224,8 @@ export default function Edit(props) {
               </div>
               <div className="relative h-[0%] w-1/5">
                 <div className="bg-white rounded-[34px]">
-                  <div className="flex justify-center mt-2">
-                    <svg
+                  {/* <div className="flex justify-center mt-2"> */}
+                    {/* <svg
                       width="55"
                       height="42"
                       viewBox="0 0 93 85"
@@ -240,8 +240,8 @@ export default function Edit(props) {
                         ry="42.5"
                         fill="black"
                       />
-                    </svg>
-                  </div>
+                    </svg> */}
+                  {/* </div> */}
                   <div className="flex justify-center">
                     <h4 className="font-semibold text-base">{edit && `${edit.firstName} ${edit.lastName}` ? `${edit.firstName} ${edit.lastName}` : 'No name entered!'}</h4>
                   </div>
@@ -261,7 +261,7 @@ export default function Edit(props) {
                   <hr />
 
                   <div className="flex justify-evenly mt-5">
-                    <svg
+                    {/* <svg
                       width="35"
                       height="38"
                       viewBox="0 0 93 85"
@@ -275,11 +275,11 @@ export default function Edit(props) {
                         ry="42.5"
                         fill="black"
                       />
-                    </svg>
+                    </svg> */}
                     <p className="text-sm ml-3 mt-2">{edit ? edit.mobileNo : 'Mobile No. not found!'}</p>
                   </div>
                   <div className="flex justify-evenly mt-5">
-                    <svg
+                    {/* <svg
                       width="35"
                       height="38"
                       viewBox="0 0 93 85"
@@ -293,12 +293,12 @@ export default function Edit(props) {
                         ry="42.5"
                         fill="black"
                       />
-                    </svg>
+                    </svg> */}
                     <p className="text-sm ml-3 mt-2">{edit ? edit.email : ''}</p>
                   </div>
 
                   <div className="flex justify-evenly mt-5 ml-[24px]">
-                    <svg
+                    {/* <svg
                       width="35"
                       height="38"
                       viewBox="0 0 93 85"
@@ -312,7 +312,7 @@ export default function Edit(props) {
                         ry="42.5"
                         fill="black"
                       />
-                    </svg>
+                    </svg> */}
                     <p className="text-sm ml-3 mt-2">{edit ? edit.currentCity : 'Current city not found!'}</p>
                   </div>
 

@@ -40,7 +40,7 @@ const Experience = () => {
             setWorkspace("");
             setDuration("");
             setTitle("");
-            alert("Successfully Added");
+            // alert("Successfully Added");
             navigate('/dashboard');
         } catch (error) {
             setWorkspace("");
