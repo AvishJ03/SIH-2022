@@ -14,7 +14,10 @@ const Dashboard = (props) => {
   const navigate = useNavigate();
   const [student, setStudent] = useState({});
   const [jobs, setJobs] = useState([]);
-  const [app, setApp] = useState(localStorage.getItem('app'));
+  const [app, setApp] = useState(0);
+  const [view, setView] = useState(0);
+  const [selected, setSelected] = useState(0);
+  const [noOfJob, setNoOfJob] = useState(0);
 
   const url = "http://localhost:5000";
   const joburl = "http://localhost:7000";
@@ -35,29 +38,47 @@ const Dashboard = (props) => {
 
     getDashboard()
       .then((user) => {
-        // console.log(user);
         setStudent(user);
       })
       .catch(() => setJobs([]));
-    // console.log(student);
+  }, []);
+
+  useEffect(() => {
+    const getApplications = async () => {
+      try {
+        const response = await axios.get(
+          `${url}/applications/students/${localStorage.getItem("token")}`
+        );
+        return response.data;
+      } catch (error) {
+        return null;
+      }
+    };
+    getApplications().then((appl) => {
+      setApp(appl.length);
+      let x = 0;
+      let y = 0;
+      appl.forEach((element) => {
+        if (element.status === "viewed") {
+          x = x + 1;
+        } else if (element.status === "selected") {
+          y = y + 1;
+        }
+        setView(x);
+        setSelected(y);
+      });
+    });
   }, []);
 
   useEffect(() => {
     const getJobs = async (student) => {
       const data = {
-        title: "Web Development",
-        skills: "HTML CSS JavaScript ReactJS Node.js DJango",
-        location: "Mumbai",
+        title: student.title,
+        skills: student.skills,
+        location: student.currentCity,
         jobType: "Internship",
         experience: 5,
       };
-      console.log(
-        // data.title,
-        data.skills,
-        // data.location,
-        // data.jobType,
-        // data.experience
-      );
       try {
         const response = await axios.post(
           `${joburl}/rec`,
@@ -66,7 +87,6 @@ const Dashboard = (props) => {
             headers: data,
           }
         );
-        // console.log(response.data);
         return response.data;
       } catch (error) {
         console.log(error.message);
@@ -77,6 +97,7 @@ const Dashboard = (props) => {
       .then((id) => {
         console.log(id);
         setJobs(id);
+        setNoOfJob(id.length);
       })
       .catch((err) => {
         console.log(err.message);
@@ -85,16 +106,8 @@ const Dashboard = (props) => {
   }, [student, app]);
 
   const handleSubmit = async (e) => {
-    setApp(0);
-    localStorage.setItem('app', 0);
     navigate("/searchjob");
   };
-
-  const incrementApp = () => {
-    const newApp = Number(app) + 1;
-    setApp(newApp);
-    localStorage.setItem('app', newApp);
-  }
 
   return (
     <div className="bg-purple w-screen min-h-screen h-full flex font-main">
@@ -111,19 +124,19 @@ const Dashboard = (props) => {
           <DashboardCards
             bg="#49A8F8"
             title="Recommended Jobs"
-            value="20"
+            value={noOfJob}
             icon={<FaSuitcase size="20" style={{ color: "white" }} />}
           />
           <DashboardCards
             bg="#1ACE85"
             title="Profile Viewed"
-            value="0"
+            value={view}
             icon={<FaUser size="20" style={{ color: "white" }} />}
           />
           <DashboardCards
             bg="#8AC740"
             title="Offers Received"
-            value="0"
+            value={selected}
             icon={<GrMail size="25" style={{ color: "white" }} />}
           />
         </div>
@@ -137,10 +150,11 @@ const Dashboard = (props) => {
                 : "No name entered!"}
             </p>
             <p>{student ? student.title : "No student title entered!"}</p>
-            {/* <p>{student ? student.skills : "No skills entered!"}</p>
-            <p>{student ? student.skills : "No skills entered!"}</p>
-            <p>{student ? student.skills : "No skills entered!"}</p> */}
-            {student && student.skills ? student.skills.split(' ').map(skill => <p key={skill}>{skill}</p>) : 'No skills yet' }
+            {student && student.skills
+              ? student.skills
+                  .split(" ")
+                  .map((skill) => <p key={skill}>{skill}</p>)
+              : "No skills yet"}
           </div>
           <div className="w-[74%] h-full bg-white rounded-3xl">
             <Chart />
@@ -148,10 +162,10 @@ const Dashboard = (props) => {
         </div>
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
-          <div className="flex" onMouseLeave={incrementApp}>
-            <Card jid={(jobs && jobs['ids']) ? jobs["ids"][0] : null} />
-            <Card jid={(jobs && jobs['ids']) ? jobs["ids"][1] : null} />
-            <Card jid={(jobs && jobs['ids']) ? jobs["ids"][2] : null} />
+          <div className="flex">
+            <Card jid={jobs && jobs["ids"] ? jobs["ids"][0] : null} />
+            <Card jid={jobs && jobs["ids"] ? jobs["ids"][1] : null} />
+            <Card jid={jobs && jobs["ids"] ? jobs["ids"][2] : null} />
           </div>
           <button
             onClick={handleSubmit}
