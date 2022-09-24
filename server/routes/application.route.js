@@ -44,7 +44,7 @@ router.get("/applications/students/:id", async (req, res) => {
     const applications = await Application.find({
       applicant: decoded._id,
     }).populate("job");
-    res.status(200).send(applications.job);
+    res.status(200).send(applications);
   } catch (error) {
     res.status(400).send(error);
   }
@@ -57,27 +57,31 @@ router.get("/applications/students/:id", async (req, res) => {
     }
 */
 // id is job token and appId is application _id
-router.patch("/applications/jobs/:id/students/:appId", async (req, res) => {
-  const update = Object.keys(req.body);
-  const validOperation = ["status"];
-  const isUpdateValid = update.every((update) =>
-    validOperation.includes(update)
-  );
-  if (!isUpdateValid) {
-    return res.status(400).send("Invalid update request.");
-  }
-  try {
-    const application = await Application.findOneAndUpdate(
-      { _id: req.params.appId, job: req.params.id },
-      req.body,
-      { new: true }
+router.patch(
+  "/applications/jobs/:id/students/:appId",
+  companyAuth,
+  jobAuth,
+  async (req, res) => {
+    const update = Object.keys(req.body);
+    const validOperation = ["status"];
+    const isUpdateValid = update.every((update) =>
+      validOperation.includes(update)
     );
-    await application.save();
-    res.status(200).send(application);
-  } catch (error) {
-    console.log(error.message);
-    res.status(400).send(error);
+    if (!isUpdateValid) {
+      return res.status(400).send("Invalid update request.");
+    }
+    try {
+      const application = await Application.findOneAndUpdate(
+        { _id: req.params.appId, job: req.job },
+        req.body,
+        { new: true }
+      );
+      await application.save();
+      res.status(200).send(application);
+    } catch (error) {
+      res.status(400).send(error);
+    }
   }
-});
+);
 
 module.exports = router;

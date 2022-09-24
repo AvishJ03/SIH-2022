@@ -51,8 +51,7 @@ router.get("/company/:id", async (req, res) => {
     const id = mongoose.Types.ObjectId(req.params.id);
     // console.log(id);
     const comp = await Company.find({ _id: id });
-    console.log(comp);
-    res.status(200).send(comp);
+    res.status(200).send(comp[0]);
   } catch (error) {
     console.log(error.message);
     res.status(400).send(error);
