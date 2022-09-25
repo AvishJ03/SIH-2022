@@ -6,9 +6,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const SearchJob = () => {
-
   const navigate = useNavigate();
-  const [student, setStudent] = useState({});
+  const [student, setStudent] = useState(undefined);
   const [jobs, setJobs] = useState([]);
 
   const url = "http://localhost:5000";
@@ -28,10 +27,11 @@ const SearchJob = () => {
       }
     };
 
-    getDashboard().then((user) => {
-      console.log(user);
-      setStudent(user);
-    })
+    getDashboard()
+      .then((user) => {
+        console.log(user);
+        setStudent(user);
+      })
       .catch(() => setJobs([]));
     console.log(student);
   }, []);
@@ -39,10 +39,10 @@ const SearchJob = () => {
   useEffect(() => {
     const getJobs = async (student) => {
       const data = {
-        title: "Web Development",
-        skills: "HTML CSS JavaScript ReactJS Node.js DJango",
-        location: "Mumbai",
-        jobType: "Internship",
+        title: student.title,
+        skills: student.skills,
+        location: student.currentCity,
+        jobType: "Job",
         experience: 5,
       };
       console.log(
@@ -67,40 +67,44 @@ const SearchJob = () => {
         return null;
       }
     };
-    getJobs(student).then((id) => {
-      console.log(id);
-      setJobs(id)
-    }).catch((err) => {
-      console.log(err.message);
-      setJobs(null)
-    })
-  }, [student])
+    {
+      student &&
+        getJobs(student)
+          .then((id) => {
+            console.log(id);
+            setJobs(id);
+          })
+          .catch((err) => {
+            console.log(err.message);
+            setJobs(null);
+          });
+    }
+  }, [student]);
 
   return (
     <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
       <Sidebar selected="Search Job" />
       <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
         <Header heading="Job Details" user="Oda Dink" />
-        <div className="flex justify-between">
-        </div>
+        <div className="flex justify-between"></div>
         <div className="text-xs text-[#808080]"> Based on the Preferences</div>
 
         <div className="grid grid-cols-3 gap-5">
-          <Card jid={jobs['ids'] ? jobs['ids'][0] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][1] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][2] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][3] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][4] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][5] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][6] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][7] : null} />
-          <Card jid={jobs['ids'] ? jobs['ids'][8] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][0] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][1] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][2] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][3] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][4] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][5] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][6] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][7] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][8] : null} />
         </div>
 
         <div className="text-black text-sm font-normal mt-5">
           Showing 6 out of 56 data
         </div>
-        
+
         <div className="flex justify-end">
           <div className="bg-white w-24 h-10  mx-3 rounded-2xl">
             <button className="text-purple font-sm text-center align-middle font-semibold ">

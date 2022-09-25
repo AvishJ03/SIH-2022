@@ -57,7 +57,7 @@ const Card = ({ jid }) => {
     <div onClick={handleClick} className="w-9/12 h-11/12 p-5 rounded-2xl bg-white">
       <div className="flex justify-between">
         <div className="text-[#808080] text-left text-sm px-2">
-          {company ? company[0]["name"] : "None"}
+          {company ? company["name"] : "None"}
         </div>
         <div className="bg-black w-8 h-8 rounded-full"></div>
       </div>

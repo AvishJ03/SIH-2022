@@ -22,7 +22,6 @@ def recommend(user, jobType, location, experience):
     #     combined[i] = jobdf['skills']+" "+jobdf['title']
     # combined = pd.Series(combined)
     vectorizer = TfidfVectorizer()
-    print(combined.shape)
     # combined = jobdf['combined'].to_list()
     featureVectors = vectorizer.fit_transform(combined)
     similarity = cosine_similarity(featureVectors)

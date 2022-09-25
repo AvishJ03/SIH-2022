@@ -5,7 +5,7 @@ import axios from "axios";
 
 const ApplicationStud = () => {
   const [applications, setApplications] = useState([]);
-  const [company, setCompany] = useState([]);
+  const [company, setCompany] = useState(undefined);
   const url = "http://localhost:5000";
 
   useEffect(() => {
@@ -16,12 +16,13 @@ const ApplicationStud = () => {
         );
         let appl = response.data;
         appl = JSON.parse(JSON.stringify(appl));
-        let c = [];
+        let c = [{}, {}, {}, {}, {}];
         appl.forEach(async (element, index) => {
           let res = await axios.get(`${url}/company/${element.job.company}`);
           res = JSON.parse(JSON.stringify(res.data));
-          c.push(res);
+          c[index] = res;
         });
+        console.log(c);
         return { appl, c };
       } catch (error) {
         return null;
@@ -29,6 +30,7 @@ const ApplicationStud = () => {
     };
     getApplications().then((ele) => {
       console.log(ele);
+      console.log(ele.c.length);
       setApplications(ele.appl);
       setCompany(ele.c);
     });

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const Dashboard = (props) => {
   const navigate = useNavigate();
-  const [student, setStudent] = useState({});
+  const [student, setStudent] = useState(undefined);
   const [jobs, setJobs] = useState([]);
   const [app, setApp] = useState(0);
   const [view, setView] = useState(0);
@@ -76,7 +76,7 @@ const Dashboard = (props) => {
         title: student.title,
         skills: student.skills,
         location: student.currentCity,
-        jobType: "Internship",
+        jobType: "Job",
         experience: 5,
       };
       try {
@@ -93,16 +93,19 @@ const Dashboard = (props) => {
         return null;
       }
     };
-    getJobs(student)
-      .then((id) => {
-        console.log(id);
-        setJobs(id);
-        setNoOfJob(id.length);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        setJobs(null);
-      });
+    {
+      student &&
+        getJobs(student)
+          .then((id) => {
+            console.log(id);
+            setJobs(id);
+            setNoOfJob(id.ids.length);
+          })
+          .catch((err) => {
+            console.log(err.message);
+            setJobs(null);
+          });
+    }
   }, [student, app]);
 
   const handleSubmit = async (e) => {
